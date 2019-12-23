@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button signupbtn;
     FirebaseAuth mFirebaseAuth;
     Button btnSignIn;
+    private ProgressBar progressBars;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
     @Override
@@ -34,12 +37,17 @@ public class LoginActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
 
+
+
         textView=findViewById(R.id.fpass);
         mFirebaseAuth = FirebaseAuth.getInstance();
         emailId = findViewById(R.id.Lemail);
         password = findViewById(R.id.Lpass);
         signupbtn=findViewById(R.id.button_signup);
         btnSignIn=findViewById(R.id.signin);
+        progressBars = findViewById(R.id.progressBar2);
+        progressBars.setVisibility(View.GONE);
+
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,22 +81,32 @@ public class LoginActivity extends AppCompatActivity {
         };
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+
+                progressBars.setVisibility(View.VISIBLE);
+
                 String email = emailId.getText().toString();
                 String pwd = password.getText().toString();
                 if(email.isEmpty()){
+
                     emailId.setError("Please enter email id");
                     emailId.requestFocus();
                 }
                 else  if(pwd.isEmpty()){
+
                     password.setError("Please enter your password");
                     password.requestFocus();
                 }
                 else  if(email.isEmpty() && pwd.isEmpty()){
+
                     Toast.makeText(LoginActivity.this,"Fields Are Empty!",Toast.LENGTH_SHORT).show();
                 }
                 else  if(!(email.isEmpty() && pwd.isEmpty())){
+                    //check this runs
+                    Log.d("LOOP 1", "status: login ");//ye lga rhndo
+
                     mFirebaseAuth.signInWithEmailAndPassword(email, pwd).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -96,7 +114,11 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this,"Login Error, Please Login Again",Toast.LENGTH_SHORT).show();
                             }
                             else{
-                                Intent intToHome = new Intent(LoginActivity.this,Dashboard.class);
+                                progressBars.setVisibility(View.GONE);
+
+                                Log.d(">> NOTWORKING 1", "onComplete: + COME IN LOOP ");
+                                ////yha bhi aaya run statement...ok
+                                Intent intToHome = new Intent(getApplicationContext(),Team.class);//not working TEAM.
                                 startActivity(intToHome);
                             }
                         }
@@ -120,7 +142,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-
+//see no logs.. let me give you example of testing
 
 
 }

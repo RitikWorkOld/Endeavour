@@ -59,7 +59,7 @@ public class ForgotPass extends AppCompatActivity {
             public void onClick(View view) {
                 if(view == signupbtn)
                 {
-                    Intent intent=new Intent(ForgotPass.this,RegAct.class);
+                    Intent intent=new Intent(ForgotPass.this,Team.class);
                     startActivity(intent);
                     overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
                     finish();
@@ -92,7 +92,7 @@ public class ForgotPass extends AppCompatActivity {
                                 Toast.makeText(ForgotPass.this,"Login Error, Please Login Again",Toast.LENGTH_SHORT).show();
                             }
                             else{
-                                Intent intToHome = new Intent(ForgotPass.this,Dashboard.class);
+                                Intent intToHome = new Intent(ForgotPass.this,Team.class);
                                 startActivity(intToHome);
                             }
                         }

@@ -1,18 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Team">
+    android:background="@android:color/white"
+    tools:context=".Team"
+    >
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/darker_gray"
-        android:padding="4dp"
-        android:scrollbars="vertical" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="24dp"
+       >
+        <TextView
+            android:id="@+id/title_team"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/nunito"
+            android:text="Our Team"
+            android:layout_marginBottom="16dp"
+            android:textSize="32sp" />
+
+        <LinearLayout
+            android:id="@+id/layout_team"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:layout_below="@id/title_team"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_vertical">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_team"
+                    android:layout_width="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_height="match_parent"
+                    android:nestedScrollingEnabled="true"
+                    android:scrollbars="none"
+                    android:orientation="vertical"/>
+            </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+
+    </RelativeLayout>
 
 
-</RelativeLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
