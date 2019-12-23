@@ -118,7 +118,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                 Log.d(">> NOTWORKING 1", "onComplete: + COME IN LOOP ");
                                 ////yha bhi aaya run statement...ok
-                                Intent intToHome = new Intent(getApplicationContext(),Team.class);//not working TEAM.
+                                Intent intToHome = new Intent(getApplicationContext(),Dashboard.class);//not working TEAM.
                                 startActivity(intToHome);
                             }
                         }

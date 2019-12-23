@@ -9,18 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".splashAct">
+        <activity android:name=".splashAct"></activity>
+        <activity android:name=".RegAct" />
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".Team"></activity>
+        <activity android:name=".Dashboard">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegAct" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".Team"/>
-        <activity android:name=".Dashboard" />
         <activity android:name=".ForgotPass" />
 
         <meta-data
