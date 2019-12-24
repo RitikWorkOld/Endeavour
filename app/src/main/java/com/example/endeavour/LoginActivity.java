@@ -24,6 +24,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class LoginActivity extends AppCompatActivity {
     EditText emailId, password;
     TextView textView;
+    private Toast backToast;
+    private long backPressedTime;
     private Button signupbtn;
     FirebaseAuth mFirebaseAuth;
     Button btnSignIn;
@@ -90,17 +92,17 @@ public class LoginActivity extends AppCompatActivity {
                 String email = emailId.getText().toString();
                 String pwd = password.getText().toString();
                 if(email.isEmpty()){
-
+                    progressBars.setVisibility(View.GONE);
                     emailId.setError("Please enter email id");
                     emailId.requestFocus();
                 }
                 else  if(pwd.isEmpty()){
-
+                    progressBars.setVisibility(View.GONE);
                     password.setError("Please enter your password");
                     password.requestFocus();
                 }
                 else  if(email.isEmpty() && pwd.isEmpty()){
-
+                    progressBars.setVisibility(View.GONE);
                     Toast.makeText(LoginActivity.this,"Fields Are Empty!",Toast.LENGTH_SHORT).show();
                 }
                 else  if(!(email.isEmpty() && pwd.isEmpty())){
@@ -111,6 +113,7 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(!task.isSuccessful()){
+                                progressBars.setVisibility(View.GONE);
                                 Toast.makeText(LoginActivity.this,"Login Error, Please Login Again",Toast.LENGTH_SHORT).show();
                             }
                             else{
@@ -125,6 +128,7 @@ public class LoginActivity extends AppCompatActivity {
                     });
                 }
                 else{
+                    progressBars.setVisibility(View.GONE);
                     Toast.makeText(LoginActivity.this,"Error Occurred!", Toast.LENGTH_SHORT).show();
 
                 }
@@ -143,6 +147,22 @@ public class LoginActivity extends AppCompatActivity {
 
 
 //see no logs.. let me give you example of testing
+@Override
+public void onBackPressed() {
 
+
+    if (backPressedTime + 2000 > System.currentTimeMillis()) {
+        backToast.cancel();
+        super.onBackPressed();
+        finish();
+    } else {
+        backToast = Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
+        backToast.show();
+
+
+    }
+    backPressedTime = System.currentTimeMillis();
+
+}
 
 }

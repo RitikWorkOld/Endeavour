@@ -1,20 +1,30 @@
 package com.example.endeavour;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.opengl.Visibility;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class splashAct extends AppCompatActivity {
 
@@ -27,8 +37,20 @@ public class splashAct extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
+//Noti
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
+            NotificationChannel channel =
+                    new NotificationChannel("MyNotification", "MyNotification", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+
+
+        }
+        //yahan tak
         splash_btn = (Button) findViewById(R.id.btn_splash);
         endlogo = (ImageView) findViewById(R.id.imageView);
         endtext = (TextView) findViewById(R.id.textView);
@@ -132,6 +154,7 @@ public class splashAct extends AppCompatActivity {
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(splashAct.this,
                         Pair.create(v,"logotransition"));
                 startActivity(sharedIntent);
+                finish();
             }
         });
     }

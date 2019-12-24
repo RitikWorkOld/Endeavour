@@ -25,6 +25,8 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
 
     private EditText emailId,password,fname1,branch1,year1,cid1,number1,cname1;
     private Button loginbtn;
+    private Toast backToast;
+    private long backPressedTime;
     private ProgressBar progressBar;
 
     FirebaseAuth mFirebaseAuth;
@@ -212,7 +214,23 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
+    @Override
+    public void onBackPressed() {
 
+
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            backToast.cancel();
+            super.onBackPressed();
+            finish();
+        } else {
+            backToast = Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
+            backToast.show();
+
+
+        }
+        backPressedTime = System.currentTimeMillis();
+
+    }
 
 
 

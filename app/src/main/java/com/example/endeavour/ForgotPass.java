@@ -24,7 +24,9 @@ public class ForgotPass extends AppCompatActivity {
 
     EditText emailId, password;
         EditText userEmail;
-        Button userPass;
+    private Toast backToast;
+    private long backPressedTime;
+        Button fsignin;
     private Button signupbtn;
     Button btnSignIn;
         FirebaseAuth firebaseAuth;
@@ -38,7 +40,7 @@ public class ForgotPass extends AppCompatActivity {
         setContentView(R.layout.activity_forgot_pass);
 
         userEmail=findViewById(R.id.edit_email);
-        userPass=findViewById(R.id.submit);
+        fsignin=findViewById(R.id.submit);
         emailId = findViewById(R.id.Lemail);
         password = findViewById(R.id.Lpass);
         signupbtn=findViewById(R.id.button_signup);
@@ -74,7 +76,7 @@ public class ForgotPass extends AppCompatActivity {
                 String email = emailId.getText().toString();
                 String pwd = password.getText().toString();
                 if(email.isEmpty()){
-                    emailId.setError("Please enter email id..........................");
+                    emailId.setError("Please enter email id");
                     emailId.requestFocus();
                 }
                 else  if(pwd.isEmpty()){
@@ -107,10 +109,19 @@ public class ForgotPass extends AppCompatActivity {
         });
 
 
-        userPass.setOnClickListener(new View.OnClickListener() {
+        fsignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String email = userEmail.getText().toString();
+                if(email.isEmpty()){
+                    userEmail.setError("Please enter email id");
+                    userEmail.requestFocus();
+                }
+                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    userEmail.setError(getString(R.string.input_error_email_invalid));
+                    userEmail.requestFocus();
+                    return;
+                }
 
                 firebaseAuth.sendPasswordResetEmail(userEmail.getText().toString())
 
@@ -150,4 +161,24 @@ public class ForgotPass extends AppCompatActivity {
         super.onStart();
         firebaseAuth.addAuthStateListener(mAuthStateListener);
     }
+
+
+    @Override
+    public void onBackPressed() {
+
+
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            backToast.cancel();
+            super.onBackPressed();
+            finish();
+        } else {
+            backToast = Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
+            backToast.show();
+
+
+        }
+        backPressedTime = System.currentTimeMillis();
+
+    }
+
 }

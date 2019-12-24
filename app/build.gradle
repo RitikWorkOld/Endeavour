@@ -35,6 +35,8 @@ dependencies {
     implementation 'net.cachapa.expandablelayout:expandablelayout:2.9.2'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.firebaseui:firebase-ui-database:4.2.1'
+    implementation 'com.google.firebase:firebase-messaging:20.1.0'
+
     //noinspection GradleCompatible
     implementation 'androidx.cardview:cardview:1.0.0'
 }
