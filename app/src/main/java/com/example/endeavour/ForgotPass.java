@@ -74,7 +74,7 @@ public class ForgotPass extends AppCompatActivity {
                 String email = emailId.getText().toString();
                 String pwd = password.getText().toString();
                 if(email.isEmpty()){
-                    emailId.setError("Please enter email id");
+                    emailId.setError("Please enter email id..........................");
                     emailId.requestFocus();
                 }
                 else  if(pwd.isEmpty()){
