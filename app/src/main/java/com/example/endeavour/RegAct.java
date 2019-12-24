@@ -182,7 +182,9 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
                                         public void onComplete(@NonNull Task<Void> task) {
                                             progressBar.setVisibility(View.GONE);
                                             if (task.isSuccessful()) {
-                                                Toast.makeText(RegAct.this, getString(R.string.registration_success), Toast.LENGTH_LONG).show();
+                                                //Toast.makeText(RegAct.this, getString(R.string.registration_success), Toast.LENGTH_LONG).show();
+                                                Intent intent = new Intent(RegAct.this,Reg_Sucess.class);
+                                                startActivity(intent);
                                             } else {
                                                 //display a failure message
                                             }

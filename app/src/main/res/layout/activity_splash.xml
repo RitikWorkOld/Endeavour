@@ -58,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:lottie_autoPlay="false"
         app:lottie_fileName="animsplash.json"
-        app:lottie_loop="false" />
+        app:lottie_loop="false"/>
 
     <Button
         android:id="@+id/btn_splash"

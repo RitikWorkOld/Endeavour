@@ -14,6 +14,7 @@
 
 
     <LinearLayout
+        android:id="@+id/mainframe_0123"
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent"
@@ -38,53 +39,55 @@
                 <TextView
                     android:id="@+id/tv_team_name"
                     android:layout_width="wrap_content"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Mr. Ritik Mehta"
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/tv_team_role"
+                    android:id="@+id/tv_team_domain"
                     android:layout_width="wrap_content"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/nunito"
                     android:gravity="center"
                     android:text="TECHNICAL"
                     android:textColor="@color/gray"
-                    android:textSize="14sp"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_team_desig"
                     android:layout_width="wrap_content"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/nunito"
                     android:gravity="center"
                     android:text="PRESIDENT"
                     android:textColor="@color/gray"
-                    android:textSize="14sp"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
 
             <ImageView
+                android:src="@drawable/user"
                 android:id="@+id/image_team"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:padding="2dp" />
+                android:padding="2dp"/>
         </RelativeLayout>
 
         <LinearLayout
             android:paddingBottom="5dp"
             android:id="@+id/expandable_layout"
             android:weightSum="3"
+            android:visibility="gone"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -96,11 +99,10 @@
                 android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:id="@+id/facebook"
+                    android:id="@+id/linkedin_profile"
                     android:orientation="vertical"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:background="@drawable/rec_gradient"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:gravity="center">
@@ -121,12 +123,11 @@
                 android:layout_height="match_parent">
 
                 <LinearLayout
-                    android:id="@+id/linkedin"
+                    android:id="@+id/google_profile"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:background="@drawable/rec_gradient"
                     android:layout_width="match_parent"
                     android:layout_height="40dp">
 
@@ -146,12 +147,11 @@
                 android:layout_height="match_parent">
 
                 <LinearLayout
-                    android:id="@+id/gmail"
+                    android:id="@+id/facebook_profile"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:background="@drawable/rec_gradient"
                     android:layout_width="match_parent"
                     android:layout_height="40dp">
 

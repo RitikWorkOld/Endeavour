@@ -25,7 +25,7 @@ public class Dashboard extends AppCompatActivity {
         layoutOurteam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_ourteam = new Intent(Dashboard.this,Team.class);
+                Intent intent_ourteam = new Intent(Dashboard.this,TeamMain.class);
                 startActivity(intent_ourteam);
             }
         });
