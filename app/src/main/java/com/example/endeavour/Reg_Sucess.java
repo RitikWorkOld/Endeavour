@@ -46,9 +46,5 @@ public class Reg_Sucess extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        /*
-
-       */
     }
 }
