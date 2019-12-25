@@ -15,16 +15,16 @@
         <activity android:name=".Reg_Sucess"
             android:theme="@style/AppTheme.Popupstyle">
         </activity>
-        <activity android:name=".splashAct" ></activity>
-        <activity android:name=".RegAct" ></activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".Dashboard">
+        <activity android:name=".splashAct" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".RegAct" ></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".Dashboard"></activity>
         <activity android:name=".TeamMain"/>
         <activity android:name=".ForgotPass" />
         <service
