@@ -40,17 +40,7 @@ public class splashAct extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
-//Noti
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
-            NotificationChannel channel =
-                    new NotificationChannel("MyNotification", "MyNotification", NotificationManager.IMPORTANCE_DEFAULT);
-            NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel);
-
-
-        }
-        //yahan tak
         splash_btn = (Button) findViewById(R.id.btn_splash);
         endlogo = (ImageView) findViewById(R.id.imageView);
         endtext = (TextView) findViewById(R.id.textView);

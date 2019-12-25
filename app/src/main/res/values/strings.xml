@@ -13,4 +13,6 @@
     <string name="input_error_phone_invalid">enter a valid phone number</string>
     <string name="registration_success">Registered Successfully,Please LOGIN</string>
     <string name="input_error_email_invalid">enter a valid email</string>
+    <string name="default_notification_channel_id">Notification</string>
+    <string name="fcm_message">Notification</string>
 </resources>

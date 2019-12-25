@@ -3,6 +3,7 @@
     package="com.example.endeavour">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <application
         android:allowBackup="true"
@@ -14,16 +15,16 @@
         <activity android:name=".Reg_Sucess"
             android:theme="@style/AppTheme.Popupstyle">
         </activity>
-        <activity android:name=".splashAct" >
+        <activity android:name=".splashAct" ></activity>
+        <activity android:name=".RegAct" ></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".Dashboard">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegAct" ></activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".Dashboard"></activity>
         <activity android:name=".TeamMain"/>
         <activity android:name=".ForgotPass" />
         <service
@@ -39,10 +40,6 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/notification" />
-        <!--
- Set color used with incoming notification messages. This is used when no color is set for the incoming
-             notification message. See README(https://goo.gl/6BKBk7) for more.
-        -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
