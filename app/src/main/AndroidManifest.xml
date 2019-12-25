@@ -16,10 +16,10 @@
             android:theme="@style/AppTheme.Popupstyle">
         </activity>
         <activity android:name=".splashAct" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+             <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+            <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".RegAct" ></activity>
@@ -44,5 +44,4 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
     </application>
-
 </manifest>
