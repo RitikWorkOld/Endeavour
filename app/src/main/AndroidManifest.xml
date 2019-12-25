@@ -15,10 +15,8 @@
         <activity android:name=".Reg_Sucess"
             android:theme="@style/AppTheme.Popupstyle">
         </activity>
-        <activity android:name=".splashAct" ></activity>
-        <activity android:name=".RegAct" ></activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".Dashboard">
+
+        <activity android:name=".splashAct">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,6 +25,9 @@
         </activity>
         <activity android:name=".TeamMain"/>
         <activity android:name=".ForgotPass" />
+        <activity android:name=".Dashboard"/>
+        <activity android:name=".RegAct" />
+        <activity android:name=".LoginActivity" />
         <service
             android:name=".MyMessagingService"
             android:exported="false">

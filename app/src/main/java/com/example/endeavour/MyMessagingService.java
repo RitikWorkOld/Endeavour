@@ -23,7 +23,7 @@ import com.google.firebase.messaging.RemoteMessage;
 
 public class MyMessagingService extends FirebaseMessagingService{
 
-    String TAG = "PARNEET";
+    String TAG = "TEST";
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
