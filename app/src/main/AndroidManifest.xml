@@ -12,21 +12,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Reg_Sucess"
-            android:theme="@style/AppTheme.Popupstyle">
-        </activity>
-        <activity android:name=".splashAct" >
-             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".Forgotpass_Success"
+            android:theme="@style/AppTheme.Popupstyle"></activity>
+        <activity android:name=".Login_Failed"
+            android:theme="@style/AppTheme.Popupstyle"></activity>
+        <activity
+            android:name=".Reg_Fail"
+            android:theme="@style/AppTheme.Popupstyle" />
+        <activity
+            android:name=".Reg_Sucess"
+            android:theme="@style/AppTheme.Popupstyle" />
+        <activity android:name=".splashAct">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegAct" ></activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".Dashboard"></activity>
-        <activity android:name=".TeamMain"/>
+        <activity
+            android:name=".RegAct"
+            android:noHistory="true" />
+        <activity
+            android:name=".LoginActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".Dashboard"
+            android:noHistory="true" />
+        <activity android:name=".TeamMain" />
         <activity android:name=".ForgotPass" />
+
         <service
             android:name=".MyMessagingService"
             android:exported="false">
@@ -34,6 +48,7 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
@@ -44,4 +59,5 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
     </application>
+
 </manifest>

@@ -91,7 +91,9 @@ public class ForgotPass extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(!task.isSuccessful()){
-                                Toast.makeText(ForgotPass.this,"Login Error, Please Login Again",Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(ForgotPass.this,"Login Error, Please Login Again",Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(ForgotPass.this,Login_Failed.class);
+                                startActivity(intent);
                             }
                             else{
                                 Intent intToHome = new Intent(ForgotPass.this,TeamMain.class);
@@ -101,7 +103,9 @@ public class ForgotPass extends AppCompatActivity {
                     });
                 }
                 else{
-                    Toast.makeText(ForgotPass.this,"Error Occurred!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ForgotPass.this,"Error Occurred!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(ForgotPass.this,Login_Failed.class);
+                    startActivity(intent);
 
                 }
 
@@ -134,14 +138,15 @@ public class ForgotPass extends AppCompatActivity {
                         if(task.isSuccessful()){
 
 
-                            Toast.makeText(ForgotPass.this,"Please Check your Registered Email.Please " +
+                            /*Toast.makeText(ForgotPass.this,"Please Check your Registered Email.Please " +
                                             "check SPAM as well as IMPORTANT Emails"
 
-                                    ,Toast.LENGTH_LONG).show();
+                                    ,Toast.LENGTH_LONG).show();*/
+                            Intent intent = new Intent(ForgotPass.this,Forgotpass_Success.class);
+                            startActivity(intent);
 
 
                         }
-
 
                         else{
 

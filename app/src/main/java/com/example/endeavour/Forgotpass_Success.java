@@ -8,9 +8,8 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-public class Reg_Sucess extends AppCompatActivity {
+public class Forgotpass_Success extends AppCompatActivity {
 
     Button loginbtn;
     ImageView crossiv;
@@ -18,10 +17,10 @@ public class Reg_Sucess extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reg__sucess);
+        setContentView(R.layout.activity_forgotpass__success);
 
-        loginbtn = (Button)findViewById(R.id.login_btn_rs);
-        crossiv = (ImageView) findViewById(R.id.cross_btn_rs);
+        loginbtn = (Button)findViewById(R.id.login_btn_fps);
+        crossiv = (ImageView) findViewById(R.id.cross_btn_fps);
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -29,12 +28,12 @@ public class Reg_Sucess extends AppCompatActivity {
         int width = displayMetrics.widthPixels;
         int height = displayMetrics.heightPixels;
 
-        getWindow().setLayout((int)(width*.8),(int)(height*.6));
+        getWindow().setLayout((int)(width*.8),(int)(height*.7));
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Reg_Sucess.this,LoginActivity.class);
+                Intent intent = new Intent(Forgotpass_Success.this,LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -43,7 +42,7 @@ public class Reg_Sucess extends AppCompatActivity {
         crossiv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Reg_Sucess.this,RegAct.class);
+                Intent intent = new Intent(Forgotpass_Success.this,LoginActivity.class);
                 startActivity(intent);
                 finish();
             }

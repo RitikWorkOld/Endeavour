@@ -188,14 +188,17 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
                                                 Intent intent = new Intent(RegAct.this,Reg_Sucess.class);
                                                 startActivity(intent);
                                             } else {
-                                                //display a failure message
+                                                Intent intent = new Intent(RegAct.this,Reg_Fail.class);
+                                                startActivity(intent);
                                             }
                                         }
                                     });
 
                                 } else {
                                     progressBar.setVisibility(View.GONE);
-                                    Toast.makeText(RegAct.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                                    //Toast.makeText(RegAct.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                                    Intent intent = new Intent(RegAct.this,Reg_Fail.class);
+                                    startActivity(intent);
 
                                 }
                             }
@@ -220,7 +223,6 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
 
         if (backPressedTime + 2000 > System.currentTimeMillis()) {
             backToast.cancel();
-            super.onBackPressed();
             finish();
         } else {
             backToast = Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
@@ -232,7 +234,5 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
 
     }
 
-
-
-    }
+}
 

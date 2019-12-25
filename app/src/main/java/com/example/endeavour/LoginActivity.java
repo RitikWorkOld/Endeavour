@@ -114,7 +114,9 @@ public class LoginActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(!task.isSuccessful()){
                                 progressBars.setVisibility(View.GONE);
-                                Toast.makeText(LoginActivity.this,"Login Error, Please Login Again",Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(LoginActivity.this,"Login Error, Please Login Again",Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(LoginActivity.this,Login_Failed.class);
+                                startActivity(intent);
                             }
                             else{
                                 progressBars.setVisibility(View.GONE);
@@ -129,7 +131,9 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else{
                     progressBars.setVisibility(View.GONE);
-                    Toast.makeText(LoginActivity.this,"Error Occurred!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(LoginActivity.this,"Error Occurred!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(LoginActivity.this,Login_Failed.class);
+                    startActivity(intent);
 
                 }
 
@@ -153,7 +157,6 @@ public void onBackPressed() {
 
     if (backPressedTime + 2000 > System.currentTimeMillis()) {
         backToast.cancel();
-        super.onBackPressed();
         finish();
     } else {
         backToast = Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
