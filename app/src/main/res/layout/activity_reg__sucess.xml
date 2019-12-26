@@ -44,7 +44,7 @@
                     android:textColor="@color/colorgreen"
                     android:textSize="25sp"
                     android:textStyle="bold"
-                    android:text="Registration SucessFull"
+                    android:text="Registration Sucessfull"
                     android:textAlignment="center"/>
 
                 <com.airbnb.lottie.LottieAnimationView

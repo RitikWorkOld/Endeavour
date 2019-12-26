@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorwhite"
+    tools:context=".Events">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="24dp"
+        tools:targetApi="o">
+
+        <TextView
+            android:id="@+id/title_events"
+            android:textStyle="bold"
+
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/nunito"
+            android:text="Events"
+            android:layout_marginBottom="16dp"
+            android:textSize="32sp" />
+
+
+
+
+        <!-- layout when no events are there -->
+        <!-- show it from java file not from here-->
+        <LinearLayout
+            android:id="@+id/layout_no_events"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_below="@id/title_events"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:gravity="center_vertical">
+
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                android:layout_margin="8dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/no_events"/>
+        </LinearLayout>
+
+        <!-- Radio Buttons -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_radio_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="#f8f8f8"
+
+                android:layout_height="match_parent">
+
+                <RadioGroup
+                    android:id="@+id/radio_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+
+                    <RadioButton
+                        android:id="@+id/radio_fun"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/radio_flat_selector"
+                        android:button="@android:color/transparent"
+                        android:gravity="center"
+                        android:checked="true"
+                        android:fontFamily="@font/nunito"
+                        android:padding="8dp"
+                        android:text="Fun"
+                        android:textColor="@color/radio_flat_text_selector"
+                        android:textSize="16sp" />
+
+                    <RadioButton
+                        android:id="@+id/radio_technical"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/radio_flat_selector"
+                        android:button="@android:color/transparent"
+                        android:gravity="center"
+                        android:fontFamily="@font/nunito"
+                        android:padding="8dp"
+                        android:paddingLeft="16dp"
+                        android:text="Technical"
+                        android:textColor="@color/radio_flat_text_selector"
+                        android:textSize="16sp" />
+
+                    <RadioButton
+                        android:id="@+id/radio_corporate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/radio_flat_selector"
+                        android:button="@android:color/transparent"
+                        android:gravity="center"
+                        android:fontFamily="@font/nunito"
+                        android:padding="8dp"
+                        android:paddingLeft="16dp"
+                        android:text="Corporate"
+                        android:textColor="@color/radio_flat_text_selector"
+                        android:textSize="16sp" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- layout when events are there -->
+        <LinearLayout
+            android:id="@+id/layout_events"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_vertical">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_events"
+                    android:layout_width="match_parent"
+                   app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="true"
+                    android:scrollbars="none"
+                    android:orientation="vertical"/>
+            </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

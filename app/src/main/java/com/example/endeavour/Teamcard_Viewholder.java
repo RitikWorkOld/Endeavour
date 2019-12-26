@@ -17,7 +17,7 @@ public class Teamcard_Viewholder extends RecyclerView.ViewHolder {
     TextView Name;
     TextView Domain;
     TextView Desig;
-    ImageView Imguri;
+    de.hdodenhof.circleimageview.CircleImageView Imguri;
     boolean expand;
     public LinearLayout expandableLayout;
     public RelativeLayout relativeLayout;
