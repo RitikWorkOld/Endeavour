@@ -97,8 +97,8 @@ public class EventsFragments extends Fragment {
 
 
         if (pos == 1) {
-            //UPCOMING
-            if (arr1.length() == 0) {
+
+            //if (arr1.length() == 0) {
                 mLayoutItem.setVisibility(View.GONE);
                 mLayoutNoItem.setVisibility(View.VISIBLE);
             } else {
@@ -106,12 +106,6 @@ public class EventsFragments extends Fragment {
 
 
         }
-    }
-
-
-
-
-
 
 
 
