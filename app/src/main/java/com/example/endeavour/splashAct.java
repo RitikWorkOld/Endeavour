@@ -1,14 +1,11 @@
 package com.example.endeavour;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
+
 import android.content.Intent;
-import android.opengl.Visibility;
-import android.os.Build;
+
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
@@ -19,17 +16,16 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.messaging.FirebaseMessaging;
+
 
 public class splashAct extends AppCompatActivity {
 
     Button splash_btn;
     ImageView endlogo;
+    ImageView  ecelllogo; //added
     TextView endtext;
     TextView enddesc;
     LottieAnimationView animationView;
@@ -41,13 +37,16 @@ public class splashAct extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
 
+        ecelllogo=(ImageView) findViewById(R.id.imageView1); //added
         splash_btn = (Button) findViewById(R.id.btn_splash);
         endlogo = (ImageView) findViewById(R.id.imageView);
         endtext = (TextView) findViewById(R.id.textView);
         enddesc = (TextView) findViewById(R.id.textView2);
         animationView = (LottieAnimationView) findViewById(R.id.animsplash);
 
+
         endtext.setAlpha(0.0f);
+        ecelllogo.setAlpha(0.0f);//added
         enddesc.setAlpha(0.0f);
         animationView.setAlpha(0.0f);
         splash_btn.setAlpha(0.0f);
@@ -56,11 +55,15 @@ public class splashAct extends AppCompatActivity {
         endlogo.setAnimation(animation);
 
         final Animation animationtext1= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.animlefttoright);
+        final Animation animation1= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.animzoomin);//added
         final Animation animationdesc= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.animrighttoleft);
         final Animation animationanim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.animzoomin);
         final Animation animationbtn= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.animbtnlong);
 
 
+
+
+//1
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -78,7 +81,7 @@ public class splashAct extends AppCompatActivity {
 
             }
         });
-
+//1_end
         animationtext1.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -97,7 +100,23 @@ public class splashAct extends AppCompatActivity {
 
             }
         });
+        animationtext1.setAnimationListener(new Animation.AnimationListener() {     //added
+            @Override
+            public void onAnimationStart(Animation animation) {
 
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                ecelllogo.setAnimation(animation1);
+                ecelllogo.setAlpha(1.0f);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
         animationdesc.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
