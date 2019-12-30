@@ -36,8 +36,7 @@
             android:name=".LoginActivity"
             android:noHistory="true" />
         <activity
-            android:name=".Dashboard"
-            android:noHistory="true" />
+            android:name=".Dashboard"/>
         <activity android:name=".TeamMain" />
         <activity android:name=".ForgotPass" />
         <activity android:name=".Events"/>

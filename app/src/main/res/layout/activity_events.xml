@@ -16,19 +16,14 @@
         <TextView
             android:id="@+id/title_events"
             android:textStyle="bold"
-
             android:textColor="#000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/nunito"
             android:text="Events"
             android:layout_marginBottom="16dp"
             android:textSize="32sp" />
-
-
-
-
         <!-- layout when no events are there -->
         <!-- show it from java file not from here-->
         <LinearLayout
@@ -37,6 +32,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
             android:layout_below="@id/title_events"
+            android:layout_above="@+id/card_view_radio_buttons"
             android:orientation="vertical"
             android:visibility="gone"
             android:gravity="center_vertical">
@@ -128,13 +124,13 @@
 
         <!-- layout when events are there -->
         <LinearLayout
+            android:layout_below="@+id/title_events"
+            android:layout_above="@+id/card_view_radio_buttons"
             android:id="@+id/layout_events"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
             android:orientation="vertical"
-            android:visibility="gone"
-            android:layout_marginBottom="16dp"
+            android:visibility="visible"
             android:gravity="center_vertical">
 
             <androidx.core.widget.NestedScrollView
