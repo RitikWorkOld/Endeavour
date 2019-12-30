@@ -5,16 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
-    android:background="@drawable/splashback"
+    android:background="#000"
     android:orientation="vertical"
     tools:context=".splashAct">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_alignParentTop="true"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:src="@drawable/logo_ecell"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:src="@drawable/ecell_main"
         android:transitionName="logotransition"
         android:layout_centerHorizontal="true"
         />
@@ -41,29 +41,33 @@
 
         android:layout_centerHorizontal="true"
         />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView1"
-        android:text="Build Entrepreneur,bleed Entreprenur"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/montserrat"
+        android:text="Build Entrepreneur,Bleed Entreprenur"
+        android:layout_marginTop="36dp"
         android:textAlignment="center"
         android:textColor="#fff"
-        android:textSize="20dp"
-        />
+        android:textSize="20dp" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animsplash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
+        android:layout_below="@+id/textView2"
+
+        android:layout_marginTop="36dp"
         app:lottie_autoPlay="false"
-        android:layout_above="@id/btn_splash"
         app:lottie_fileName="animsplash.json"
         app:lottie_loop="false"/>
-
+    <!--Column 2:-->
+   <!--
     <Button
         android:id="@+id/btn_splash"
         android:layout_width="wrap_content"
@@ -75,6 +79,6 @@
         android:textSize="20sp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        />
+        /> -->
 
 </RelativeLayout>

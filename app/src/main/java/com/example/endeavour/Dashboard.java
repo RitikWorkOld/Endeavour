@@ -23,13 +23,13 @@ public class Dashboard extends AppCompatActivity {
     layoutevents=(LinearLayout) findViewById(R.id.layout_events);
         layoutOurteam = (LinearLayout) findViewById(R.id.layout_ourteam);
 
-        layoutevents.setOnClickListener(new View.OnClickListener() {
+        /*layoutevents.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent_events= new Intent(Dashboard.this,Events.class);
                 startActivity(intent_events);
             }
-        });
+        });*/
 
 
 
@@ -37,8 +37,10 @@ public class Dashboard extends AppCompatActivity {
         layoutOurteam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_ourteam = new Intent(Dashboard.this,TeamMain.class);
-                startActivity(intent_ourteam);
+                if(v==layoutOurteam) {
+                    Intent intent_ourteam = new Intent(Dashboard.this, TeamMain.class);
+                    startActivity(intent_ourteam);
+                }
             }
         });
     }

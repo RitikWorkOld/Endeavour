@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 
 public class TeamMain extends AppCompatActivity {
 
+    ImageView image;
     private RecyclerView recyclerView;
     private ArrayList<Teamcard_model> arrayList;
     private FirebaseRecyclerOptions<Teamcard_model> options;
@@ -43,6 +45,16 @@ public class TeamMain extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_main);
+        image=findViewById(R.id.back);
+
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TeamMain.this, Dashboard.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         if (firebaseDatabase == null) {
             firebaseDatabase=FirebaseDatabase.getInstance();
