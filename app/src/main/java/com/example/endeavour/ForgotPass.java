@@ -61,7 +61,7 @@ public class ForgotPass extends AppCompatActivity {
             public void onClick(View view) {
                 if(view == signupbtn)
                 {
-                    Intent intent=new Intent(ForgotPass.this,TeamMain.class);
+                    Intent intent=new Intent(ForgotPass.this,RegAct.class);
                     startActivity(intent);
                     overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
                     finish();
@@ -96,7 +96,7 @@ public class ForgotPass extends AppCompatActivity {
                                 startActivity(intent);
                             }
                             else{
-                                Intent intToHome = new Intent(ForgotPass.this,TeamMain.class);
+                                Intent intToHome = new Intent(ForgotPass.this,Dashboard.class);
                                 startActivity(intToHome);
                             }
                         }

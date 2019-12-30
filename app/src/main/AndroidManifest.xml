@@ -12,10 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Forgotpass_Success"
-            android:theme="@style/AppTheme.Popupstyle"></activity>
-        <activity android:name=".Login_Failed"
-            android:theme="@style/AppTheme.Popupstyle"></activity>
+        <activity android:name=".ModelEvent"></activity>
+        <activity
+            android:name=".Forgotpass_Success"
+            android:theme="@style/AppTheme.Popupstyle" />
+        <activity
+            android:name=".Login_Failed"
+            android:theme="@style/AppTheme.Popupstyle" />
         <activity
             android:name=".Reg_Fail"
             android:theme="@style/AppTheme.Popupstyle" />
@@ -39,7 +42,7 @@
             android:name=".Dashboard"/>
         <activity android:name=".TeamMain" />
         <activity android:name=".ForgotPass" />
-        <activity android:name=".Events"/>
+        <activity android:name=".Events" />
 
         <service
             android:name=".MyMessagingService"

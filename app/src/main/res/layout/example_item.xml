@@ -12,13 +12,15 @@
     android:layout_marginBottom="8dp"
     app:cardElevation="6dp">
 
-
+    <FrameLayout
+        android:background="#FF0000"
+        android:layout_width="4dp"
+        android:layout_height="match_parent"/>
     <LinearLayout
         android:id="@+id/mainframe_0123"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <RelativeLayout
             android:id="@+id/layout_team_card"

@@ -23,7 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
     EditText emailId, password;
-    TextView textView;
+    TextView textView,textView1;
     private Toast backToast;
     private long backPressedTime;
     private Button signupbtn;
@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
-
+        textView1=findViewById(R.id.nr1);
         textView=findViewById(R.id.fpass);
         mFirebaseAuth = FirebaseAuth.getInstance();
         emailId = findViewById(R.id.Lemail);
@@ -49,6 +49,17 @@ public class LoginActivity extends AppCompatActivity {
         btnSignIn=findViewById(R.id.signin);
         progressBars = findViewById(R.id.progressBar2);
         progressBars.setVisibility(View.GONE);
+
+
+        textView1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(LoginActivity.this,RegAct.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+
+            }
+        });
 
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,6 +136,7 @@ public class LoginActivity extends AppCompatActivity {
                                 ////yha bhi aaya run statement...ok
                                 Intent intToHome = new Intent(getApplicationContext(),Dashboard.class);//not working TEAM.
                                 startActivity(intToHome);
+                                finish();
                             }
                         }
                     });

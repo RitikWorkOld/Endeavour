@@ -14,44 +14,42 @@
         android:id="@+id/dashboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
         android:text="Dashboard"
+        android:fontFamily="@font/nunito"
+        android:textStyle="bold"
         android:textColor="#fff"
-        android:textSize="22sp"/>
+        android:textSize="28sp"/>
 
     <ImageView
         android:id="@+id/dash_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:scaleType="fitXY"
         android:layout_marginStart="8dp"
         android:layout_marginTop="52dp"
         android:layout_marginEnd="8dp"
-        android:layout_below="@id/dashboard"
+        android:layout_above="@id/layout_bottom_menu"
         android:layout_centerHorizontal="true"
         android:src="@drawable/illustration"/>
 
 
     <LinearLayout
+        android:id="@+id/layout_bottom_menu"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_below="@id/dash_image"
         android:layout_alignParentBottom="true"
         android:background="@drawable/bg_menu">
 
         <LinearLayout
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:layout_margin="4dp"
+            android:padding="16dp"
+            android:layout_marginTop="24dp"
             android:gravity="center"
             android:layout_weight="2"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content">
 
             <LinearLayout
@@ -78,11 +76,12 @@
                         android:src="@drawable/checked"/>
 
                     <TextView
-                        android:layout_marginLeft="12dp"
+                        android:layout_marginLeft="6dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Upcoming \nEvents"
-                        android:textSize="18sp"
+                        android:textAlignment="center"
+                        android:text="Events"
+                        android:textSize="20sp"
                         android:textColor="#fff"/>
 
                 </LinearLayout>
@@ -112,11 +111,12 @@
                         android:src="@drawable/link"/>
 
                     <TextView
-                        android:layout_marginLeft="12dp"
+                        android:layout_marginLeft="6dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Our \nJudges"
-                        android:textSize="18sp"
+                        android:text="Schedule"
+                        android:textAlignment="center"
+                        android:textSize="20sp"
                         android:textColor="#fff"/>
 
                 </LinearLayout>
@@ -147,11 +147,12 @@
                        />
 
                     <TextView
-                        android:layout_marginLeft="12dp"
+                        android:layout_marginLeft="6dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Our \nSponsers"
-                        android:textSize="18sp"
+                        android:text="Speakers"
+                        android:textAlignment="center"
+                        android:textSize="20sp"
                         android:textColor="#fff"/>
 
                 </LinearLayout>
@@ -161,10 +162,11 @@
         </LinearLayout>
 
         <LinearLayout
-            android:paddingBottom="24dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:layout_weight="3"
+            android:padding="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:layout_weight="2"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -192,11 +194,13 @@
                         android:src="@drawable/film"/>
 
                     <TextView
-                        android:layout_marginLeft="12dp"
+                        android:layout_marginLeft="6dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Event \nShedule"
-                        android:textSize="18sp"
+                        android:text="Sponsors"
+                        android:textAlignment="center"
+                        android:textSize="20sp"
+
                         android:textColor="#fff"/>
 
                 </LinearLayout>
@@ -211,6 +215,7 @@
 
                 <LinearLayout
                     android:orientation="vertical"
+                    android:id="@+id/layout_ourteam"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/bg_item05"
@@ -226,11 +231,12 @@
                         android:src="@drawable/pluspro"/>
 
                     <TextView
-                        android:layout_marginLeft="12dp"
+                        android:layout_marginLeft="6dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Our \nFood"
-                        android:textSize="18sp"
+                        android:text="Team"
+                        android:textAlignment="center"
+                        android:textSize="20sp"
                         android:textColor="#fff"/>
 
                 </LinearLayout>
@@ -244,7 +250,7 @@
                 android:layout_height="match_parent">
 
                 <LinearLayout
-                    android:id="@+id/layout_ourteam"
+
                     android:orientation="vertical"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -261,11 +267,12 @@
                         android:src="@drawable/download"/>
 
                     <TextView
-                        android:layout_marginLeft="12dp"
+                        android:layout_marginLeft="6dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Our \nTeam"
-                        android:textSize="18sp"
+                        android:textAlignment="center"
+                        android:text="FAQ"
+                        android:textSize="20sp"
                         android:textColor="#fff"/>
 
                 </LinearLayout>
