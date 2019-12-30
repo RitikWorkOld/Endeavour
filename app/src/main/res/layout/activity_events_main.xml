@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorwhite"
-    tools:context=".EventsFragments">
+    tools:context=".EventsMain">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,6 +40,7 @@
 
 
             <ImageView
+                android:visibility="invisible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="centerInside"
@@ -133,26 +134,13 @@
             android:visibility="visible"
             android:gravity="center_vertical">
 
-            <androidx.core.widget.NestedScrollView
-                android:layout_height="match_parent"
-                android:layout_width="match_parent">
+            <FrameLayout
+                android:id="@+id/events_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_view_events"
-                    android:layout_width="match_parent"
-                   app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="true"
-                    android:scrollbars="none"
-                    android:orientation="vertical"/>
-            </androidx.core.widget.NestedScrollView>
         </LinearLayout>
 
-
     </RelativeLayout>
-
-
-
 
 </RelativeLayout>

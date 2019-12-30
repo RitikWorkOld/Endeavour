@@ -12,7 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ModelEvent"></activity>
+        <activity android:name=".EventsMain">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ModelEvent" />
         <activity
             android:name=".Forgotpass_Success"
             android:theme="@style/AppTheme.Popupstyle" />
@@ -26,11 +33,7 @@
             android:name=".Reg_Sucess"
             android:theme="@style/AppTheme.Popupstyle" />
         <activity android:name=".splashAct">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".RegAct"
@@ -38,12 +41,9 @@
         <activity
             android:name=".LoginActivity"
             android:noHistory="true" />
-        <activity
-            android:name=".Dashboard"/>
+        <activity android:name=".Dashboard" />
         <activity android:name=".TeamMain" />
         <activity android:name=".ForgotPass" />
-        <activity android:name=".Events" />
-
         <service
             android:name=".MyMessagingService"
             android:exported="false">

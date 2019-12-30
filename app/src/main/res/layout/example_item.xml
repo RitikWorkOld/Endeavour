@@ -12,11 +12,14 @@
     android:layout_marginBottom="8dp"
     app:cardElevation="6dp">
 
+
     <FrameLayout
         android:background="#FF0000"
         android:layout_width="4dp"
         android:layout_height="match_parent"/>
+
     <LinearLayout
+        android:weightSum="2"
         android:id="@+id/mainframe_0123"
         android:layout_width="match_parent"
         android:orientation="vertical"
@@ -80,7 +83,6 @@
                 android:id="@+id/image_team"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:padding="2dp"/>
@@ -90,7 +92,7 @@
             android:paddingBottom="5dp"
             android:id="@+id/expandable_layout"
             android:weightSum="3"
-            android:visibility="gone"
+            android:visibility="visible"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
