@@ -1,91 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    app:cardCornerRadius="10dp"
-    android:elevation="8dp"
-    android:layout_marginRight="4dp"
-    android:layout_marginLeft="4dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginBottom="8dp"
-    app:cardElevation="6dp">
+    app:cardCornerRadius="20dp"
+    app:cardElevation="20dp">
 
-    <LinearLayout
-        android:id="@+id/llayout1"
+    <RelativeLayout
+        android:id="@+id/relativelayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"/>
-<RelativeLayout
-    android:id="@+id/rlayout1"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fontFamily="@font/nunito"
-    android:paddingHorizontal="20dp"
-    android:paddingVertical="12dp">
-    <LinearLayout
-        android:id="@+id/llayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:orientation="vertical"
-        android:weightSum="3">
-        <TextView
-            android:id="@+id/tv_event_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="EVENT NAME"
-            android:gravity="center"
-            android:textSize="20sp" />
+        android:layout_height="300dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/event_main_img"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true">
+
+        </androidx.appcompat.widget.AppCompatImageView>
 
         <TextView
-            android:id="@+id/tv_event_time"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/nunito"
-            android:gravity="center"
-            android:text="EVENT DATE AND TIME"
-            android:textColor="@color/gray"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tv_event_venue"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="EVENT VENUE"
-            android:layout_marginTop="6dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/nunito"
-            android:gravity="center"
-            android:textColor="@color/gray"
-            android:textSize="15sp"
-            android:textStyle="bold"/>
-        <TextView
-            android:id="@+id/tv_event_desc"
-            android:layout_marginTop="6dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/nunito"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="What is all about?"
             android:textStyle="bold"
-            android:textSize="16sp" />
-    </LinearLayout>
-        <ImageView
-            android:src="@drawable/user"
-            android:id="@+id/event_image"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:padding="2dp"/>
+            android:id="@+id/event_title"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/event_main_img"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="16dp"
+            android:text="Title"
+            android:textColor="#262626"
+            android:textSize="16sp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/event_descp"
+            android:layout_below="@+id/event_title"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16sp"
+            android:maxLines="3"
+            android:drawablePadding="10dp"
+            android:ellipsize="end"
+            android:text="Description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

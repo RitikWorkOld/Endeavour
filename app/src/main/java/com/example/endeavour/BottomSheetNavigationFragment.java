@@ -73,7 +73,7 @@ public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
                 switch (item.getItemId()) {
                     case R.id.nav01:
                         startActivity(new Intent(getActivity(),Dashboard.class));
-                      
+
                         break;
                 }
                 return false;
