@@ -46,11 +46,6 @@ public class Events_Fun extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_events__fun,container,false);
 
-        if (firebaseDatabase == null) {
-            firebaseDatabase=FirebaseDatabase.getInstance();
-            firebaseDatabase.setPersistenceEnabled(true);
-        }
-
         recyclerView = view.findViewById(R.id.rv_events_fun);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
