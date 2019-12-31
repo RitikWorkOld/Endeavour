@@ -41,8 +41,6 @@ public class TeamMain extends AppCompatActivity {
     private BottomAppBar bottomAppBar;
 
 
-
-
     private ArrayList<Teamcard_model> arrayList;
     private FirebaseRecyclerOptions<Teamcard_model> options;
     private FirebaseRecyclerAdapter<Teamcard_model,Teamcard_Viewholder> adapter;
@@ -75,12 +73,7 @@ public class TeamMain extends AppCompatActivity {
             }
         });
 
-
-
         image=findViewById(R.id.back);
-
-
-
 
         image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,11 +83,6 @@ public class TeamMain extends AppCompatActivity {
                 finish();
             }
         });
-
-        if (firebaseDatabase == null) {
-            firebaseDatabase=FirebaseDatabase.getInstance();
-//            firebaseDatabase.setPersistenceEnabled(true);
-        }
 
         recyclerView = findViewById(R.id.recycler_view_teammain);
         recyclerView.setHasFixedSize(true);

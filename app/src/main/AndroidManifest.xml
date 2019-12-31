@@ -6,6 +6,7 @@
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <application
+        android:name=".services.FirebasePersistence"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -19,8 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
+        <activity android:name=".ModelEvent" />
         <activity
             android:name=".Forgotpass_Success"
             android:theme="@style/AppTheme.Popupstyle" />
@@ -36,8 +36,6 @@
         <activity android:name=".TeamMain">
 
         </activity>
-
-
         <activity
             android:name=".RegAct"
             android:noHistory="true" />
@@ -46,10 +44,9 @@
             android:noHistory="true" />
 
         <activity
-            android:name=".Dashboard" />
-        <activity
-            android:name=".EventsMain" />
-
+            android:name=".Dashboard"
+            />
+        <activity android:name=".EventsMain"/>
         <activity android:name=".ForgotPass" />
         <service
             android:name=".MyMessagingService"
