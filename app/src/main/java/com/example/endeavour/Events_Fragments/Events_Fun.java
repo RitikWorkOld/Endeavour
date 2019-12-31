@@ -8,6 +8,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -66,6 +68,38 @@ public class Events_Fun extends Fragment {
                 viewholder.Title.setText(model.getTitle());
                 viewholder.Descp.setText(model.getDescp());
                 Picasso.get().load(model.getMimguri()).into(viewholder.Mimguri);
+
+                String Title = model.getTitle();
+                String Descp = model.getDescp();
+                String Desc1 = model.getDesc1();
+                String Desc2 = model.getDesc2();
+                String Mimguri = model.getMimguri();
+                String Simguri = model.getSimguri();
+                String Register_uri = model.getRegister_uri();
+
+                final Bundle bundle = new Bundle();
+                bundle.putString("Title",Title);
+                bundle.putString("Descp",Descp);
+                bundle.putString("Desc1",Desc1);
+                bundle.putString("Desc2",Desc2);
+                bundle.putString("Mimguri",Mimguri);
+                bundle.putString("Simguri",Simguri);
+                bundle.putString("Register_uri",Register_uri);
+
+                viewholder.read_more_ebtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                        events_details events_details = new events_details();
+                        events_details.setArguments(bundle);
+
+                        fragmentTransaction.replace(R.id.events_container,events_details);
+                        fragmentTransaction.commit();
+                    }
+                });
             }
 
             @NonNull
