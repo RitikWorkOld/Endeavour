@@ -23,13 +23,13 @@ public class Dashboard extends AppCompatActivity {
     layoutevents=(LinearLayout) findViewById(R.id.layout_events);
         layoutOurteam = (LinearLayout) findViewById(R.id.layout_ourteam);
 
-        /*layoutevents.setOnClickListener(new View.OnClickListener() {
+        layoutevents.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_events= new Intent(Dashboard.this,Events.class);
+                Intent intent_events= new Intent(Dashboard.this,EventsMain.class);
                 startActivity(intent_events);
             }
-        });*/
+        });
 
 
 

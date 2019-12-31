@@ -19,7 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ModelEvent" />
+
+
         <activity
             android:name=".Forgotpass_Success"
             android:theme="@style/AppTheme.Popupstyle" />
@@ -35,6 +36,8 @@
         <activity android:name=".TeamMain">
 
         </activity>
+
+
         <activity
             android:name=".RegAct"
             android:noHistory="true" />
@@ -43,8 +46,10 @@
             android:noHistory="true" />
 
         <activity
-            android:name=".Dashboard"
-            />
+            android:name=".Dashboard" />
+        <activity
+            android:name=".EventsMain" />
+
         <activity android:name=".ForgotPass" />
         <service
             android:name=".MyMessagingService"

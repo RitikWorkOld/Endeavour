@@ -93,7 +93,7 @@ public class TeamMain extends AppCompatActivity {
 
         if (firebaseDatabase == null) {
             firebaseDatabase=FirebaseDatabase.getInstance();
-            firebaseDatabase.setPersistenceEnabled(true);
+//            firebaseDatabase.setPersistenceEnabled(true);
         }
 
         recyclerView = findViewById(R.id.recycler_view_teammain);

@@ -48,7 +48,7 @@ public class Events_Fun extends Fragment {
 
         if (firebaseDatabase == null) {
             firebaseDatabase=FirebaseDatabase.getInstance();
-            firebaseDatabase.setPersistenceEnabled(true);
+           // firebaseDatabase.setPersistenceEnabled(true);
         }
 
         recyclerView = view.findViewById(R.id.rv_events_fun);
