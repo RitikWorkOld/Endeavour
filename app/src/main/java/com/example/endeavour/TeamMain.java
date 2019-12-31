@@ -2,19 +2,32 @@ package com.example.endeavour;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -25,6 +38,11 @@ public class TeamMain extends AppCompatActivity {
 
     ImageView image;
     private RecyclerView recyclerView;
+    private BottomAppBar bottomAppBar;
+
+
+
+
     private ArrayList<Teamcard_model> arrayList;
     private FirebaseRecyclerOptions<Teamcard_model> options;
     private FirebaseRecyclerAdapter<Teamcard_model,Teamcard_Viewholder> adapter;
@@ -44,8 +62,25 @@ public class TeamMain extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_team_main);
+
+        setUpBottomAppBar();
+        //click event over FAB
+        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(TeamMain.this, "FAB Clicked.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
         image=findViewById(R.id.back);
+
+
+
 
         image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,4 +165,68 @@ public class TeamMain extends AppCompatActivity {
         };
         recyclerView.setAdapter(adapter);
     }
+    /**
+     * set up Bottom Bar
+     */
+    private void setUpBottomAppBar() {
+        //find id
+        bottomAppBar = findViewById(R.id.bar);
+
+        //set bottom bar to Action bar as it is similar like Toolbar
+        setSupportActionBar(bottomAppBar);
+
+        //click event over Bottom bar menu item
+        bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_notification:
+                        Toast.makeText(TeamMain.this, "Notification clicked.", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                return false;
+            }
+        });
+        //click event over navigation menu like back arrow or hamburger icon
+        bottomAppBar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //open bottom sheet
+               BottomSheetDialogFragment bottomSheetDialogFragment = BottomSheetNavigationFragment.newInstance();
+               bottomSheetDialogFragment.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment");
+            }
+        });
+    }
+
+    //Inflate menu to bottom bar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.app_bar_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_notification:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    /**
+     * method to toggle fab mode
+     *
+     * @param view
+     */
+    public void toggleFabMode(View view) {
+        //check the fab alignment mode and toggle accordingly
+        if (bottomAppBar.getFabAlignmentMode() == BottomAppBar.FAB_ALIGNMENT_MODE_END) {
+            bottomAppBar.setFabAlignmentMode(BottomAppBar.FAB_ALIGNMENT_MODE_CENTER);
+        } else {
+            bottomAppBar.setFabAlignmentMode(BottomAppBar.FAB_ALIGNMENT_MODE_END);
+        }
+    }
+
+
+
 }

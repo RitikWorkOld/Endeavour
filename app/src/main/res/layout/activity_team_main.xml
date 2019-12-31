@@ -33,6 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginBottom="60dp"
         android:paddingHorizontal="24dp"
         >
 
@@ -58,7 +59,7 @@
             android:layout_marginTop="16dp"
             android:layout_below="@id/title_team"
             android:orientation="vertical"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="76dp"
             android:gravity="center_vertical">
 
             <androidx.recyclerview.widget.RecyclerView
@@ -69,10 +70,46 @@
                 android:nestedScrollingEnabled="true"
                 android:scrollbars="none"
                 android:orientation="vertical"/>
+
         </LinearLayout>
 
     </RelativeLayout>
 
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayoutNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.BottomAppBar"
+            android:layout_gravity="bottom"
+            android:backgroundTint="#000"
+            app:fabAlignmentMode="end"
+
+            app:menu="@menu/app_bar_menu"
+            app:fabCradleRoundedCornerRadius="30dp"
+            app:fabCradleVerticalOffset="15dp"
+            app:fabCradleMargin="10dp"
+            app:hideOnScroll="true"
+            app:navigationIcon="@drawable/ic_menu1"
+            />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_add_black_24dp"
+            android:backgroundTint="@color/colorPrimary"
+            app:layout_anchor="@id/bar"
+            app:maxImageSize="35dp"
+            android:id="@+id/fab"
+            android:tint="@color/colorwhite"
+            />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
 

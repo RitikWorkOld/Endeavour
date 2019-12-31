@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav01"
+            android:icon="@drawable/checked"
+            android:title="Events"
+
+            />
+        <item
+            android:id="@+id/nav02"
+            android:icon="@drawable/link"
+            android:title="Schedule" />
+        <item
+            android:id="@+id/nav03"
+            android:icon="@drawable/house"
+            android:title="Speakers" />
+        <item
+            android:id="@+id/nav04"
+            android:icon="@drawable/film"
+            android:title="Sponsors" />
+        <item
+            android:id="@+id/nav05"
+            android:icon="@drawable/pluspro"
+            android:title="Team" />
+        <item
+            android:id="@+id/nav06"
+            android:icon="@drawable/download"
+            android:title="FAQ" />
+
+    </group>
+</menu>

@@ -40,7 +40,7 @@
             android:noHistory="true" />
         <activity
             android:name=".Dashboard"
-            android:noHistory="true" />
+            />
         <activity android:name=".TeamMain" />
         <activity android:name=".ForgotPass" />
         <activity android:name=".Events" />

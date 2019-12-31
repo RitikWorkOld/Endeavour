@@ -7,10 +7,12 @@
                 android:icon="@drawable/ic_about"
                 app:showAsAction="ifRoom"
                 android:title="About"/>
-    <item android:id="@+id/menu_setting"
-        android:icon="@drawable/ic_settings_black_24dp"
-        app:showAsAction="ifRoom"
-        android:title="Setting"/>
+
+    <item
+        android:id="@+id/action_notification"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_add_black_24dp"
+        android:title="notification" />
 
 
 
