@@ -171,6 +171,11 @@ public class TeamMain extends AppCompatActivity {
                     case R.id.action_notification:
                         Toast.makeText(TeamMain.this, "Notification clicked.", Toast.LENGTH_SHORT).show();
                         break;
+                    case R.id.menu_about:
+                        BottomSheetDialogFragment bottomSheetDialogFragment = BottomSheetNavigationFragmentOne.newInstance();
+                        bottomSheetDialogFragment.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment One");
+                        break;
+
                 }
                 return false;
             }

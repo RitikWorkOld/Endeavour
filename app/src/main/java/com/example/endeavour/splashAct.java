@@ -23,7 +23,7 @@ import com.airbnb.lottie.LottieAnimationView;
 
 
 public class splashAct extends AppCompatActivity {
-    private static int timeout=6000;
+    private static int timeout=4000;
    // Button splash_btn;
     ImageView endlogo;
   //  ImageView ecelllogo; //added
@@ -126,6 +126,7 @@ public class splashAct extends AppCompatActivity {
             public void onAnimationEnd(Animation animation) {
                 animationView.setAnimation(animationanim);
                 animationView.setAlpha(1.0f);
+                animationView.playAnimation();
             }
 
             @Override
@@ -156,8 +157,10 @@ public class splashAct extends AppCompatActivity {
 
         Handler handler=new Handler();  //UI and the background thread COMMUNICATION
         handler.postDelayed(new Runnable() {
+
             @Override
             public void run() {
+
                 Intent intent=new Intent(splashAct.this,LoginActivity.class);
                 startActivity(intent);
                 finish();

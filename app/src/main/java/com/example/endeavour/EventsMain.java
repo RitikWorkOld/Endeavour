@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -22,6 +24,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 public class EventsMain extends AppCompatActivity {
     private BottomAppBar bottomAppBar;
     RadioButton radioButton_tech, radioButton_fun, radioButton_corp;
+    ImageView image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,16 @@ public class EventsMain extends AppCompatActivity {
                 Toast.makeText(EventsMain.this, "FAB Clicked.", Toast.LENGTH_SHORT).show();
             }
         });
+        image=findViewById(R.id.back);
 
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EventsMain.this, Dashboard.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         radioButton_tech = (RadioButton)findViewById(R.id.radio_technical);
         radioButton_fun = (RadioButton)findViewById(R.id.radio_fun);
@@ -93,6 +105,10 @@ public class EventsMain extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.action_notification:
                         Toast.makeText(EventsMain.this, "Notification clicked.", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.menu_about:
+                        BottomSheetDialogFragment bottomSheetDialogFragment = BottomSheetNavigationFragmentOne.newInstance();
+                        bottomSheetDialogFragment.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment One");
                         break;
                 }
                 return false;
