@@ -168,7 +168,7 @@ public class TeamMain extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.action_notification:
+                    case R.id.action_glimpses:
                         Toast.makeText(TeamMain.this, "Notification clicked.", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.menu_about:
@@ -201,7 +201,7 @@ public class TeamMain extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_notification:
+            case R.id.action_glimpses:
                 break;
         }
         return super.onOptionsItemSelected(item);

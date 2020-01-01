@@ -34,13 +34,7 @@ public class EventsMain extends AppCompatActivity {
         setContentView(R.layout.activity_events_main);
 
         setUpBottomAppBar();
-        //click event over FAB
-        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(EventsMain.this, "FAB Clicked.", Toast.LENGTH_SHORT).show();
-            }
-        });
+
         image=findViewById(R.id.back);
 
         image.setOnClickListener(new View.OnClickListener() {
@@ -103,7 +97,7 @@ public class EventsMain extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.action_notification:
+                    case R.id.action_glimpses:
                         Toast.makeText(EventsMain.this, "Notification clicked.", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.menu_about:
@@ -135,7 +129,7 @@ public class EventsMain extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_notification:
+            case R.id.action_glimpses:
                 break;
         }
         return super.onOptionsItemSelected(item);
