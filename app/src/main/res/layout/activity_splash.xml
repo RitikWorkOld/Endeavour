@@ -9,63 +9,20 @@
     android:orientation="vertical"
     tools:context=".splashAct">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_alignParentTop="true"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:src="@drawable/ecell_main"
-        android:transitionName="logotransition"
-        android:layout_centerHorizontal="true"
-        />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-     android:layout_below="@+id/imageView"
-        android:fontFamily="@font/montserrat"
-        android:text="Presents"
-        android:layout_centerHorizontal="true"
-        android:textColor="#fff"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        />
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/textView"
+
         android:src="@drawable/endlogo"
 
-        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
         />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/imageView1"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/montserrat"
-        android:text="Build Entrepreneur,Bleed Entreprenur"
-        android:layout_marginTop="36dp"
-        android:textAlignment="center"
-        android:textColor="#fff"
-        android:textSize="20dp" />
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animsplash"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/textView2"
 
-        android:layout_marginTop="36dp"
-        app:lottie_autoPlay="false"
-        app:lottie_fileName="animsplash.json"
-        app:lottie_loop="false"/>
     <!--Column 2:-->
    <!--
     <Button
