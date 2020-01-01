@@ -174,6 +174,7 @@ android:id="@+id/last"
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:id="@+id/linked_in"
             android:layout_marginStart="10dp"
             android:src="@drawable/linkedin_icon" />
 
@@ -182,26 +183,26 @@ android:id="@+id/last"
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
-
+            android:id="@+id/gmail"
             android:layout_marginStart="10dp"
             android:src="@drawable/mail_icon" />
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginStart="10dp"
-
+            android:id="@+id/fb"
             android:src="@drawable/facebook" />
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginStart="10dp"
-
+            android:id="@+id/insta"
             android:src="@drawable/instagram" />
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginStart="10dp"
-
+            android:id="@+id/you_tube"
             android:src="@drawable/youtube" />
 
     </LinearLayout>

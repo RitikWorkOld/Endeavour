@@ -3,9 +3,11 @@ package com.example.endeavour;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -50,7 +52,7 @@ public class BottomSheetNavigationFragmentOne extends BottomSheetDialogFragment 
         }
     };
     private ImageView closeButton1;
-
+    ImageView image,image1,image2,image3,image4;
 
 
     //TextView one;
@@ -63,7 +65,52 @@ public class BottomSheetNavigationFragmentOne extends BottomSheetDialogFragment 
         dialog.setContentView(contentView);
 
 
+        ImageView image = (ImageView) contentView.findViewById(R.id.linked_in);
+        ImageView image1 = (ImageView) contentView.findViewById(R.id.gmail);
+        ImageView image2 = (ImageView) contentView.findViewById(R.id.fb);
+        ImageView image3 = (ImageView) contentView.findViewById(R.id.insta);
+        ImageView image4 = (ImageView) contentView.findViewById(R.id.you_tube);
 
+        image.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Intent viewIntent =
+                        new Intent("android.intent.action.VIEW",
+                                Uri.parse("http://www.linkedin.com/"));
+                startActivity(viewIntent);
+            }
+        });
+        image1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Intent viewIntent =
+                        new Intent("android.intent.action.VIEW",
+                                Uri.parse("https://mail.google.com/mail/u/0/#inbox?compose=CllgCJZZztkJLrJsRZXsGGTJHMzpJgKDhMkZVQkGdRHTkMQmTCWvmjFKsbvHVJsWMBxzkRWzdhg"));
+                startActivity(viewIntent);
+            }
+        });
+        image2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Intent viewIntent =
+                        new Intent("android.intent.action.VIEW",
+                                Uri.parse("https://www.facebook.com/ecellkiet/"));
+                startActivity(viewIntent);
+            }
+        });
+        image3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Intent viewIntent =
+                        new Intent("android.intent.action.VIEW",
+                                Uri.parse("https://instagram.com/kietecell"));
+                startActivity(viewIntent);
+            }
+        });
+        image4.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Intent viewIntent =
+                        new Intent("android.intent.action.VIEW",
+                                Uri.parse("http://www.youtube.com/"));
+                startActivity(viewIntent);
+            }
+        });
         closeButton1 = contentView.findViewById(R.id.close_image_view);
         closeButton1.setOnClickListener(new View.OnClickListener() {
             @Override
