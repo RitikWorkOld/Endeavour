@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/signupbackground"
+    android:background="#701f47"
     tools:context=".ForgotPass"
     >
 
@@ -71,7 +71,7 @@
 
             <TextView
                 android:id="@+id/login"
-                android:textColor="#D855EF"
+                android:textColor="#701f47"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
@@ -83,7 +83,7 @@
 
             <TextView
                 android:id="@+id/email_text1"
-                android:textColor="#D855EF"
+                android:textColor="#000"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
@@ -93,6 +93,7 @@
 
             <EditText
                 android:id="@+id/Lemail"
+                android:textColor="#701f47"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
@@ -104,7 +105,7 @@
                 android:id="@+id/password_text2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#D855EF"
+                android:textColor="#000"
                 android:layout_marginLeft="16dp"
                 android:fontFamily="@font/montserrat"
                 android:layout_marginTop="16dp"
@@ -113,6 +114,7 @@
             <EditText
                 android:id="@+id/Lpass"
                 android:layout_width="match_parent"
+                android:textColor="#701f47"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:fontFamily="@font/montserrat"
@@ -167,6 +169,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:textColor="#701f47"
                 android:text="Forgot Password?"
                 android:textSize="16sp"
                 android:layout_marginLeft="6dp">
@@ -175,6 +178,7 @@
             </TextView>
             <EditText
                 android:id="@+id/edit_email"
+                android:textColor="#701f47"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Enter Your Email">

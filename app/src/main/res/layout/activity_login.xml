@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/signupbackground"
+    android:background="#701f47"
     tools:context=".LoginActivity"
     >
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="192dp"
+        android:layout_height="200dp"
         android:layout_above="@+id/layout_main_card"
         android:layout_alignParentTop="true"
-        android:src="@drawable/endlogo"
         android:layout_centerInParent="true"
-       />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="26dp"
+        android:src="@drawable/endlogo" />
+
 
     <LinearLayout
         android:orientation="vertical"
@@ -66,7 +68,7 @@
 
                     <TextView
                         android:id="@+id/login"
-                        android:textColor="#D855EF"
+                        android:textColor="#701f47"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="8dp"
@@ -78,7 +80,7 @@
 
                     <TextView
                         android:id="@+id/email_text1"
-                        android:textColor="#D855EF"
+                        android:textColor="#000"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
@@ -88,6 +90,7 @@
 
                     <EditText
                         android:id="@+id/Lemail"
+                        android:textColor="#CD4B4B"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
@@ -99,7 +102,7 @@
                         android:id="@+id/password_text2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="#D855EF"
+                        android:textColor="#000"
                         android:layout_marginLeft="16dp"
                         android:fontFamily="@font/montserrat"
                         android:layout_marginTop="16dp"
@@ -108,6 +111,7 @@
                     <EditText
                         android:id="@+id/Lpass"
                         android:layout_width="match_parent"
+                        android:textColor="#CD4B4B"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
                         android:fontFamily="@font/montserrat"
@@ -155,7 +159,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Not Registered?"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:id="@+id/nr1"
             android:textSize="16sp"
             android:textStyle="italic"
@@ -180,9 +184,10 @@
 
         <TextView
             android:id="@+id/fpass"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:text="Forgot Password?"
             android:textSize="16sp"
             android:textStyle="italic"

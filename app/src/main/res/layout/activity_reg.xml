@@ -4,9 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/signupbackground"
+    android:background="#701f47"
     tools:context=".RegAct"
     >
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/layout_main_card"
+        android:layout_height="150dp">
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+
+
+
+        android:src="@drawable/endlogo" />
+    </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
         android:id="@+id/buttons_layout"
@@ -20,7 +34,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/button"
             android:text="Login"
-            android:textColor="#D855EF"
+
             android:fontFamily="@font/montserrat"
             android:textStyle="normal"
             android:layout_marginBottom="8dp"
@@ -28,7 +42,7 @@
             android:textSize="16sp"
             />
         <Button
-            android:textColor="#fff"
+
             android:id="@+id/button_signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -59,7 +73,7 @@
             android:id="@+id/layout01"
             >
             <TextView
-                android:textColor="#D855EF"
+                android:textColor="#701f47"
                 android:id="@+id/signup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -85,7 +99,7 @@
 
 
                     <TextView
-                        android:textColor="#D855EF"
+                        android:textColor="#000"
                         android:textSize="15sp"
                         android:id="@+id/fname_text"
                         android:layout_width="match_parent"
@@ -97,7 +111,7 @@
 
                     <EditText
                         android:id="@+id/fname"
-                        android:textColor="#D855EF"
+                        android:textColor="#CD4B4B"
                         android:textSize="15sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -107,7 +121,7 @@
                         android:hint="What should we call you?" />
 
                     <TextView
-                        android:textColor="#D855EF"
+                        android:textColor="#000"
                         android:textSize="15sp"
                         android:id="@+id/email_text"
                         android:layout_width="match_parent"
@@ -118,7 +132,7 @@
                         android:text="Email" />
 
                     <EditText
-                        android:textColor="#D855EF"
+                        android:textColor="#CD4B4B"
                         android:textSize="15sp"
                         android:id="@+id/email"
                         android:layout_width="match_parent"
@@ -129,7 +143,7 @@
                         android:hint="How should we call you?" />
 
                   <TextView
-                        android:textColor="#D855EF"
+                      android:textColor="#000"
                         android:textSize="15sp"
                         android:id="@+id/password_text"
                         android:layout_width="match_parent"
@@ -140,7 +154,7 @@
                         android:text="Password" />
 
                     <EditText
-                        android:textColor="#D855EF"
+                        android:textColor="#CD4B4B"
                         android:textSize="15sp"
                         android:id="@+id/password"
                         android:layout_width="match_parent"
@@ -153,7 +167,7 @@
                         />
 
                     <TextView
-                        android:textColor="#D855EF"
+                        android:textColor="#000"
                         android:textSize="15sp"
                         android:id="@+id/branch_text"
                         android:layout_width="match_parent"
@@ -164,7 +178,7 @@
                         android:text="Branch" />
 
                   <EditText
-                        android:textColor="#D855EF"
+                      android:textColor="#CD4B4B"
                         android:textSize="15sp"
                         android:id="@+id/branch"
                         android:layout_width="match_parent"
@@ -175,7 +189,7 @@
                         android:hint="CSE/ME.." />
 
                     <TextView
-                        android:textColor="#D855EF"
+                        android:textColor="#000"
                         android:textSize="15sp"
                         android:id="@+id/year_text"
                         android:layout_width="match_parent"
@@ -187,7 +201,7 @@
 
                     <EditText
                         android:id="@+id/year"
-                        android:textColor="#D855EF"
+                        android:textColor="#CD4B4B"
                         android:textSize="15sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -197,7 +211,7 @@
                         android:hint="1,2,3,4" />
 
                     <TextView
-                        android:textColor="#D855EF"
+                        android:textColor="#000"
                         android:textSize="15sp"
                         android:id="@+id/campus_text"
                         android:layout_width="match_parent"
@@ -209,7 +223,7 @@
 
                     <EditText
                         android:id="@+id/campus"
-                        android:textColor="#D855EF"
+                        android:textColor="#CD4B4B"
                         android:textSize="15sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -219,7 +233,7 @@
                         android:hint="" />
 
                     <TextView
-                        android:textColor="#D855EF"
+                        android:textColor="#000"
                         android:textSize="15sp"
                         android:id="@+id/cnumber_text"
                         android:layout_width="match_parent"
@@ -231,7 +245,7 @@
 
                     <EditText
                         android:id="@+id/cnumber"
-                        android:textColor="#D855EF"
+                        android:textColor="#CD4B4B"
                         android:textSize="15sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -242,7 +256,7 @@
                         />
 
                     <TextView
-                        android:textColor="#D855EF"
+                        android:textColor="#000"
                         android:textSize="15sp"
                         android:id="@+id/cname_text"
                         android:layout_width="match_parent"
@@ -254,7 +268,7 @@
 
                     <EditText
                         android:id="@+id/cname"
-                        android:textColor="#D855EF"
+                        android:textColor="#CD4B4B"
                         android:textSize="15sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

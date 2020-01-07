@@ -5,39 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/L1"
-        android:orientation="horizontal"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="About Ecell"
-            android:textColor="#000"
-            android:textSize="28sp"
-            android:layout_marginLeft="20dp"
-            android:fontFamily="@font/nunito"
-            android:textStyle="bold"
-            />
-
-
-
-
-        <ImageView
-            android:layout_width="136dp"
-            android:layout_height="match_parent"
-            android:paddingRight="80dp"
-            android:src="@drawable/ecell_main"
-
-            android:paddingTop="4dp"/>
-
-    </LinearLayout>
-
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -54,160 +21,44 @@
             app:srcCompat="@drawable/ic_close_black_24dp" />
     </LinearLayout>
 
-
-
-    <androidx.core.widget.NestedScrollView
+<androidx.core.widget.NestedScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/N1"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/L1"
+        android:layout_height="wrap_content"
+        android:id="@+id/L9"
+        android:orientation="horizontal"
         >
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/L1"
-            android:id="@+id/L3"
-            android:orientation="vertical"
-            >
+            android:background="#000">
 
-            <TextView
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="INTRODUCTION"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:textColor="#000"
-                />
-
-            <TextView
+                android:src="@drawable/instagram"/>
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-
-                android:layout_marginTop="10dp"
-                android:text="@string/ecell_intro"
-                android:textColor="#000"
-                android:textStyle="normal" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="VISION"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:textColor="#000"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-
-                android:layout_marginTop="10dp"
-                android:text="@string/Vision"
-                android:textColor="#000"
-                android:textStyle="normal" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="WHAT WE DO"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:textColor="#000"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-
-                android:layout_marginTop="10dp"
-                android:text="@string/whatwedo"
-                android:textColor="#000"
-                android:textStyle="normal" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="WHO SUPPORT US"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:textColor="#000"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-
-                android:layout_marginTop="10dp"
-                android:text="@string/whosupportus"
-                android:textColor="#000"
-                android:textStyle="normal" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="WHY ASSOCIATE WITH US"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:textColor="#000"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:id="@+id/last"
-                android:layout_marginTop="10dp"
-                android:text="@string/whyassociatewithus"
-                android:textColor="#000"
-                android:textStyle="normal" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:id="@+id/linked_in"
-                    android:layout_marginStart="10dp"
-                    android:src="@drawable/linkedin_icon" />
+                android:src="@drawable/instagram"/>
 
 
 
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:id="@+id/gmail"
-                    android:layout_marginStart="10dp"
-                    android:src="@drawable/mail_icon" />
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="10dp"
-                    android:id="@+id/fb"
-                    android:src="@drawable/facebook" />
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="10dp"
-                    android:id="@+id/insta"
-                    android:src="@drawable/instagram" />
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="10dp"
-                    android:id="@+id/you_tube"
-                    android:src="@drawable/youtube" />
 
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
 
 
 </RelativeLayout>
