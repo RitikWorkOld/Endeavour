@@ -23,7 +23,7 @@ public class Reg_Sucess extends AppCompatActivity {
 
         loginbtn = (Button)findViewById(R.id.login_btn_rs);
         crossiv = (ImageView) findViewById(R.id.cross_btn_rs);
-        OTP = (Button)findViewById(R.id.login_btn_rs1);
+        OTP = (Button)findViewById(R.id.login_btn_rs2);
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);

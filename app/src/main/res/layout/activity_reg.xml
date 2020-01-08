@@ -255,6 +255,7 @@
                         android:fontFamily="@font/montserrat"
                         />
 
+
                     <TextView
                         android:textColor="#000"
                         android:textSize="15sp"
@@ -279,6 +280,7 @@
 
 
                 </LinearLayout>
+        
 
 
             </androidx.core.widget.NestedScrollView>

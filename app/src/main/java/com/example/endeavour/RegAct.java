@@ -23,6 +23,17 @@ import java.util.regex.Pattern;
 
 public class RegAct extends AppCompatActivity implements View.OnClickListener {
 
+    //These are the objects needed
+    //It is the verification id that will be sent to the user
+    private String mVerificationId;
+
+    //The edittext to input the code
+    private EditText editTextCode;
+
+    //firebase auth object
+    private FirebaseAuth mAuth;
+
+
     private EditText emailId,password,fname1,branch1,year1,cid1,number1,cname1;
     private Button loginbtn;
     private Toast backToast;
@@ -50,6 +61,10 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_reg);
         mFirebaseAuth = FirebaseAuth.getInstance();
+
+        //initializing objects
+        mAuth = FirebaseAuth.getInstance();         //added
+        editTextCode = findViewById(R.id.editTextCode);             //added
 
         emailId = findViewById(R.id.email);
         password = findViewById(R.id.password);
@@ -105,9 +120,9 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
            final   String cid=cid1.getText().toString().trim();
            final   String number=number1.getText().toString().trim();
            final   String cname=cname1.getText().toString().trim();
-         //  Intent i = new Intent(RegAct.this, Reg_Sucess.class);    //added
-         //  i.putExtra("Your_KEY",number);           //added
-        //   startActivity(i);                    //added
+
+
+
            if(fname.isEmpty()){
                fname1.setError(getString(R.string.input_error_name));
                fname1.requestFocus();
@@ -213,6 +228,7 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
                         });
 
             }
+
 
 
 
