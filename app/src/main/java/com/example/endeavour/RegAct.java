@@ -28,6 +28,7 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
     private Toast backToast;
     private long backPressedTime;
     private ProgressBar progressBar;
+    int code=91;
 
     FirebaseAuth mFirebaseAuth;
     private static final Pattern PASSWORD_PATTERN =
@@ -64,6 +65,8 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
         findViewById(R.id.btnsignup).setOnClickListener(this);
+
+
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +105,9 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
            final   String cid=cid1.getText().toString().trim();
            final   String number=number1.getText().toString().trim();
            final   String cname=cname1.getText().toString().trim();
+         //  Intent i = new Intent(RegAct.this, Reg_Sucess.class);    //added
+         //  i.putExtra("Your_KEY",number);           //added
+        //   startActivity(i);                    //added
            if(fname.isEmpty()){
                fname1.setError(getString(R.string.input_error_name));
                fname1.requestFocus();
@@ -186,6 +192,8 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
                                             if (task.isSuccessful()) {
                                                 //Toast.makeText(RegAct.this, getString(R.string.registration_success), Toast.LENGTH_LONG).show();
                                                 Intent intent = new Intent(RegAct.this,Reg_Sucess.class);
+                                                String phonenumber="+"+code+number;
+                                                intent.putExtra("mobile",phonenumber);
                                                 startActivity(intent);
                                             } else {
                                                 Intent intent = new Intent(RegAct.this,Reg_Fail.class);

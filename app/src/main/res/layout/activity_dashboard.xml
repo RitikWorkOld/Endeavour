@@ -8,19 +8,21 @@
     android:orientation="vertical"
     android:background="#701f47"
     android:gravity="center_horizontal">
-
-
-    <TextView
-        android:id="@+id/dashboard"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-    android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="Dashboard"
-        android:fontFamily="@font/nunito"
-        android:textStyle="bold"
-        android:textColor="#fff"
-        android:textSize="28sp"/>
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+
+       >
+        <ImageView
+            android:layout_width="30dp"
+            android:id="@+id/image_power"
+            android:layout_alignParentStart="true"
+            android:layout_height="30dp"
+
+            android:src="@drawable/power"/>
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/dash_image"
@@ -32,7 +34,7 @@
         android:layout_marginEnd="8dp"
         android:layout_above="@id/layout_bottom_menu"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/illustration"/>
+        android:src="@drawable/dash_image"/>
 
 
     <LinearLayout
@@ -108,7 +110,7 @@
                         android:layout_marginBottom="18dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/link"/>
+                        android:src="@drawable/checked"/>
 
                     <TextView
                         android:layout_marginLeft="6dp"
@@ -144,7 +146,7 @@
                         android:src="@drawable/house"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                       />
+                        />
 
                     <TextView
                         android:layout_marginLeft="6dp"
@@ -282,5 +284,6 @@
         </LinearLayout>
 
     </LinearLayout>
+
 
 </RelativeLayout>

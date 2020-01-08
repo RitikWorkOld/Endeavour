@@ -2,17 +2,21 @@ package com.example.endeavour;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 public class Dashboard extends AppCompatActivity {
 
     LinearLayout layoutOurteam;
     LinearLayout layoutevents;
+    ImageView image_power;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +26,33 @@ public class Dashboard extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
         layoutevents=(LinearLayout) findViewById(R.id.layout_events);
         layoutOurteam = (LinearLayout) findViewById(R.id.layout_ourteam);
+        image_power=(ImageView)findViewById(R.id.image_power);
+
+        image_power.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Dashboard.this);
+                builder.setTitle(R.string.app_name);
+                builder.setIcon(R.mipmap.ic_launcher);
+                builder.setMessage("Do you want to Logout?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent i = new Intent(getBaseContext(),LoginActivity.class);
+                                startActivity(i);
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
+        });
+
 
         layoutevents.setOnClickListener(new View.OnClickListener() {
             @Override
