@@ -12,7 +12,8 @@ import android.widget.TextView;
 
 public class Reg_Sucess extends AppCompatActivity {
 
-    Button loginbtn;
+    Button loginbtn,OTP;
+    int code=91;
     ImageView crossiv;
 
     @Override
@@ -22,6 +23,7 @@ public class Reg_Sucess extends AppCompatActivity {
 
         loginbtn = (Button)findViewById(R.id.login_btn_rs);
         crossiv = (ImageView) findViewById(R.id.cross_btn_rs);
+        OTP = (Button)findViewById(R.id.login_btn_rs1);
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -46,6 +48,19 @@ public class Reg_Sucess extends AppCompatActivity {
                 Intent intent = new Intent(Reg_Sucess.this,RegAct.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+        OTP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = getIntent();         //added
+                String mobile = i.getStringExtra("mobile");           //added
+
+                Intent intent = new Intent(Reg_Sucess.this, VerifyPhoneActivity.class);
+                intent.putExtra("mobile", mobile);
+                startActivity(intent);
+                    return;
             }
         });
     }
