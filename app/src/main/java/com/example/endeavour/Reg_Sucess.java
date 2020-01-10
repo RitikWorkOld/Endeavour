@@ -31,7 +31,7 @@ public class Reg_Sucess extends AppCompatActivity {
         int width = displayMetrics.widthPixels;
         int height = displayMetrics.heightPixels;
 
-        getWindow().setLayout((int)(width*.8),(int)(height*.6));
+        getWindow().setLayout((int)(width*.8),(int)(height*.8));
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,8 +45,6 @@ public class Reg_Sucess extends AppCompatActivity {
         crossiv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Reg_Sucess.this,RegAct.class);
-                startActivity(intent);
                 finish();
             }
         });
@@ -60,7 +58,7 @@ public class Reg_Sucess extends AppCompatActivity {
                 Intent intent = new Intent(Reg_Sucess.this, VerifyPhoneActivity.class);
                 intent.putExtra("mobile", mobile);
                 startActivity(intent);
-                    return;
+                return;
             }
         });
     }

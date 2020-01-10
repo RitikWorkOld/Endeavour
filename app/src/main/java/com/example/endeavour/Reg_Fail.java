@@ -33,8 +33,6 @@ public class Reg_Fail extends AppCompatActivity {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Reg_Fail.this,RegAct.class);
-                startActivity(intent);
                 finish();
             }
         });
@@ -42,8 +40,6 @@ public class Reg_Fail extends AppCompatActivity {
         crossiv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Reg_Fail.this,RegAct.class);
-                startActivity(intent);
                 finish();
             }
         });

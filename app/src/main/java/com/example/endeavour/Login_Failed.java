@@ -33,8 +33,6 @@ public class Login_Failed extends AppCompatActivity {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Login_Failed.this,LoginActivity.class);
-                startActivity(intent);
                 finish();
             }
         });
@@ -42,8 +40,6 @@ public class Login_Failed extends AppCompatActivity {
         crossiv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Login_Failed.this,LoginActivity.class);
-                startActivity(intent);
                 finish();
             }
         });

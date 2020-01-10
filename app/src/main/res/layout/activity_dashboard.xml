@@ -20,7 +20,6 @@
             android:id="@+id/image_power"
             android:layout_alignParentStart="true"
             android:layout_height="30dp"
-
             android:src="@drawable/power"/>
     </LinearLayout>
     <ImageView
