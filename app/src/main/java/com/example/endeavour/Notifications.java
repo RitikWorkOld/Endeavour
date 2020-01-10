@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.icu.text.CaseMap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -31,6 +34,7 @@ public class Notifications extends AppCompatActivity {
     private FirebaseRecyclerAdapter<Noti_Helper,Notification_ViewHolder> adapter;
     private DatabaseReference databaseReference;
     private View no_new_notifications;
+    private ImageView back_btn;
 
     protected void onStart(){
         super.onStart();
@@ -48,6 +52,7 @@ public class Notifications extends AppCompatActivity {
         setContentView(R.layout.activity_notifications);
 
         no_new_notifications = findViewById(R.id.no_new_notifications);
+        back_btn = findViewById(R.id.back_btn_noti);
 
         recyclerView = findViewById(R.id.noti_rv);
         recyclerView.setHasFixedSize(true);
@@ -87,5 +92,14 @@ public class Notifications extends AppCompatActivity {
             }
         };
         recyclerView.setAdapter(adapter);
+
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Notifications.this,Dashboard.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }

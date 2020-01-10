@@ -6,22 +6,39 @@
     android:layout_height="match_parent"
     android:background="@color/colorwhite"
     tools:context=".EventsMain">
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/top_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:orientation="horizontal">
 
-    <ImageView
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:id="@+id/back"
-        android:src="@drawable/back_left" />
+        <ImageView
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/back"
+            android:src="@drawable/back_left" />
 
-    </LinearLayout>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:textAlignment="center"
+            android:layout_alignParentTop="true"
+            android:id="@+id/title_events"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito"
+            android:text="Events"
+            android:layout_marginBottom="16dp"
+            android:textSize="32sp" />
+
+    </RelativeLayout>
 
     <RelativeLayout
+        android:layout_below="@+id/top_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -29,18 +46,6 @@
         android:paddingHorizontal="24dp"
         >
 
-        <TextView
-            android:layout_alignParentTop="true"
-            android:id="@+id/title_events"
-            android:textStyle="bold"
-            android:textColor="#000"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
-            android:fontFamily="@font/nunito"
-            android:text="Events"
-            android:layout_marginBottom="16dp"
-            android:textSize="32sp" />
         <!-- layout when no events are there -->
         <!-- show it from java file not from here-->
         <LinearLayout
@@ -48,13 +53,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
-            android:layout_below="@id/title_events"
             android:layout_above="@+id/card_view_radio_buttons"
             android:orientation="vertical"
             android:visibility="visible"
             android:gravity="center_vertical">
-
-
 
             <ImageView
                 android:visibility="invisible"
@@ -142,7 +144,6 @@
 
         <!-- layout when events are there -->
         <LinearLayout
-            android:layout_below="@+id/title_events"
             android:layout_above="@+id/card_view_radio_buttons"
             android:id="@+id/layout_events"
             android:layout_width="match_parent"
