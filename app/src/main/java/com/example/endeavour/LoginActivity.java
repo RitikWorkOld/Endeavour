@@ -3,27 +3,50 @@ package com.example.endeavour;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.endeavour.R;
+import com.example.endeavour.Utils.Save;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements TextWatcher,
+        CompoundButton.OnCheckedChangeListener{
+    boolean session;
     EditText emailId, password;
     TextView textView,textView1;
+    LinearLayout layouts;
+   View v;
+
+    private CheckBox rem_userpass;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+    private static final String PREF_NAME = "prefs";
+    private static final String KEY_REMEMBER = "remember";
+    private static final String KEY_USERNAME = "username";
+    private static final String KEY_PASS = "password";
+
     private Toast backToast;
     private long backPressedTime;
     private Button signupbtn;
@@ -32,23 +55,45 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressBar progressBars;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
+        SESSION();
+
+        sharedPreferences = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        rem_userpass = (CheckBox)findViewById(R.id.checkBox);
+        if(sharedPreferences.getBoolean(KEY_REMEMBER, false))
+            rem_userpass.setChecked(true);
+        else
+            rem_userpass.setChecked(false);
 
 
         textView1=findViewById(R.id.nr1);
         textView=findViewById(R.id.fpass);
         mFirebaseAuth = FirebaseAuth.getInstance();
+
         emailId = findViewById(R.id.Lemail);
+
+        v=findViewById(android.R.id.content);
+
         password = findViewById(R.id.Lpass);
         signupbtn=findViewById(R.id.button_signup);
         btnSignIn=findViewById(R.id.signin);
         progressBars = findViewById(R.id.progressBar2);
         progressBars.setVisibility(View.GONE);
+
+        emailId.setText(sharedPreferences.getString(KEY_USERNAME,""));
+        password.setText(sharedPreferences.getString(KEY_PASS,""));
+
+        emailId.addTextChangedListener(this);
+        password.addTextChangedListener(this);
+        rem_userpass.setOnCheckedChangeListener(this);
+
 
 
         textView1.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +138,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
 
+
+
+
         btnSignIn.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -125,6 +173,9 @@ public class LoginActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(!task.isSuccessful()){
                                 progressBars.setVisibility(View.GONE);
+
+
+
                                 //Toast.makeText(LoginActivity.this,"Login Error, Please Login Again",Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(LoginActivity.this,Login_Failed.class);
                                 startActivity(intent);
@@ -134,9 +185,15 @@ public class LoginActivity extends AppCompatActivity {
 
                                 Log.d(">> NOTWORKING 1", "onComplete: + COME IN LOOP ");
                                 ////yha bhi aaya run statement...ok
+
+                                //saving session
+                                Save.save(getApplicationContext(),"session","true");
+
                                 Intent intToHome = new Intent(getApplicationContext(),Dashboard.class);//not working TEAM.
                                 startActivity(intToHome);
+
                                 finish();
+
                             }
                         }
                     });
@@ -152,7 +209,42 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }   //on_create khtm
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
     }
+
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        managePrefs();
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
+
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        managePrefs();
+    }
+
+    private void managePrefs(){
+        if(rem_userpass.isChecked()){
+            editor.putString(KEY_USERNAME, emailId.getText().toString().trim());
+            editor.putString(KEY_PASS, password.getText().toString().trim());
+            editor.putBoolean(KEY_REMEMBER, true);
+            editor.apply();
+        }else{
+            editor.putBoolean(KEY_REMEMBER, false);
+            editor.remove(KEY_PASS);//editor.putString(KEY_PASS,"");
+            editor.remove(KEY_USERNAME);//editor.putString(KEY_USERNAME, "");
+            editor.apply();
+        }
+    }
+
+
 
     @Override
     protected void onStart() {
@@ -179,5 +271,26 @@ public void onBackPressed() {
     backPressedTime = System.currentTimeMillis();
 
 }
+
+    public void SESSION(){
+        session= Boolean.valueOf(Save.read(getApplicationContext(),"session","false"));
+        if(session){
+            //here when user first or logout
+            //In here,intent to signup for first reg
+            Toast.makeText(this,"Already Logged In",Toast.LENGTH_LONG).show();
+            Intent signup=new Intent(getApplicationContext(),Dashboard.class);
+            startActivity(signup);
+
+            finish();
+        }
+        else{
+            //here when user logged in
+            //value here is true
+            Toast.makeText(this,"ALREADY LOGGED IN",Toast.LENGTH_SHORT).show();
+
+
+        }
+
+    }
 
 }

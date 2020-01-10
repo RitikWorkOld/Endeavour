@@ -11,12 +11,20 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import com.example.endeavour.Utils.Save;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Dashboard extends AppCompatActivity {
+        boolean session;
 
     LinearLayout layoutOurteam;
     LinearLayout layoutevents;
+    FirebaseAuth firebaseAuth;
+    private Toast backToast;
     ImageView notification_btn,image_power;
+    private long backPressedTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +32,15 @@ public class Dashboard extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_dashboard);
+
+
+
+
+
         layoutevents=(LinearLayout) findViewById(R.id.layout_events);
         layoutOurteam = (LinearLayout) findViewById(R.id.layout_ourteam);
         notification_btn = (ImageView) findViewById(R.id.iv_notification_btn);
+        firebaseAuth=firebaseAuth.getInstance();
 
         layoutevents.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,8 +61,12 @@ public class Dashboard extends AppCompatActivity {
                         .setCancelable(false)
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                Intent i = new Intent(getBaseContext(),LoginActivity.class);
-                                startActivity(i);
+                                firebaseAuth.getInstance().signOut();
+                                //saving session
+                                Save.save(getApplicationContext(),"session","false");
+                                Intent intent = new Intent(Dashboard.this, LoginActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
                                 finish();
                             }
                         })
@@ -82,5 +100,23 @@ public class Dashboard extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    } @Override
+    public void onBackPressed() {
+
+
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            backToast.cancel();
+            finish();
+        } else {
+            backToast = Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
+            backToast.show();
+
+
+        }
+        backPressedTime = System.currentTimeMillis();
+
     }
+
+
+
 }

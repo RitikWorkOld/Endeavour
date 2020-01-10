@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="#701f47"
     tools:context=".LoginActivity"
+    android:id="@+id/layout1"
     >
 
     <ImageView
@@ -56,7 +57,7 @@
     <RelativeLayout
         android:id="@+id/layout_main_card"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="324dp"
         android:layout_centerVertical="true"
         android:background="@drawable/rec_gradient"
         android:layout_toRightOf="@id/buttons_layout">
@@ -118,6 +119,16 @@
                         android:hint="*******"
                         android:inputType="textPassword"
                         />
+
+
+               <CheckBox
+                   android:text="Remember Email and Password"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+
+                   android:id="@+id/checkBox" />
+
+
 
                 </LinearLayout>
 

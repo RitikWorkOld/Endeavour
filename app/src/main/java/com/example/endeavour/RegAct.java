@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.example.endeavour.Utils.Save;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -102,7 +104,6 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onStart() {
         super.onStart();
-
         if (mFirebaseAuth.getCurrentUser() != null) {
             //handle the already login user
         }
@@ -205,6 +206,12 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
                                         public void onComplete(@NonNull Task<Void> task) {
                                             progressBar.setVisibility(View.GONE);
                                             if (task.isSuccessful()) {
+
+
+                                                //saving session
+                                                Save.save(getApplicationContext(),"session","true");
+
+
                                                 //Toast.makeText(RegAct.this, getString(R.string.registration_success), Toast.LENGTH_LONG).show();
                                                 Intent intent = new Intent(RegAct.this,Reg_Sucess.class);
                                                 String phonenumber="+"+code+number;
@@ -257,6 +264,7 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
         backPressedTime = System.currentTimeMillis();
 
     }
+
 
 }
 
