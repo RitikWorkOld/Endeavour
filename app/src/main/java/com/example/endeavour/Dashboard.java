@@ -1,8 +1,8 @@
 package com.example.endeavour;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,7 +16,7 @@ public class Dashboard extends AppCompatActivity {
 
     LinearLayout layoutOurteam;
     LinearLayout layoutevents;
-    ImageView image_power;
+    ImageView notification_btn,image_power;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,15 @@ public class Dashboard extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
         layoutevents=(LinearLayout) findViewById(R.id.layout_events);
         layoutOurteam = (LinearLayout) findViewById(R.id.layout_ourteam);
+        notification_btn = (ImageView) findViewById(R.id.iv_notification_btn);
+
+        layoutevents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent_events= new Intent(Dashboard.this,EventsMain.class);
+                startActivity(intent_events);
+            }
+        });
         image_power=(ImageView)findViewById(R.id.image_power);
 
         image_power.setOnClickListener(new View.OnClickListener() {
@@ -54,15 +63,6 @@ public class Dashboard extends AppCompatActivity {
         });
 
 
-        layoutevents.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent_events= new Intent(Dashboard.this,EventsMain.class);
-                startActivity(intent_events);
-            }
-        });
-
-
 
 
         layoutOurteam.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +72,14 @@ public class Dashboard extends AppCompatActivity {
                     Intent intent_ourteam = new Intent(Dashboard.this, TeamMain.class);
                     startActivity(intent_ourteam);
                 }
+            }
+        });
+
+        notification_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Dashboard.this, Notifications.class);
+                startActivity(intent);
             }
         });
     }

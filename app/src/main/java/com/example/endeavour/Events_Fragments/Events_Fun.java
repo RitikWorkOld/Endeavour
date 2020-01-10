@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.endeavour.Customised.BucketRecyclerView;
 import com.example.endeavour.EventsMain;
 import com.example.endeavour.Events_main_model;
 import com.example.endeavour.Events_main_viewholder;
@@ -34,21 +35,25 @@ import static com.example.endeavour.R.layout.fragment_events__fun;
 
 public class Events_Fun extends Fragment {
 
-    private RecyclerView recyclerView;
+    private BucketRecyclerView recyclerView;
     private ArrayList<Events_main_model> arrayList;
     private FirebaseRecyclerOptions<Events_main_model> options;
     private FirebaseRecyclerAdapter<Events_main_model, Events_main_viewholder> adapter;
     private DatabaseReference databaseReference;
     private static FirebaseDatabase firebaseDatabase;
+    private View no_new_notifications;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_events__fun,container,false);
 
+        no_new_notifications = view.findViewById(R.id.no_new_events);
+
         recyclerView = view.findViewById(R.id.rv_events_fun);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
+        recyclerView.showIfEmpty(no_new_notifications);
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child("eventsfun");
         databaseReference.keepSynced(true);
