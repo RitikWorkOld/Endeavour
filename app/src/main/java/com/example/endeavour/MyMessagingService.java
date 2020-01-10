@@ -42,8 +42,8 @@ public class MyMessagingService extends FirebaseMessagingService{
         if (remoteMessage.getData().size() > 0) {
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
 
-            String key1 = remoteMessage.getData().get("key1").toString();
-            String key2 = remoteMessage.getData().get("key2").toString();
+            String key1 = remoteMessage.getData().get("title").toString();
+            String key2 = remoteMessage.getData().get("desc").toString();
             uploadData(key1,key2);
 
             sendNotification(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody());

@@ -48,6 +48,7 @@
             />
         <activity android:name=".EventsMain"/>
         <activity android:name=".ForgotPass" />
+        <activity android:name=".Notifications"/>
         <service
             android:name=".MyMessagingService"
             android:exported="false">

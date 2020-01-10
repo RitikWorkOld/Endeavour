@@ -8,19 +8,31 @@
     android:orientation="vertical"
     android:background="#701f47"
     android:gravity="center_horizontal">
-
-
-    <TextView
-        android:id="@+id/dashboard"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-    android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="Dashboard"
-        android:fontFamily="@font/nunito"
-        android:textStyle="bold"
-        android:textColor="#fff"
-        android:textSize="28sp"/>
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+
+        >
+        <ImageView
+            android:layout_width="30dp"
+            android:id="@+id/image_power"
+            android:layout_alignParentStart="true"
+            android:layout_height="30dp"
+
+            android:src="@drawable/power"/>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/iv_notification_btn"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:src="@drawable/ic_notifications_black_24dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"/>
+
 
     <ImageView
         android:id="@+id/dash_image"
