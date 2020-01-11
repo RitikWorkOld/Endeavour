@@ -10,13 +10,17 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -62,6 +66,7 @@ public class LoginActivity extends AppCompatActivity implements TextWatcher,
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
+
         SESSION();
 
         sharedPreferences = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
@@ -85,7 +90,7 @@ public class LoginActivity extends AppCompatActivity implements TextWatcher,
         signupbtn=findViewById(R.id.button_signup);
         btnSignIn=findViewById(R.id.signin);
         progressBars = findViewById(R.id.progressBar2);
-        progressBars.setVisibility(View.GONE);
+
 
         emailId.setText(sharedPreferences.getString(KEY_USERNAME,""));
         password.setText(sharedPreferences.getString(KEY_PASS,""));
@@ -94,7 +99,7 @@ public class LoginActivity extends AppCompatActivity implements TextWatcher,
         password.addTextChangedListener(this);
         rem_userpass.setOnCheckedChangeListener(this);
 
-
+        progressBars.setVisibility(View.GONE);
 
         textView1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -277,7 +282,8 @@ public void onBackPressed() {
         if(session){
             //here when user first or logout
             //In here,intent to signup for first reg
-            Toast.makeText(this,"Already Logged In",Toast.LENGTH_LONG).show();
+            showtoast();
+           // Toast.makeText(this,"Already Logged In",Toast.LENGTH_LONG).show();
             Intent signup=new Intent(getApplicationContext(),Dashboard.class);
             startActivity(signup);
 
@@ -291,6 +297,25 @@ public void onBackPressed() {
 
         }
 
+    }
+
+    private void showtoast() {
+
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.toast_layout, (ViewGroup) findViewById(R.id.toast_root));
+
+
+        ImageView toastImage = layout.findViewById(R.id.toast_image);
+
+
+        toastImage.setImageResource(R.drawable.log_in);
+
+        Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.DISPLAY_CLIP_VERTICAL, 0, 0);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(layout);
+
+        toast.show();
     }
 
 }

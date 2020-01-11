@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/button"
             android:text="Login"
-
+android:textColor="#000"
             android:fontFamily="@font/montserrat"
             android:textStyle="normal"
             android:layout_marginBottom="8dp"
@@ -50,6 +50,7 @@
             android:fontFamily="@font/montserrat"
             android:background="@drawable/btn1"
             android:text="Signup"
+            android:textColor="#000"
             android:textStyle="normal"
             android:textAllCaps="false"
             android:textSize="16sp"
@@ -113,9 +114,11 @@
                         android:id="@+id/fname"
                         android:textColor="#CD4B4B"
                         android:textSize="15sp"
+                        android:textColorHint="#808080"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
+
                         android:layout_marginRight="8dp"
                         android:fontFamily="@font/montserrat"
                         android:hint="What should we call you?" />
@@ -135,6 +138,7 @@
                         android:textColor="#CD4B4B"
                         android:textSize="15sp"
                         android:id="@+id/email"
+                        android:textColorHint="#808080"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
@@ -157,6 +161,7 @@
                         android:textColor="#CD4B4B"
                         android:textSize="15sp"
                         android:id="@+id/password"
+                        android:textColorHint="#808080"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
@@ -184,6 +189,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
+                      android:textColorHint="#808080"
                         android:layout_marginRight="8dp"
                         android:fontFamily="@font/montserrat"
                         android:hint="CSE/ME.." />
@@ -204,6 +210,7 @@
                         android:textColor="#CD4B4B"
                         android:textSize="15sp"
                         android:layout_width="match_parent"
+                        android:textColorHint="#808080"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
@@ -229,8 +236,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
+                        android:textColorHint="#808080"
                         android:fontFamily="@font/montserrat"
-                        android:hint="" />
+                        android:hint="1822ME1164" />
 
                     <TextView
                         android:textColor="#000"
@@ -246,12 +254,13 @@
                     <EditText
                         android:id="@+id/cnumber"
                         android:textColor="#CD4B4B"
+                        android:textColorHint="#808080"
                         android:textSize="15sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        android:hint=""
+                        android:hint="You will recieve an OTP"
                         android:fontFamily="@font/montserrat"
                         />
 
@@ -270,6 +279,7 @@
                     <EditText
                         android:id="@+id/cname"
                         android:textColor="#CD4B4B"
+                        android:textColorHint="#808080"
                         android:textSize="15sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

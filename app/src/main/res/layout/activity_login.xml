@@ -33,6 +33,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/btn1"
             android:text="Login"
+            android:textColor="#000"
             android:fontFamily="@font/montserrat"
             android:textStyle="normal"
             android:layout_marginBottom="8dp"
@@ -46,6 +47,7 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/button"
             android:text="Signup"
+            android:textColor="#000"
             android:fontFamily="@font/montserrat"
             android:textStyle="normal"
             android:textAllCaps="false"
@@ -95,7 +97,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
+
                         android:fontFamily="@font/montserrat"
+                        android:textColorHint="#808080"
                         android:hint="What should we call you?" />
 
                     <TextView
@@ -117,6 +121,7 @@
                         android:layout_margin="8dp"
                         android:fontFamily="@font/montserrat"
                         android:hint="*******"
+                        android:textColorHint="#808080"
                         android:inputType="textPassword"
                         />
 
@@ -125,7 +130,7 @@
                    android:text="Remember Email and Password"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
-
+android:textColor="#000"
                    android:id="@+id/checkBox" />
 
 

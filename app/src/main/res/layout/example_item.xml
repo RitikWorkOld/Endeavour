@@ -23,6 +23,7 @@
             android:id="@+id/layout_team_card"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#fff"
             android:fontFamily="@font/nunito"
             android:paddingHorizontal="20dp"
             android:paddingVertical="12dp">
@@ -87,6 +88,7 @@
             android:id="@+id/expandable_layout"
             android:weightSum="3"
             android:visibility="gone"
+            android:background="#fff"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
