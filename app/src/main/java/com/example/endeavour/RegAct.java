@@ -34,6 +34,7 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
 
     //firebase auth object
     private FirebaseAuth mAuth;
+    private String endvr = "ENDVR";
 
 
     private EditText emailId,password,fname1,branch1,year1,cid1,number1,cname1;
@@ -81,7 +82,7 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
 
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
-        findViewById(R.id.btnsignup).setOnClickListener(this);
+        findViewById(R.id.btnrequestotp).setOnClickListener(this);//**************************
 
 
 
@@ -109,143 +110,165 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
+    /*private void registerUser() {
 
+        final String email=emailId.getText().toString().trim();
+        final String pwd=password.getText().toString().trim();
+        final String fname=fname1.getText().toString().trim();
+        final String branch=branch1.getText().toString().trim();
+        final String year=year1.getText().toString().trim();
+        final String cid=cid1.getText().toString().trim();
+        final String number=number1.getText().toString().trim();
+        final String cname=cname1.getText().toString().trim();
 
-
-       private void registerUser() {
-               final String email=emailId.getText().toString().trim();
-                String pwd=password.getText().toString().trim();
-           final String fname=fname1.getText().toString().trim();
-           final  String branch=branch1.getText().toString().trim();
-           final   String year=year1.getText().toString().trim();
-           final   String cid=cid1.getText().toString().trim();
-           final   String number=number1.getText().toString().trim();
-           final   String cname=cname1.getText().toString().trim();
-
-
-
-           if(fname.isEmpty()){
-               fname1.setError(getString(R.string.input_error_name));
-               fname1.requestFocus();
-               return;
-           }
-                else if(email.isEmpty()){
-                    emailId.setError(getString(R.string.input_error_email));
-                    emailId.requestFocus();
-                    return;
-                }
-           if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-               emailId.setError(getString(R.string.input_error_email_invalid));
-               emailId.requestFocus();
-               return;
-           }
-                else if(pwd.isEmpty()){
-                    password.setError(getString(R.string.input_error_password));
-                    password.requestFocus();
-                }
-           if (pwd.length() < 6 ) {
-               password.setError(getString(R.string.input_error_password_length));
-               password.requestFocus();
-               return;
-           }
-           if(!PASSWORD_PATTERN.matcher(pwd).matches()){
-
-               password.setError("1 Digit? \n 1 LowerCase? \n 1 UpperCase? \n 1 Special Character? \n atleast 6 character?");
-               password.requestFocus();
-               return;
-           }
-
-
-
-                else if(branch.isEmpty()){
-                    branch1.setError("Please Enter Branch");
-                    branch1.requestFocus();
-                    return;
-                }
-
-                else if(year.isEmpty()){
-                    year1.setError("Please Enter Year");
-                    year1.requestFocus();
-                    return;
-                }
-                else if(cid.isEmpty()){
-                    cid1.setError("Please Enter CampusID");
-                    cid1.requestFocus();
-                    return;
-                }
-                else if(number.isEmpty()){
-                    number1.setError("Please Enter Your Number");
-                    number1.requestFocus();
-                    return;
-                }
-           if (number.length() != 10) {
-               number1.setError(getString(R.string.input_error_phone_invalid));
-               number1.requestFocus();
-               return;
-           }
-                else if(cname.isEmpty()){
-                    cname1.setError("Please Enter College Name");
-                    cname1.requestFocus();
-                    return;
-                }
-
-
-           progressBar.setVisibility(View.VISIBLE);
-                mFirebaseAuth.createUserWithEmailAndPassword(email,pwd)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-
-                                if (task.isSuccessful()) {
-                                    String uid = FirebaseAuth.getInstance().getUid();
-                                            User user=new User(fname,email,branch,year,cid,number,cname,uid);
-
-                                    FirebaseDatabase.getInstance().getReference("Users")
-                                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                            .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            progressBar.setVisibility(View.GONE);
-                                            if (task.isSuccessful()) {
-
-
-                                                //saving session
-                                                Save.save(getApplicationContext(),"session","true");
-
-
-                                                //Toast.makeText(RegAct.this, getString(R.string.registration_success), Toast.LENGTH_LONG).show();
-                                                Intent intent = new Intent(RegAct.this,Reg_Sucess.class);
-                                                String phonenumber="+"+code+number;
-                                                intent.putExtra("mobile",phonenumber);
-                                                startActivity(intent);
-                                            } else {
-                                                Intent intent = new Intent(RegAct.this,Reg_Fail.class);
-                                                startActivity(intent);
-                                            }
-                                        }
-                                    });
-
-                                } else {
+        progressBar.setVisibility(View.VISIBLE);
+        mFirebaseAuth.createUserWithEmailAndPassword(email,pwd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    String refrelid = endvr.concat(number);
+                    String uid = FirebaseAuth.getInstance().getUid();
+                    User user=new User(fname,email,branch,year,cid,number,cname,uid,refrelid);
+                    FirebaseDatabase.getInstance().getReference("Users")
+                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                            .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
                                     progressBar.setVisibility(View.GONE);
-                                    //Toast.makeText(RegAct.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                                    Intent intent = new Intent(RegAct.this,Reg_Fail.class);
-                                    startActivity(intent);
+                                    if (task.isSuccessful()) {
 
+                                        //saving session
+                                        Save.save(getApplicationContext(),"session","true");
+
+                                        //Toast.makeText(RegAct.this, getString(R.string.registration_success), Toast.LENGTH_LONG).show();
+                                        Intent intent = new Intent(RegAct.this,Reg_Sucess.class);
+                                        startActivity(intent);
+                                    }
+                                    else {
+                                        Intent intent = new Intent(RegAct.this,Reg_Fail.class);
+                                        startActivity(intent);
+                                    }
                                 }
-                            }
-                        });
+                            });
 
+                }
+                else {
+                    progressBar.setVisibility(View.GONE);
+                    //Toast.makeText(RegAct.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(RegAct.this,Reg_Fail.class);
+                    startActivity(intent);
+                }
             }
-
-
-
+        });
+    }*/
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btnsignup:
-                registerUser();
+            case R.id.btnrequestotp:
+                boolean valid = validateUser();
+                if (valid == true){
+
+                    final String email=emailId.getText().toString().trim();
+                    final String pwd=password.getText().toString().trim();
+                    final String fname=fname1.getText().toString().trim();
+                    final String branch=branch1.getText().toString().trim();
+                    final String year=year1.getText().toString().trim();
+                    final String cid=cid1.getText().toString().trim();
+                    final String number=number1.getText().toString().trim();
+                    final String cname=cname1.getText().toString().trim();
+
+                    Intent intent = new Intent(RegAct.this,RequestOtp.class);
+                    intent.putExtra("name",fname);
+                    intent.putExtra("email",email);
+                    intent.putExtra("password",pwd);
+                    intent.putExtra("branch",branch);
+                    intent.putExtra("year",year);
+                    intent.putExtra("campusid",cid);
+                    intent.putExtra("number",number);
+                    intent.putExtra("cname",cname);
+                    startActivity(intent);
+                }
                 break;
+        }
+    }
+
+    private boolean validateUser() {
+        final String email=emailId.getText().toString().trim();
+        final String pwd=password.getText().toString().trim();
+        final String fname=fname1.getText().toString().trim();
+        final String branch=branch1.getText().toString().trim();
+        final String year=year1.getText().toString().trim();
+        final String cid=cid1.getText().toString().trim();
+        final String number=number1.getText().toString().trim();
+        final String cname=cname1.getText().toString().trim();
+
+        if(fname.isEmpty()){
+            fname1.setError(getString(R.string.input_error_name));
+            fname1.requestFocus();
+            return false;
+        }
+        else if(email.isEmpty()){
+            emailId.setError(getString(R.string.input_error_email));
+            emailId.requestFocus();
+            return false;
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            emailId.setError(getString(R.string.input_error_email_invalid));
+            emailId.requestFocus();
+            return false;
+        }
+        else if(pwd.isEmpty()){
+            password.setError(getString(R.string.input_error_password));
+            password.requestFocus();
+            return false;
+        }
+        if (pwd.length() < 6 ) {
+            password.setError(getString(R.string.input_error_password_length));
+            password.requestFocus();
+            return false;
+        }
+        if(!PASSWORD_PATTERN.matcher(pwd).matches()){
+
+            password.setError("1 Digit? \n 1 LowerCase? \n 1 UpperCase? \n 1 Special Character? \n atleast 6 character?");
+            password.requestFocus();
+            return false;
+        }
+
+        else if(branch.isEmpty()){
+            branch1.setError("Please Enter Branch");
+            branch1.requestFocus();
+            return false;
+        }
+
+        else if(year.isEmpty()){
+            year1.setError("Please Enter Year");
+            year1.requestFocus();
+            return false;
+        }
+        else if(cid.isEmpty()){
+            cid1.setError("Please Enter CampusID");
+            cid1.requestFocus();
+            return false;
+        }
+        else if(number.isEmpty()){
+            number1.setError("Please Enter Your Number");
+            number1.requestFocus();
+            return false;
+        }
+        if (number.length() != 10) {
+            number1.setError(getString(R.string.input_error_phone_invalid));
+            number1.requestFocus();
+            return false;
+        }
+        else if(cname.isEmpty()){
+            cname1.setError("Please Enter College Name");
+            cname1.requestFocus();
+            return false;
+        }
+
+        else {
+            return true;
         }
     }
 
@@ -265,7 +288,5 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
         backPressedTime = System.currentTimeMillis();
 
     }
-
-
 }
 

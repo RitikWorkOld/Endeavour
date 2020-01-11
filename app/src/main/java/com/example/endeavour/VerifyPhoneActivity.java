@@ -126,7 +126,7 @@ public class VerifyPhoneActivity extends AppCompatActivity {
         signInWithPhoneAuthCredential(credential);
     }
 
-    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(VerifyPhoneActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override

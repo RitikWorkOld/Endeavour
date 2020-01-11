@@ -13,6 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".RequestOtp"
+            android:theme="@style/AppTheme.Requeststyle"></activity>
         <activity android:name=".splashAct">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,23 +35,18 @@
         <activity
             android:name=".Reg_Sucess"
             android:theme="@style/AppTheme.Popupstyle" />
-        <activity android:name=".TeamMain">
-
-        </activity>
+        <activity android:name=".TeamMain"></activity>
         <activity
             android:name=".RegAct"
             android:noHistory="true" />
         <activity
             android:name=".LoginActivity"
             android:noHistory="true" />
-
-        <activity
-            android:name=".Dashboard"
-            />
-        <activity android:name=".EventsMain"/>
+        <activity android:name=".Dashboard" />
+        <activity android:name=".EventsMain" />
         <activity android:name=".ForgotPass" />
         <activity android:name=".VerifyPhoneActivity" />
-        <activity android:name=".Notifications"/>
+        <activity android:name=".Notifications" />
 
         <service
             android:name=".services.MyMessagingService"
