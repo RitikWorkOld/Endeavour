@@ -1,11 +1,14 @@
-package com.example.endeavour;
+package com.example.endeavour.services;
 
 
+import android.annotation.SuppressLint;
+import android.app.ActivityManager;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 
 import android.app.PendingIntent;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.icu.text.CaseMap;
@@ -18,6 +21,8 @@ import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import com.example.endeavour.Notifications;
+import com.example.endeavour.R;
 import com.example.endeavour.services.Noti_Helper;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -27,6 +32,9 @@ import com.google.firebase.messaging.RemoteMessage;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.List;
+import java.util.Map;
 
 public class MyMessagingService extends FirebaseMessagingService{
 
@@ -40,11 +48,7 @@ public class MyMessagingService extends FirebaseMessagingService{
         Log.d(TAG, "From: " + remoteMessage.getFrom());
 
         if (remoteMessage.getData().size() > 0) {
-            Log.d(TAG, "Message data payload: " + remoteMessage.getData());
-
-            String key1 = remoteMessage.getData().get("title").toString();
-            String key2 = remoteMessage.getData().get("desc").toString();
-            uploadData(key1,key2);
+            Log.d(TAG, "Message data payload: " + remoteMessage.getData().get("title").toString());
 
             sendNotification(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody());
         }
@@ -56,18 +60,6 @@ public class MyMessagingService extends FirebaseMessagingService{
         }
     }
 
-    private void uploadData(String keya, String keyb) {
-
-        String notiid = FirebaseDatabase.getInstance().getReference().child("notification")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).push().getKey();
-
-        Noti_Helper noti_helper = new Noti_Helper(keya,keyb,notiid);
-
-        FirebaseDatabase.getInstance().getReference().child("notification")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(notiid).setValue(noti_helper);
-    }
-
-
     @Override
     public void onNewToken(String token) {
         Log.d(TAG, "Refreshed token: " + token);
@@ -76,6 +68,7 @@ public class MyMessagingService extends FirebaseMessagingService{
     private void sendNotification(String title,String messageBody) {
 
         Intent intent = new Intent(this, Notifications.class);
+
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 , intent,
                 PendingIntent.FLAG_ONE_SHOT);

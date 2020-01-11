@@ -197,7 +197,8 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
                             public void onComplete(@NonNull Task<AuthResult> task) {
 
                                 if (task.isSuccessful()) {
-                                            User user=new User(fname,email,branch,year,cid,number,cname);
+                                    String uid = FirebaseAuth.getInstance().getUid();
+                                            User user=new User(fname,email,branch,year,cid,number,cname,uid);
 
                                     FirebaseDatabase.getInstance().getReference("Users")
                                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
