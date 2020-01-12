@@ -26,6 +26,7 @@ public class Dashboard extends AppCompatActivity  {
     LinearLayout layoutOurteam;
     LinearLayout layoutevents;
     FirebaseAuth firebaseAuth;
+    LinearLayout layoutsponsors;
     private Toast backToast;
     ImageView notification_btn, image_power;
     private long backPressedTime;
@@ -58,6 +59,7 @@ public class Dashboard extends AppCompatActivity  {
 
         layoutevents = (LinearLayout) findViewById(R.id.layout_events);
         layoutOurteam = (LinearLayout) findViewById(R.id.layout_ourteam);
+        layoutsponsors = (LinearLayout) findViewById(R.id.layout_sponsors);
 
 
 
@@ -69,6 +71,14 @@ public class Dashboard extends AppCompatActivity  {
             public void onClick(View v) {
                 Intent intent_events = new Intent(Dashboard.this, EventsMain.class);
                 startActivity(intent_events);
+            }
+        });
+
+        layoutsponsors.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent_sponsors = new Intent(Dashboard.this,Sponsor.class);
+                startActivity(intent_sponsors);
             }
         });
 

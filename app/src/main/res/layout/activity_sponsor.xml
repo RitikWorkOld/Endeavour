@@ -48,7 +48,7 @@
 
         <!-- layout when no events are there -->
         <!-- show it from java file not from here-->
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/layout_no_events"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -56,7 +56,12 @@
             android:layout_above="@+id/card_view_radio_buttons"
             android:orientation="vertical"
             android:visibility="visible"
-            android:gravity="center_vertical">
+            android:gravity="center">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_sponsor"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
             <ImageView
                 android:visibility="invisible"
@@ -66,20 +71,12 @@
                 android:layout_margin="8dp"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/no_events"/>
-        </LinearLayout>
-
-
-
-
-
+        </RelativeLayout>
     </RelativeLayout>
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayoutNavigation"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-
-
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bar"
