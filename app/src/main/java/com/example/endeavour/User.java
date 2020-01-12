@@ -2,13 +2,13 @@ package com.example.endeavour;
 
 
 public class User {
-    public String name, email,branch,year,campusid,contactN,CollegeName,uid,refrelid;
+    public String name, email,branch,year,campusid,contactN,CollegeName,uid,refrelid,password;
 
     public User(){
 
     }
 
-    public User(String fname, String email,String branch, String year, String cid,String number, String cname,String uid,String refrelid) {
+    public User(String fname, String email,String branch, String year, String cid,String number, String cname,String uid,String refrelid,String password) {
         this.name = fname;
         this.email = email;
         this.branch=branch;
@@ -18,5 +18,6 @@ public class User {
         this.CollegeName=cname;
         this.uid=uid;
         this.refrelid=refrelid;
+        this.password=password;
     }
 }

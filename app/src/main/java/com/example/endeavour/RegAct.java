@@ -20,11 +20,15 @@ import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
@@ -175,27 +179,44 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.btnrequestotp:
                 boolean valid = validateUser();
-                if (valid == true){
-
-                    final String email=emailId.getText().toString().trim();
-                    final String pwd=password.getText().toString().trim();
-                    final String fname=fname1.getText().toString().trim();
-                    final String branch=branch1.getText().toString().trim();
-                    final String year=year1.getText().toString().trim();
-                    final String cid=cid1.getText().toString().trim();
+                if (valid){
                     final String number=number1.getText().toString().trim();
-                    final String cname=cname1.getText().toString().trim();
+                    DatabaseReference dbref = FirebaseDatabase.getInstance().getReference().child("Users");
+                    dbref.orderByChild("contactN").equalTo(number).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.getValue() != null){
+                                Toast.makeText(RegAct.this,"User on this phone Number Already Exists",Toast.LENGTH_SHORT).show();
+                            }
+                            else {
+                                final String email=emailId.getText().toString().trim();
+                                final String pwd=password.getText().toString().trim();
+                                final String fname=fname1.getText().toString().trim();
+                                final String branch=branch1.getText().toString().trim();
+                                final String year=year1.getText().toString().trim();
+                                final String cid=cid1.getText().toString().trim();
+                                final String number=number1.getText().toString().trim();
+                                final String cname=cname1.getText().toString().trim();
 
-                    Intent intent = new Intent(RegAct.this,RequestOtp.class);
-                    intent.putExtra("name",fname);
-                    intent.putExtra("email",email);
-                    intent.putExtra("password",pwd);
-                    intent.putExtra("branch",branch);
-                    intent.putExtra("year",year);
-                    intent.putExtra("campusid",cid);
-                    intent.putExtra("number",number);
-                    intent.putExtra("cname",cname);
-                    startActivity(intent);
+                                Intent intent = new Intent(RegAct.this,RequestOtp.class);
+                                intent.putExtra("name",fname);
+                                intent.putExtra("email",email);
+                                intent.putExtra("password",pwd);
+                                intent.putExtra("branch",branch);
+                                intent.putExtra("year",year);
+                                intent.putExtra("campusid",cid);
+                                intent.putExtra("number",number);
+                                intent.putExtra("cname",cname);
+                                startActivity(intent);
+                                //Toast.makeText(RegAct.this,"NO user found",Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
                 }
                 break;
         }
@@ -221,7 +242,7 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
             emailId.requestFocus();
             return false;
         }
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             emailId.setError(getString(R.string.input_error_email_invalid));
             emailId.requestFocus();
             return false;
@@ -231,12 +252,12 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
             password.requestFocus();
             return false;
         }
-        if (pwd.length() < 6 ) {
+        else if (pwd.length() < 6 ) {
             password.setError(getString(R.string.input_error_password_length));
             password.requestFocus();
             return false;
         }
-        if(!PASSWORD_PATTERN.matcher(pwd).matches()){
+        else if(!PASSWORD_PATTERN.matcher(pwd).matches()){
 
             password.setError("1 Digit? \n 1 LowerCase? \n 1 UpperCase? \n 1 Special Character? \n atleast 6 character?");
             password.requestFocus();
@@ -264,7 +285,8 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
             number1.requestFocus();
             return false;
         }
-        if (number.length() != 10) {
+
+        else if (number.length() != 10) {
             number1.setError(getString(R.string.input_error_phone_invalid));
             number1.requestFocus();
             return false;
@@ -299,6 +321,46 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
 
 
     }
+
+    /*
+    final String email=emailId.getText().toString().trim();
+                    final String pwd=password.getText().toString().trim();
+                    final String fname=fname1.getText().toString().trim();
+                    final String branch=branch1.getText().toString().trim();
+                    final String year=year1.getText().toString().trim();
+                    final String cid=cid1.getText().toString().trim();
+                    final String number=number1.getText().toString().trim();
+                    final String cname=cname1.getText().toString().trim();
+
+                    Intent intent = new Intent(RegAct.this,RequestOtp.class);
+                    intent.putExtra("name",fname);
+                    intent.putExtra("email",email);
+                    intent.putExtra("password",pwd);
+                    intent.putExtra("branch",branch);
+                    intent.putExtra("year",year);
+                    intent.putExtra("campusid",cid);
+                    intent.putExtra("number",number);
+                    intent.putExtra("cname",cname);
+                    startActivity(intent);
+     */
+
+    /*
+    DatabaseReference dbref = FirebaseDatabase.getInstance().getReference().child("Users");
+        dbref.orderByChild("contactN").equalTo(number).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getValue() != null){
+                    Toast.makeText(RegAct.this,"User on this phone Number Already Exists",Toast.LENGTH_SHORT).show();
+                    num = "yes";
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+     */
 
 
 

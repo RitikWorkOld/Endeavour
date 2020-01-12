@@ -148,6 +148,7 @@ public class RequestOtp extends AppCompatActivity {
                 if (task.isSuccessful()) {
 
                     //verification successful we will start the profile activity
+                    mAuth.signOut();
                     registeruser();
 
                 } else {
@@ -187,7 +188,7 @@ public class RequestOtp extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     String refrelid = endvr.concat(number);
                     String uid = FirebaseAuth.getInstance().getUid();
-                    User user=new User(fname,email,branch,year,cid,number,cname,uid,refrelid);
+                    User user=new User(fname,email,branch,year,cid,number,cname,uid,refrelid,pwd);
                     FirebaseDatabase.getInstance().getReference("Users")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                             .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
