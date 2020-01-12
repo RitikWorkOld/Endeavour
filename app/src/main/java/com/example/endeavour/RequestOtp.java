@@ -33,7 +33,11 @@ public class RequestOtp extends AppCompatActivity {
     private String mVerificationId;
     private EditText editTextCode;
     private Button verify;
+
+
     private FirebaseAuth mAuth;
+
+
     private FirebaseAuth mFirebaseAuth;
     int code=91;
     private String endvr = "ENDVR";
@@ -45,8 +49,14 @@ public class RequestOtp extends AppCompatActivity {
         setContentView(R.layout.activity_request_otp);
 
         mAuth = FirebaseAuth.getInstance();
+
+
         editTextCode = findViewById(R.id.otp_et);
+
+
         verify = findViewById(R.id.verify_btn);
+
+
         mFirebaseAuth = FirebaseAuth.getInstance();
 
         progressBar = findViewById(R.id.progressBar);
@@ -84,7 +94,7 @@ public class RequestOtp extends AppCompatActivity {
     private void sendVerificationCode(String mobile) {
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 mobile,
-                60,
+                120,
                 TimeUnit.SECONDS,
                 TaskExecutors.MAIN_THREAD,
                 mCallbacks);
@@ -102,6 +112,7 @@ public class RequestOtp extends AppCompatActivity {
             //so user has to manually enter the code
             if (code != null) {
                 editTextCode.setText(code);
+
                 //verifying the code
                 verifyVerificationCode(code);
             }
@@ -126,11 +137,11 @@ public class RequestOtp extends AppCompatActivity {
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, code);
 
         //signing the user
-        registeruser();
-        //signInWithPhoneAuthCredential(credential);
+
+        signInWithPhoneAuthCredential(credential);
     }
 
-   /*private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+   private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
         mAuth.signInWithCredential(credential).addOnCompleteListener(RequestOtp.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -149,18 +160,13 @@ public class RequestOtp extends AppCompatActivity {
                         message = "Invalid code entered...";
                     }
 
-                    Snackbar snackbar = Snackbar.make(findViewById(R.id.parent), message, Snackbar.LENGTH_LONG);
-                    snackbar.setAction("Dismiss", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                                }
-                    });
-                    snackbar.show();
+                    Toast.makeText(RequestOtp.this,message, Toast.LENGTH_LONG).show();
+
                 }
             }
         });
 
-    }*/
+    }
 
     private void registeruser() {
         Intent intent = getIntent();

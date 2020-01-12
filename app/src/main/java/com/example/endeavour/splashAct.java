@@ -25,11 +25,11 @@ public class splashAct extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
-        final ImageView imageView = (ImageView) findViewById(R.id.imageView1);
+        final ImageView imageView =  findViewById(R.id.imageView1);
 
         final Animation animation_1 = AnimationUtils.loadAnimation(getBaseContext(),R.anim.zoom_in);
         final Animation animation_2 = AnimationUtils.loadAnimation(getBaseContext(),R.anim.antirotate);
-        //final Animation animation_3 = AnimationUtils.loadAnimation(getBaseContext(),R.anim.zoom_out);
+
 
         imageView.startAnimation(animation_2);
         animation_2.setAnimationListener(new Animation.AnimationListener() {

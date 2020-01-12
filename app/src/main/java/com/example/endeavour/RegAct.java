@@ -15,12 +15,18 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.endeavour.Utils.Save;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
 public class RegAct extends AppCompatActivity implements View.OnClickListener {
@@ -35,6 +41,7 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
     //firebase auth object
     private FirebaseAuth mAuth;
     private String endvr = "ENDVR";
+
 
 
     private EditText emailId,password,fname1,branch1,year1,cid1,number1,cname1;
@@ -64,6 +71,7 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_reg);
         mFirebaseAuth = FirebaseAuth.getInstance();
+
 
         //initializing objects
         mAuth = FirebaseAuth.getInstance();         //added
@@ -288,5 +296,9 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
         backPressedTime = System.currentTimeMillis();
 
     }
-}
+
+
+    }
+
+
 
