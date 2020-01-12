@@ -98,7 +98,8 @@ public class EventsMain extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.action_glimpses:
-                        Toast.makeText(EventsMain.this, "Notification clicked.", Toast.LENGTH_SHORT).show();
+                        BottomSheetDialogFragment bottomSheetDialogFragmentTwo = BottomSheetNavigationFragmentTwo.newInstance();
+                        bottomSheetDialogFragmentTwo.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment Two");
                         break;
                     case R.id.menu_about:
                         BottomSheetDialogFragment bottomSheetDialogFragment = BottomSheetNavigationFragmentOne.newInstance();

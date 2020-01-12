@@ -206,9 +206,13 @@ public class RequestOtp extends AppCompatActivity {
                                 finish();
                             }
                             else {
-                                Intent intent = new Intent(RequestOtp.this,Reg_Fail.class);
-                                startActivity(intent);
-                                finish();
+                                if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
+                                    // The verification code entered was invalid
+                                    Intent intent = new Intent(RequestOtp.this,Reg_Fail.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+
                             }
                         }
                     });
