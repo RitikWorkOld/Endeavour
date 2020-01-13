@@ -1,4 +1,4 @@
-package com.example.endeavour;
+package com.example.endeavour.Team;
 
 public class Teamcard_model {
 

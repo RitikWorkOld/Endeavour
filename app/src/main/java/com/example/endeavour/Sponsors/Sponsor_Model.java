@@ -1,4 +1,4 @@
-package com.example.endeavour;
+package com.example.endeavour.Sponsors;
 
 public class Sponsor_Model {
 

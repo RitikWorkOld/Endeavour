@@ -1,4 +1,4 @@
-package com.example.endeavour;
+package com.example.endeavour.Events_Fragments;
 
 public class Events_main_model {
 

@@ -133,6 +133,7 @@
                 android:layout_height="match_parent">
 
                 <LinearLayout
+                    android:id="@+id/layout_shedule"
                     android:orientation="vertical"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"

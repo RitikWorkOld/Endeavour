@@ -1,16 +1,14 @@
-package com.example.endeavour;
+package com.example.endeavour.Team;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,13 +19,15 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.endeavour.BottomSheetNavigationFragment;
+import com.example.endeavour.BottomSheetNavigationFragmentOne;
+import com.example.endeavour.BottomSheetNavigationFragmentTwo;
+import com.example.endeavour.Dashboard;
+import com.example.endeavour.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomappbar.BottomAppBar;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -43,7 +43,7 @@ public class TeamMain extends AppCompatActivity {
 
     private ArrayList<Teamcard_model> arrayList;
     private FirebaseRecyclerOptions<Teamcard_model> options;
-    private FirebaseRecyclerAdapter<Teamcard_model,Teamcard_Viewholder> adapter;
+    private FirebaseRecyclerAdapter<Teamcard_model, Teamcard_Viewholder> adapter;
     private DatabaseReference databaseReference;
     private static FirebaseDatabase firebaseDatabase;
     boolean expanded = false;

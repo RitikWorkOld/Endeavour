@@ -79,7 +79,6 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
 
         //initializing objects
         mAuth = FirebaseAuth.getInstance();         //added
-        editTextCode = findViewById(R.id.editTextCode);             //added
 
         emailId = findViewById(R.id.email);
         password = findViewById(R.id.password);
@@ -182,6 +181,7 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
                 if (valid){
                     final String number=number1.getText().toString().trim();
                     DatabaseReference dbref = FirebaseDatabase.getInstance().getReference().child("Users");
+                    dbref.keepSynced(true);
                     dbref.orderByChild("contactN").equalTo(number).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

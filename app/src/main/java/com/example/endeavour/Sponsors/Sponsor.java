@@ -1,4 +1,4 @@
-package com.example.endeavour;
+package com.example.endeavour.Sponsors;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,9 +13,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.Toast;
 
+import com.example.endeavour.BottomSheetNavigationFragment;
+import com.example.endeavour.BottomSheetNavigationFragmentOne;
+import com.example.endeavour.BottomSheetNavigationFragmentTwo;
+import com.example.endeavour.Dashboard;
+import com.example.endeavour.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomappbar.BottomAppBar;
@@ -48,6 +54,8 @@ public class Sponsor extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_sponsor);
         image=findViewById(R.id.back);
         setUpBottomAppBar();

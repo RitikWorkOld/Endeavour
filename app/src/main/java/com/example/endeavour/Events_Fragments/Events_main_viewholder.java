@@ -1,4 +1,4 @@
-package com.example.endeavour;
+package com.example.endeavour.Events_Fragments;
 
 import android.view.View;
 import android.widget.Button;
@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.endeavour.R;
 
 public class Events_main_viewholder extends RecyclerView.ViewHolder {
 

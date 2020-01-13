@@ -15,6 +15,7 @@
     <string name="input_error_email_invalid">enter a valid email</string>
     <string name="default_notification_channel_id">Notification</string>
     <string name="fcm_message">Notification</string>
+    <string name="desc_speakers">Hello World</string>
     <string name="ecell_intro">KIET e-Cell is a student body of Krishna Institute of Engineering and Technology, formed in 2014 with the aim to promote an entrepreneurial culture among students of technical streams, and encouraging the entrepreneurial minds of the students to convert their drop of idea into an ocean of reality.
 Through its various activities and events, the Entrepreneurship Cell of KIET strives to enrich their knowledge in the domain of management and technology intervention, and overall ecosystem development for innovation and entrepreneurship.</string>
     <string name="Vision">We work with a vision to develop a spirit of entrepreneurship among the students of KIET and to support budding entrepreneurs in the exciting and rigorous journey they dare to take.</string>

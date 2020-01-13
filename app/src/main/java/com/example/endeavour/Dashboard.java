@@ -14,6 +14,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.endeavour.Events_Fragments.EventsMain;
+import com.example.endeavour.Notifications.Notifications;
+import com.example.endeavour.Shedule.Shedule;
+import com.example.endeavour.Speakers.Speakers;
+import com.example.endeavour.Sponsors.Sponsor;
+import com.example.endeavour.Team.TeamMain;
 import com.example.endeavour.Utils.Save;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetView;
@@ -21,16 +27,15 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Dashboard extends AppCompatActivity  {
 
-
-
     LinearLayout layoutOurteam;
     LinearLayout layoutevents;
     FirebaseAuth firebaseAuth;
     LinearLayout layoutsponsors;
+    LinearLayout layoutspeakers;
+    LinearLayout layoutshedule;
     private Toast backToast;
     ImageView notification_btn, image_power;
     private long backPressedTime;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +65,8 @@ public class Dashboard extends AppCompatActivity  {
         layoutevents = (LinearLayout) findViewById(R.id.layout_events);
         layoutOurteam = (LinearLayout) findViewById(R.id.layout_ourteam);
         layoutsponsors = (LinearLayout) findViewById(R.id.layout_sponsors);
+        layoutspeakers = (LinearLayout) findViewById(R.id.layout_speakers);
+        layoutshedule = (LinearLayout) findViewById(R.id.layout_shedule);
 
 
 
@@ -77,8 +84,24 @@ public class Dashboard extends AppCompatActivity  {
         layoutsponsors.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_sponsors = new Intent(Dashboard.this,Sponsor.class);
+                Intent intent_sponsors = new Intent(Dashboard.this, Sponsor.class);
                 startActivity(intent_sponsors);
+            }
+        });
+
+        layoutspeakers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent_speakers = new Intent(Dashboard.this, Speakers.class);
+                startActivity(intent_speakers);
+            }
+        });
+
+        layoutshedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent_shedule = new Intent(Dashboard.this, Shedule.class);
+                startActivity(intent_shedule);
             }
         });
 

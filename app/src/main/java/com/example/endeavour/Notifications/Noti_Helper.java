@@ -1,4 +1,4 @@
-package com.example.endeavour.services;
+package com.example.endeavour.Notifications;
 
 public class Noti_Helper {
 

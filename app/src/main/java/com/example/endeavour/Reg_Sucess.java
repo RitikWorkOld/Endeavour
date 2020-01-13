@@ -47,18 +47,5 @@ public class Reg_Sucess extends AppCompatActivity {
                 finish();
             }
         });
-        /*OTP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent i = getIntent();         //added
-                String mobile = i.getStringExtra("mobile");           //added
-
-                Intent intent = new Intent(Reg_Sucess.this, VerifyPhoneActivity.class);
-                intent.putExtra("mobile", mobile);
-                startActivity(intent);
-                return;
-            }
-        });*/
     }
 }

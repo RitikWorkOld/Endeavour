@@ -1,4 +1,4 @@
-package com.example.endeavour;
+package com.example.endeavour.Events_Fragments;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -13,11 +13,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RadioButton;
-import android.widget.Toast;
 
-import com.example.endeavour.Events_Fragments.Events_Corp;
-import com.example.endeavour.Events_Fragments.Events_Fun;
-import com.example.endeavour.Events_Fragments.Events_Tech;
+import com.example.endeavour.BottomSheetNavigationFragment;
+import com.example.endeavour.BottomSheetNavigationFragmentOne;
+import com.example.endeavour.BottomSheetNavigationFragmentTwo;
+import com.example.endeavour.Dashboard;
+import com.example.endeavour.R;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 

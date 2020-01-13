@@ -1,23 +1,19 @@
-package com.example.endeavour;
+package com.example.endeavour.Notifications;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.icu.text.CaseMap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.example.endeavour.Customised.BucketRecyclerView;
-import com.example.endeavour.services.Noti_Helper;
+import com.example.endeavour.Dashboard;
+import com.example.endeavour.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -96,7 +92,7 @@ public class Notifications extends AppCompatActivity {
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Notifications.this,Dashboard.class);
+                Intent intent = new Intent(Notifications.this, Dashboard.class);
                 startActivity(intent);
                 finish();
             }

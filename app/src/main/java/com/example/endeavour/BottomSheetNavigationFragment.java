@@ -7,9 +7,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.endeavour.Events_Fragments.EventsMain;
+import com.example.endeavour.Team.TeamMain;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -72,11 +72,11 @@ public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.nav01:
-                        startActivity(new Intent(getActivity(),EventsMain.class));
+                        startActivity(new Intent(getActivity(), EventsMain.class));
 
                         break;
                     case R.id.nav05:
-                        startActivity(new Intent(getActivity(),TeamMain.class));
+                        startActivity(new Intent(getActivity(), TeamMain.class));
 
                         break;
                 }

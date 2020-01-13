@@ -1,4 +1,4 @@
-package com.example.endeavour;
+package com.example.endeavour.Notifications;
 
 import android.provider.ContactsContract;
 import android.view.View;
@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.endeavour.R;
 
 public class Notification_ViewHolder extends RecyclerView.ViewHolder {
 
