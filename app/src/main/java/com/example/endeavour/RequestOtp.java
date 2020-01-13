@@ -24,6 +24,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReadWriteLock;
@@ -198,8 +199,12 @@ public class RequestOtp extends AppCompatActivity {
                             //progressBar.setVisibility(View.GONE);
                             if (task.isSuccessful()) {
 
+
+
+
                                 //saving session
                                 Save.save(getApplicationContext(),"session","true");
+
 
                                 //Toast.makeText(RegAct.this, getString(R.string.registration_success), Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(RequestOtp.this,Reg_Sucess.class);

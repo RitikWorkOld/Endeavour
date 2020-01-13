@@ -34,6 +34,7 @@ public class Dashboard extends AppCompatActivity  {
     LinearLayout layoutsponsors;
     LinearLayout layoutspeakers;
     LinearLayout layoutshedule;
+
     private Toast backToast;
     ImageView notification_btn, image_power;
     private long backPressedTime;
@@ -56,6 +57,11 @@ public class Dashboard extends AppCompatActivity  {
                             .cancelable(false)
                             .id(1),
                     TapTarget.forView(findViewById(R.id.iv_notification_btn), "Notification Button", "This will help you \n (Tap on button to Cancel)")
+                            .tintTarget(false)
+                            .cancelable(false)
+                            .targetCircleColor(R.color.colorPrimaryDark)
+                            .id(2),
+                    TapTarget.forView(findViewById(R.id.layout_bottom_menu), "Dashboard", "This will help you \n (Tap on button to Cancel)")
                             .tintTarget(false)
                             .cancelable(false)
                             .targetCircleColor(R.color.colorPrimaryDark)
