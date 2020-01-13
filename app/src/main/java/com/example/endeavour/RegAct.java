@@ -176,6 +176,7 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+
             case R.id.btnrequestotp:
                 boolean valid = validateUser();
                 if (valid){
@@ -322,45 +323,6 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
 
     }
 
-    /*
-    final String email=emailId.getText().toString().trim();
-                    final String pwd=password.getText().toString().trim();
-                    final String fname=fname1.getText().toString().trim();
-                    final String branch=branch1.getText().toString().trim();
-                    final String year=year1.getText().toString().trim();
-                    final String cid=cid1.getText().toString().trim();
-                    final String number=number1.getText().toString().trim();
-                    final String cname=cname1.getText().toString().trim();
-
-                    Intent intent = new Intent(RegAct.this,RequestOtp.class);
-                    intent.putExtra("name",fname);
-                    intent.putExtra("email",email);
-                    intent.putExtra("password",pwd);
-                    intent.putExtra("branch",branch);
-                    intent.putExtra("year",year);
-                    intent.putExtra("campusid",cid);
-                    intent.putExtra("number",number);
-                    intent.putExtra("cname",cname);
-                    startActivity(intent);
-     */
-
-    /*
-    DatabaseReference dbref = FirebaseDatabase.getInstance().getReference().child("Users");
-        dbref.orderByChild("contactN").equalTo(number).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.getValue() != null){
-                    Toast.makeText(RegAct.this,"User on this phone Number Already Exists",Toast.LENGTH_SHORT).show();
-                    num = "yes";
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-     */
 
 
 
