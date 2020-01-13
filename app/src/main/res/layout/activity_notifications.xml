@@ -7,27 +7,36 @@
     android:background="#fff"
     tools:context=".Notifications.Notifications">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_noti"
+    <RelativeLayout
+        android:id="@+id/top_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark">
+        android:layout_alignParentStart="true"
+        android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/back_btn_noti"
-            android:src="@drawable/ic_arrow_back_white_24dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/back"
+            android:src="@drawable/back_left" />
 
         <TextView
+            android:layout_marginTop="5dp"
             android:textAlignment="center"
+            android:layout_alignParentTop="true"
+            android:id="@+id/title_events"
+            android:textStyle="bold"
+            android:textColor="#000"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito"
             android:text="Notifications"
-            android:textColor="#fff"
-            android:textSize="25sp"/>
+            android:layout_marginBottom="16dp"
+            android:textSize="32sp" />
 
-    </androidx.appcompat.widget.Toolbar>
+    </RelativeLayout>
 
     <LinearLayout
         android:visibility="visible"
@@ -55,7 +64,7 @@
 
     <com.example.endeavour.Customised.BucketRecyclerView
         android:id="@+id/noti_rv"
-        android:layout_below="@+id/toolbar_noti"
+        android:layout_below="@+id/top_bar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

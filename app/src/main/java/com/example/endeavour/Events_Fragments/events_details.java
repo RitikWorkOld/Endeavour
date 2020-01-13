@@ -8,6 +8,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +30,7 @@ public class events_details extends Fragment {
     Button Register_dt;
     ImageView Mimg_dt;
     ImageView Simg_dt;
+    TextView readless;
 
     @Nullable
     @Override
@@ -43,6 +46,7 @@ public class events_details extends Fragment {
         String Mimguri = bundle.getString("Mimguri");
         String Simguri = bundle.getString("Simguri");
         final String Register_uri = bundle.getString("Register_uri");
+        readless = view.findViewById(R.id.read_less_events);
 
         Title_dt = view.findViewById(R.id.event_title);
         Descp_dt = view.findViewById(R.id.event_descp);
@@ -68,6 +72,14 @@ public class events_details extends Fragment {
             }
         });
 
+        readless.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+
+                fragmentManager.popBackStack();
+            }
+        });
         return view;
     }
 }

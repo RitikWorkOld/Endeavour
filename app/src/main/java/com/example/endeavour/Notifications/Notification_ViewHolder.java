@@ -14,13 +14,13 @@ public class Notification_ViewHolder extends RecyclerView.ViewHolder {
 
     TextView Title;
     TextView Description;
-    ImageView Cancel_btn;
+    //ImageView Cancel_btn;
 
     public Notification_ViewHolder(@NonNull View itemView) {
         super(itemView);
 
         Title = itemView.findViewById(R.id.tv_noti_title);
         Description = itemView.findViewById(R.id.tv_noti_desc);
-        Cancel_btn = itemView.findViewById(R.id.cancel_noti_btn);
+        //Cancel_btn = itemView.findViewById(R.id.cancel_noti_btn);
     }
 }

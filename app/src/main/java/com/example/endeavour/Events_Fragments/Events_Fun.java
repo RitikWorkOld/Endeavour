@@ -87,6 +87,7 @@ public class Events_Fun extends Fragment {
                         events_details.setArguments(bundle);
 
                         fragmentTransaction.replace(R.id.events_container,events_details);
+                        fragmentTransaction.addToBackStack("fun");
                         fragmentTransaction.commit();
                     }
                 });

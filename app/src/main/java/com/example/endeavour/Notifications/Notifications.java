@@ -48,7 +48,7 @@ public class Notifications extends AppCompatActivity {
         setContentView(R.layout.activity_notifications);
 
         no_new_notifications = findViewById(R.id.no_new_notifications);
-        back_btn = findViewById(R.id.back_btn_noti);
+        back_btn = findViewById(R.id.back);
 
         recyclerView = findViewById(R.id.noti_rv);
         recyclerView.setHasFixedSize(true);
@@ -72,14 +72,14 @@ public class Notifications extends AppCompatActivity {
 
                 final String notiid = noti_helper.getNotiid();
 
-                notification_viewHolder.Cancel_btn.setOnClickListener(new View.OnClickListener() {
+                /*notification_viewHolder.Cancel_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         FirebaseDatabase.getInstance().getReference().child("notification")
                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(notiid).removeValue();
                         //Toast.makeText(Notifications.this,"Sucess "+notiid,Toast.LENGTH_SHORT).show();
                     }
-                });
+                });*/
             }
             @NonNull
             @Override

@@ -87,6 +87,7 @@ public class Events_Corp extends Fragment {
                         events_details.setArguments(bundle);
 
                         fragmentTransaction.replace(R.id.events_container,events_details);
+                        fragmentTransaction.addToBackStack("corp");
                         fragmentTransaction.commit();
                     }
                 });
