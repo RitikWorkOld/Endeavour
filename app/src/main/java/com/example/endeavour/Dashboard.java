@@ -22,6 +22,7 @@ import com.example.endeavour.Sponsors.Sponsor;
 import com.example.endeavour.Team.TeamMain;
 import com.example.endeavour.Utils.Save;
 import com.getkeepsafe.taptargetview.TapTarget;
+import com.getkeepsafe.taptargetview.TapTargetSequence;
 import com.getkeepsafe.taptargetview.TapTargetView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -46,30 +47,41 @@ public class Dashboard extends AppCompatActivity  {
         image_power = (ImageView) findViewById(R.id.image_power);
         notification_btn = (ImageView) findViewById(R.id.iv_notification_btn);
 
-
         if(isFirstTime()){
+            /*TapTargetView.showFor(this, TapTarget.forView(findViewById(R.id.image_power), "Log Out Button", "Use this to signout from you account")
+                    .tintTarget(false));*/
+            new TapTargetSequence(this).targets(
+                    TapTarget.forView(findViewById(R.id.image_power), "Log Out Button", "Use this to signout from you account \n (Tap on button to Cancel)")
+                            .tintTarget(false)
+                            .cancelable(false)
+                            .id(1),
+                    TapTarget.forView(findViewById(R.id.iv_notification_btn), "Notification Button", "This will help you \n (Tap on button to Cancel)")
+                            .tintTarget(false)
+                            .cancelable(false)
+                            .targetCircleColor(R.color.colorPrimaryDark)
+                            .id(2)
+            ).listener(new TapTargetSequence.Listener() {
+                @Override
+                public void onSequenceFinish() {
+                }
 
+                @Override
+                public void onSequenceStep(TapTarget lastTarget, boolean targetClicked) {
 
-                TapTargetView.showFor(this,                 // `this` is an Activity
-                        TapTarget.forView(findViewById(R.id.image_power), "Log Out Button",
-                                "Use this to signout from you account")
-                                .tintTarget(false));
+                }
 
+                @Override
+                public void onSequenceCanceled(TapTarget lastTarget) {
 
-
+                }
+            }).start();
         }
-
-
-
 
         layoutevents = (LinearLayout) findViewById(R.id.layout_events);
         layoutOurteam = (LinearLayout) findViewById(R.id.layout_ourteam);
         layoutsponsors = (LinearLayout) findViewById(R.id.layout_sponsors);
         layoutspeakers = (LinearLayout) findViewById(R.id.layout_speakers);
         layoutshedule = (LinearLayout) findViewById(R.id.layout_shedule);
-
-
-
 
         firebaseAuth = firebaseAuth.getInstance();
 
@@ -80,7 +92,6 @@ public class Dashboard extends AppCompatActivity  {
                 startActivity(intent_events);
             }
         });
-
         layoutsponsors.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,7 +99,6 @@ public class Dashboard extends AppCompatActivity  {
                 startActivity(intent_sponsors);
             }
         });
-
         layoutspeakers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,7 +106,6 @@ public class Dashboard extends AppCompatActivity  {
                 startActivity(intent_speakers);
             }
         });
-
         layoutshedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,8 +113,6 @@ public class Dashboard extends AppCompatActivity  {
                 startActivity(intent_shedule);
             }
         });
-
-
         image_power.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -134,8 +141,6 @@ public class Dashboard extends AppCompatActivity  {
                 alert.show();
             }
         });
-
-
         layoutOurteam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,7 +150,6 @@ public class Dashboard extends AppCompatActivity  {
                 }
             }
         });
-
         notification_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -170,22 +174,13 @@ public class Dashboard extends AppCompatActivity  {
 //------------------------------------------------------------------------------------------
     @Override
     public void onBackPressed() {
-
-
         if (backPressedTime + 2000 > System.currentTimeMillis()) {
             backToast.cancel();
             finish();
         } else {
             backToast = Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
             backToast.show();
-
-
         }
         backPressedTime = System.currentTimeMillis();
-
     }
-
-
-
-
 }
