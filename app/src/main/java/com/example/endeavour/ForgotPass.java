@@ -61,10 +61,14 @@ public class ForgotPass extends AppCompatActivity {
                 progressBar.setVisibility(View.VISIBLE);
                 String email = userEmail.getText().toString();
                 if(email.isEmpty()){
+                    fsignin.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.GONE);
                     userEmail.setError("Please enter email id");
                     userEmail.requestFocus();
                 }
                 if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    fsignin.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.GONE);
                     userEmail.setError(getString(R.string.input_error_email_invalid));
                     userEmail.requestFocus();
                     return;

@@ -43,23 +43,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="top"
-
         android:clipToPadding="false"
-
         android:overScrollMode="never"
         android:paddingBottom="30dp"
         android:paddingTop="30dp"
         android:paddingEnd="@dimen/card_padding"
         android:paddingLeft="@dimen/card_padding"
         android:paddingRight="@dimen/card_padding"
-        android:paddingStart="@dimen/card_padding" />
+        android:paddingStart="@dimen/card_padding"
+        android:layout_marginBottom="60dp"/>
+
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayoutNavigation"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-
-
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bar"
@@ -69,12 +67,10 @@
             android:layout_gravity="bottom"
             android:backgroundTint="#302F2F"
             app:fabAlignmentMode="end"
-
             app:menu="@menu/app_bar_menu"
             app:fabCradleRoundedCornerRadius="30dp"
             app:fabCradleVerticalOffset="15dp"
             app:fabCradleMargin="10dp"
-
             app:navigationIcon="@drawable/ic_menu"
             />
         <!--<com.google.android.material.floatingactionbutton.FloatingActionButton

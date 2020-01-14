@@ -2,19 +2,31 @@ package com.example.endeavour;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.GridView;
 import android.widget.ImageView;
 
+import com.example.endeavour.Events_Fragments.Events_main_model;
+import com.example.endeavour.Events_Fragments.Events_main_viewholder;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -56,6 +68,11 @@ public class BottomSheetNavigationFragmentTwo extends BottomSheetDialogFragment 
     };
 
     private ImageView closeButton1;
+    private RecyclerView recyclerView;
+    private ArrayList<Glimpses> arrayList;
+    private FirebaseRecyclerOptions<Glimpses> options;
+    private FirebaseRecyclerAdapter<Glimpses,Glimpses_Viewholder> adapter;
+    private DatabaseReference databaseReference;
 
     //TextView one;
     @SuppressLint("RestrictedApi")
@@ -63,11 +80,37 @@ public class BottomSheetNavigationFragmentTwo extends BottomSheetDialogFragment 
     public void setupDialog(Dialog dialog, int style) {
         super.setupDialog(dialog, style);
         //Get the content View
-        View contentView = View.inflate(getContext(), R.layout.bottom_navigation_drawer_two, null);
+        final View contentView = View.inflate(getContext(), R.layout.bottom_navigation_drawer_two, null);
         dialog.setContentView(contentView);
 
-
         closeButton1 = contentView.findViewById(R.id.close_image_view);
+
+        recyclerView = contentView.findViewById(R.id.rv_glimp);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new GridLayoutManager(contentView.getContext(),2));
+
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("glimpses");
+        databaseReference.keepSynced(true);
+
+        arrayList = new ArrayList<Glimpses>();
+
+        options = new FirebaseRecyclerOptions.Builder<Glimpses>().setQuery(databaseReference,Glimpses.class).build();
+
+        adapter = new FirebaseRecyclerAdapter<Glimpses, Glimpses_Viewholder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull Glimpses_Viewholder glimpses_viewholder, int i, @NonNull Glimpses glimpses) {
+                Picasso.get().load(glimpses.getGlimpimg()).into(glimpses_viewholder.imageView);
+            }
+
+            @NonNull
+            @Override
+            public Glimpses_Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                return new Glimpses_Viewholder(LayoutInflater.from(contentView.getContext()).inflate(R.layout.glimpses_card,parent,false));
+            }
+        };
+        recyclerView.setAdapter(adapter);
+        adapter.startListening();
+
         closeButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,8 +118,6 @@ public class BottomSheetNavigationFragmentTwo extends BottomSheetDialogFragment 
                 dismiss();
             }
         });
-
-
 
         //Set the coordinator layout behavior
         CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) ((View) contentView.getParent()).getLayoutParams();
@@ -87,5 +128,4 @@ public class BottomSheetNavigationFragmentTwo extends BottomSheetDialogFragment 
             ((BottomSheetBehavior) behavior).setBottomSheetCallback(mBottomSheetBehaviorCallback);
         }
     }
-
 }
