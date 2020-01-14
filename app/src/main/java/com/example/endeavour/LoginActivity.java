@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity implements TextWatcher,
     EditText emailId, password;
     TextView textView,textView1;
     LinearLayout layouts;
-   View v;
+    View v;
 
     private CheckBox rem_userpass;
     SharedPreferences sharedPreferences;
@@ -117,7 +117,6 @@ public class LoginActivity extends AppCompatActivity implements TextWatcher,
                 Intent intent=new Intent(LoginActivity.this,ForgotPass.class);
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
-
             }
         });
         signupbtn.setOnClickListener(new View.OnClickListener() {

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -79,6 +80,14 @@ public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
         final String TAG = "********************";
 
         NavigationView navigationView = contentView.findViewById(R.id.navigation_view);
+
+        closeButton = (ImageView) contentView.findViewById(R.id.close_image_view);
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
 
         final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
         databaseReference.keepSynced(true);

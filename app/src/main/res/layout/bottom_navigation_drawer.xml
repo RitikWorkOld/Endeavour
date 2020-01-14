@@ -7,11 +7,11 @@
     android:orientation="vertical">
 
 <androidx.cardview.widget.CardView
+    android:layout_marginTop="4dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     app:cardCornerRadius="10dp"
-    android:layout_marginTop="10dp"
     android:elevation="8dp"
     app:cardElevation="6dp"
     >
@@ -23,17 +23,33 @@
         android:orientation="vertical"
         android:weightSum="3">
 
-        <TextView
-            android:layout_marginTop="6dp"
-            android:id="@+id/tv_name_models"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="16dp"
-            android:gravity="center"
-            android:textColor="#000"
-            android:text="USERNAME"
-            android:textSize="20sp" />
+            android:id="@+id/L2">
+
+            <TextView
+                android:layout_marginTop="6dp"
+                android:id="@+id/tv_name_models"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="16dp"
+                android:gravity="center"
+                android:textColor="#000"
+                android:text="USERNAME"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:id="@+id/close_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:visibility="visible"
+                app:srcCompat="@drawable/ic_close_black_24dp" />
+
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/user_phno"
@@ -65,7 +81,6 @@
             android:textSize="15sp"
             android:textStyle="bold" />
 
-
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
@@ -73,7 +88,6 @@
     <!-- navigation view -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="4dp"

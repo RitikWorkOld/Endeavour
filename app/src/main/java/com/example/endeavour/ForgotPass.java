@@ -22,14 +22,12 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class ForgotPass extends AppCompatActivity {
 
-    EditText emailId, password;
-        EditText userEmail;
+    EditText userEmail;
     private Toast backToast;
     private long backPressedTime;
-        Button fsignin;
-    private Button signupbtn;
-    Button btnSignIn;
-        FirebaseAuth firebaseAuth;
+    Button fsignin;
+    FirebaseAuth firebaseAuth;
+    private ProgressBar progressBar;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
     @Override
@@ -39,12 +37,11 @@ public class ForgotPass extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_forgot_pass);
 
-        userEmail=findViewById(R.id.edit_email);
-        fsignin=findViewById(R.id.submit);
-        emailId = findViewById(R.id.Lemail);
-        password = findViewById(R.id.Lpass);
-        signupbtn=findViewById(R.id.button_signup);
-        btnSignIn=findViewById(R.id.signin);
+        userEmail=findViewById(R.id.email_et);
+        fsignin=findViewById(R.id.send_btn);
+
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.GONE);
 
         firebaseAuth=FirebaseAuth.getInstance();
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
@@ -52,70 +49,16 @@ public class ForgotPass extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser mFirebaseUser = firebaseAuth.getCurrentUser();
                 if(mFirebaseUser==null){
-                    Toast.makeText(ForgotPass.this,"Please Login",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ForgotPass.this,"Please Login",Toast.LENGTH_SHORT).show();
                 }
             }
         };
-        signupbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(view == signupbtn)
-                {
-                    Intent intent=new Intent(ForgotPass.this,RegAct.class);
-                    startActivity(intent);
-                    overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
-                    finish();
-
-                }
-            }
-        });
-
-        btnSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email = emailId.getText().toString();
-                String pwd = password.getText().toString();
-                if(email.isEmpty()){
-                    emailId.setError("Please enter email id");
-                    emailId.requestFocus();
-                }
-                else  if(pwd.isEmpty()){
-                    password.setError("Please enter your password");
-                    password.requestFocus();
-                }
-                else  if(email.isEmpty() && pwd.isEmpty()){
-                    Toast.makeText(ForgotPass.this,"Fields Are Empty!",Toast.LENGTH_SHORT).show();
-                }
-                else  if(!(email.isEmpty() && pwd.isEmpty())){
-                    firebaseAuth.signInWithEmailAndPassword(email, pwd).addOnCompleteListener(ForgotPass.this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(!task.isSuccessful()){
-                                //Toast.makeText(ForgotPass.this,"Login Error, Please Login Again",Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(ForgotPass.this,Login_Failed.class);
-                                startActivity(intent);
-                            }
-                            else{
-                                Intent intToHome = new Intent(ForgotPass.this,Dashboard.class);
-                                startActivity(intToHome);
-                            }
-                        }
-                    });
-                }
-                else{
-                    //Toast.makeText(ForgotPass.this,"Error Occurred!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(ForgotPass.this,Login_Failed.class);
-                    startActivity(intent);
-
-                }
-
-            }
-        });
-
 
         fsignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                fsignin.setVisibility(View.GONE);
+                progressBar.setVisibility(View.VISIBLE);
                 String email = userEmail.getText().toString();
                 if(email.isEmpty()){
                     userEmail.setError("Please enter email id");
@@ -132,42 +75,32 @@ public class ForgotPass extends AppCompatActivity {
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-
-
-
                         if(task.isSuccessful()){
-
-
+                            progressBar.setVisibility(View.GONE);
                             /*Toast.makeText(ForgotPass.this,"Please Check your Registered Email.Please " +
                                             "check SPAM as well as IMPORTANT Emails"
 
                                     ,Toast.LENGTH_LONG).show();*/
                             Intent intent = new Intent(ForgotPass.this,Forgotpass_Success.class);
                             startActivity(intent);
-
-
+                            finish();
                         }
-
                         else{
-
+                            progressBar.setVisibility(View.GONE);
+                            fsignin.setVisibility(View.VISIBLE);
                             Toast.makeText(ForgotPass.this,task.getException().getMessage()
                                     ,Toast.LENGTH_SHORT).show();
                         }
-
                     }
                 });
             }
         });
-
-
     }
     @Override
     protected void onStart() {
         super.onStart();
         firebaseAuth.addAuthStateListener(mAuthStateListener);
     }
-
-
     @Override
     public void onBackPressed() {
 
@@ -185,5 +118,4 @@ public class ForgotPass extends AppCompatActivity {
         backPressedTime = System.currentTimeMillis();
 
     }
-
 }

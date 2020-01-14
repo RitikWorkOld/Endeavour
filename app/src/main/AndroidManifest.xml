@@ -47,7 +47,8 @@
             android:noHistory="true" />
         <activity android:name=".Dashboard" />
         <activity android:name=".Events_Fragments.EventsMain" />
-        <activity android:name=".ForgotPass" />
+        <activity android:name=".ForgotPass"
+            android:theme="@style/AppTheme.Requeststyle"/>
         <activity android:name=".Notifications.Notifications" />
 
         <service
