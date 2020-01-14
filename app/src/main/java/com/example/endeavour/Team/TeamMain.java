@@ -3,6 +3,7 @@ package com.example.endeavour.Team;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,6 +24,9 @@ import com.example.endeavour.BottomSheetNavigationFragment;
 import com.example.endeavour.BottomSheetNavigationFragmentOne;
 import com.example.endeavour.BottomSheetNavigationFragmentTwo;
 import com.example.endeavour.Dashboard;
+import com.example.endeavour.Developer;
+import com.example.endeavour.Events_Fragments.Events_Fun;
+import com.example.endeavour.Events_Fragments.Events_Tech;
 import com.example.endeavour.FABAnimation;
 import com.example.endeavour.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -37,6 +41,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 public class TeamMain extends AppCompatActivity {
+
 
     ImageView image;
     private RecyclerView recyclerView;
@@ -78,6 +83,7 @@ public class TeamMain extends AppCompatActivity {
         FABAnimation.init( fab1 );
         FABAnimation.init( fab2 );
 
+
         fab.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,8 +93,8 @@ public class TeamMain extends AppCompatActivity {
         fab1.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText( TeamMain.this,"FAB 1",Toast.LENGTH_SHORT ).show();
-                animateFAB();
+                Intent intent = new Intent(TeamMain.this, Developer.class);
+                startActivity(intent);
             }
         } );
         fab2.setOnClickListener( new View.OnClickListener() {
