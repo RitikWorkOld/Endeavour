@@ -24,18 +24,19 @@
         android:weightSum="3">
 
         <TextView
-            android:id="@+id/tv_team_name"
+            android:layout_marginTop="6dp"
+            android:id="@+id/tv_name_models"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginLeft="16dp"
             android:gravity="center"
             android:textColor="#000"
-            android:text="Mr. Ritik Mehta"
+            android:text="USERNAME"
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/tv_team_domain"
+            android:id="@+id/user_phno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -43,14 +44,15 @@
             android:layout_marginLeft="16dp"
             android:fontFamily="@font/nunito"
             android:gravity="center"
-            android:text="TECHNICAL"
+            android:text="12345*****"
 
             android:textColor="@color/gray"
             android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv_team_desig"
+            android:layout_marginBottom="6dp"
+            android:id="@+id/user_refer_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
@@ -58,7 +60,7 @@
             android:fontFamily="@font/nunito"
             android:layout_marginLeft="16dp"
             android:gravity="center"
-            android:text="PRESIDENT"
+            android:text="ENDVR*****"
             android:textColor="@color/gray"
             android:textSize="15sp"
             android:textStyle="bold" />

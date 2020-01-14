@@ -4,18 +4,28 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.endeavour.Events_Fragments.EventsMain;
 import com.example.endeavour.Team.TeamMain;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
+import org.w3c.dom.Text;
 
 
 public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
@@ -63,8 +73,38 @@ public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
         View contentView = View.inflate(getContext(), R.layout.bottom_navigation_drawer, null);
         dialog.setContentView(contentView);
 
-       NavigationView navigationView = contentView.findViewById(R.id.navigation_view);
+        final TextView name  = (TextView)contentView.findViewById(R.id.tv_name_models);
+        final TextView phno = (TextView)contentView.findViewById(R.id.user_phno);
+        final TextView referid = (TextView)contentView.findViewById(R.id.user_refer_id);
+        final String TAG = "********************";
 
+        NavigationView navigationView = contentView.findViewById(R.id.navigation_view);
+
+        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
+        databaseReference.keepSynced(true);
+        databaseReference.orderByChild("uid").equalTo(FirebaseAuth.getInstance().getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
+                    Bnd_helper bnd_helper = dataSnapshot1.getValue(Bnd_helper.class);
+
+                    String n = bnd_helper.name;
+                    String p = bnd_helper.contactN;
+                    String r = bnd_helper.refrelid;
+
+                    Log.d(TAG,"---------------------------------"+n+"-----------"+p+"----------"+r);
+
+                    name.setText(n);
+                    phno.setText(p);
+                    referid.setText(r);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         //implement navigation menu item click event
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
