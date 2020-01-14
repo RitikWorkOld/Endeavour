@@ -203,7 +203,7 @@ public class RequestOtp extends AppCompatActivity {
 
 
                                 //saving session
-                                Save.save(getApplicationContext(),"session","true");
+                                Save.save(getApplicationContext(),"session","false");
 
 
                                 //Toast.makeText(RegAct.this, getString(R.string.registration_success), Toast.LENGTH_LONG).show();

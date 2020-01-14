@@ -12,7 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.endeavour.Events_Fragments.EventsMain;
-import com.example.endeavour.Team.TeamMain;
+import com.example.endeavour.Speakers.Speakers;
+import com.example.endeavour.Sponsors.Sponsor;
+
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -124,10 +126,19 @@ public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
                         startActivity(new Intent(getActivity(), EventsMain.class));
 
                         break;
-                    case R.id.nav05:
-                        startActivity(new Intent(getActivity(), TeamMain.class));
+                    case R.id.nav03:
+                        startActivity(new Intent(getActivity(), Speakers.class));
 
                         break;
+                    case R.id.nav05:
+                        startActivity(new Intent(getActivity(), com.example.endeavour.Team.TeamMain.class));
+
+                        break;
+                    case R.id.nav04:
+                        startActivity(new Intent(getActivity(), Sponsor.class));
+
+                        break;
+
                 }
                 return false;
             }

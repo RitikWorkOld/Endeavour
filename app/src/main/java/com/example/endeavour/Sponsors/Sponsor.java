@@ -27,6 +27,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -35,6 +36,7 @@ import java.util.ArrayList;
 
 public class Sponsor extends AppCompatActivity {
     private BottomAppBar bottomAppBar;
+
     private RecyclerView recyclerView;
     private ArrayList<Sponsor_Model> arrayList;
     private FirebaseRecyclerOptions<Sponsor_Model> options;
@@ -58,6 +60,7 @@ public class Sponsor extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_sponsor);
+
         image=findViewById(R.id.back);
         setUpBottomAppBar();
 

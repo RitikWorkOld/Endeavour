@@ -23,11 +23,13 @@ import com.example.endeavour.BottomSheetNavigationFragment;
 import com.example.endeavour.BottomSheetNavigationFragmentOne;
 import com.example.endeavour.BottomSheetNavigationFragmentTwo;
 import com.example.endeavour.Dashboard;
+import com.example.endeavour.FABAnimation;
 import com.example.endeavour.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -39,7 +41,8 @@ public class TeamMain extends AppCompatActivity {
     ImageView image;
     private RecyclerView recyclerView;
     private BottomAppBar bottomAppBar;
-
+    FloatingActionButton fab,fab1,fab2;
+    boolean isFabOpen=false;
 
     private ArrayList<Teamcard_model> arrayList;
     private FirebaseRecyclerOptions<Teamcard_model> options;
@@ -65,14 +68,39 @@ public class TeamMain extends AppCompatActivity {
         setContentView(R.layout.activity_team_main);
 
         setUpBottomAppBar();
-        //click event over FAB
-        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(TeamMain.this, "FAB Clicked.", Toast.LENGTH_SHORT).show();
-            }
-        });
 
+        //FAB WORK
+
+        fab=findViewById( R.id.fab );
+        fab1=findViewById( R.id.fab1 );
+        fab2=findViewById( R.id.fab2 );
+
+        FABAnimation.init( fab1 );
+        FABAnimation.init( fab2 );
+
+        fab.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                animateFAB();
+            }
+        } );
+        fab1.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText( TeamMain.this,"FAB 1",Toast.LENGTH_SHORT ).show();
+                animateFAB();
+            }
+        } );
+        fab2.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText( TeamMain.this,"FAB 2",Toast.LENGTH_SHORT ).show();
+                animateFAB();
+            }
+        } );
+
+
+        //FAB END
         image=findViewById(R.id.back);
 
         image.setOnClickListener(new View.OnClickListener() {
@@ -153,6 +181,23 @@ public class TeamMain extends AppCompatActivity {
         };
         recyclerView.setAdapter(adapter);
     }
+
+    private void animateFAB(){
+
+        isFabOpen=FABAnimation.rotateFab( fab,!isFabOpen );
+        if(isFabOpen){
+            FABAnimation.fabopen( fab1 );
+            FABAnimation.fabopen( fab2 );
+        }
+        else{
+            FABAnimation.fabclose( fab1 );
+            FABAnimation.fabclose( fab2 );
+
+        }
+    }
+
+
+
     /**
      * set up Bottom Bar
      */
