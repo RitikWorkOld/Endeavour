@@ -32,13 +32,15 @@
 
     </RelativeLayout>
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
 <RelativeLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_below="@+id/top_bar">
-
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -67,20 +69,19 @@
             android:id="@+id/mainframe_0123"
             android:layout_width="match_parent"
             android:orientation="vertical"
-
             android:layout_height="match_parent">
 
             <RelativeLayout
                 android:id="@+id/layout_team_card"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#fff"
+                android:background="@drawable/bhite_box"
                 android:fontFamily="@font/nunito"
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="12dp">
                 <LinearLayout
                     android:id="@+id/layout12"
-                    android:layout_marginTop="110dp"
+                    android:layout_marginTop="120dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -94,7 +95,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:text="Mr. Ritik Mehta"
+                    android:text="Ritik Mehta"
                     android:textSize="20sp" />
 
                 <TextView
@@ -119,7 +120,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/nunito"
                     android:gravity="center"
-                    android:text="PRESIDENT"
+                    android:text="MEMBER"
                     android:textColor="@color/gray"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -144,10 +145,10 @@
 
                     >
                     <ImageView
+                        android:id="@+id/insta_rik"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/instagram"
-
                         />
 
 
@@ -164,6 +165,7 @@
 
                     >
                     <ImageView
+                        android:id="@+id/facebook_rik"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/facebook"
@@ -185,6 +187,7 @@
 
                     >
                     <ImageView
+                        android:id="@+id/gmail_rik"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/mail_icon"
@@ -206,10 +209,10 @@
 
                     >
                     <ImageView
+                        android:id="@+id/git_rik"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/git"
-
                         />
 
 
@@ -239,18 +242,14 @@
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
         android:layout_marginTop="1dp"
-
-
         >
         <de.hdodenhof.circleimageview.CircleImageView
-            android:src="@drawable/user"
+            android:src="@drawable/ritik_imgteam"
             android:id="@+id/image_team"
             android:elevation="3dp"
-
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_centerHorizontal="true"
-
             android:padding="2dp"/>
     </LinearLayout>
 
@@ -273,8 +272,6 @@
             android:layout_below="@+id/top_bar"
             app:cardElevation="6dp">
 
-
-
             <LinearLayout
                 android:weightSum="2"
                 android:id="@+id/mainframe_0"
@@ -286,13 +283,13 @@
                     android:id="@+id/layout_team_card1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#fff"
+                    android:background="@drawable/bhite_box"
                     android:fontFamily="@font/nunito"
                     android:paddingHorizontal="20dp"
                     android:paddingVertical="12dp">
                     <LinearLayout
                         android:id="@+id/layout1"
-                        android:layout_marginTop="110dp"
+                        android:layout_marginTop="120dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -306,7 +303,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:textColor="#000"
-                            android:text="Mr. Ritik Mehta"
+                            android:text="Parneet Raghuvanshi"
                             android:textSize="20sp" />
 
                         <TextView
@@ -331,20 +328,19 @@
                             android:layout_weight="1"
                             android:fontFamily="@font/nunito"
                             android:gravity="center"
-                            android:text="PRESIDENT"
+                            android:text="MEMBER"
                             android:textColor="@color/gray"
                             android:textSize="15sp"
                             android:textStyle="bold" />
 
 
-
                     </LinearLayout>
 
                     <RelativeLayout
+                        android:layout_marginRight="32dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="32dp"
                         >
                         <LinearLayout
                             android:layout_width="50dp"
@@ -356,6 +352,7 @@
 
                             >
                             <ImageView
+                                android:id="@+id/insta_par"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/instagram"
@@ -376,6 +373,7 @@
 
                             >
                             <ImageView
+                                android:id="@+id/facebook_par"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/facebook"
@@ -397,6 +395,7 @@
 
                             >
                             <ImageView
+                                android:id="@+id/gmail_par"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/mail_icon"
@@ -418,6 +417,7 @@
 
                             >
                             <ImageView
+                                android:id="@+id/git_par"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/git"
@@ -459,18 +459,17 @@
 
         >
         <de.hdodenhof.circleimageview.CircleImageView
-            android:src="@drawable/user"
+            android:src="@drawable/parneet_imgteam"
             android:id="@+id/image_team1"
             android:elevation="3dp"
-
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_centerHorizontal="true"
-
             android:padding="2dp"/>
     </LinearLayout>
 
 </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
 
 
 

@@ -69,10 +69,8 @@ public class BottomSheetNavigationFragmentTwo extends BottomSheetDialogFragment 
 
     private ImageView closeButton1;
     private RecyclerView recyclerView;
-    private ArrayList<Glimpses> arrayList;
-    private FirebaseRecyclerOptions<Glimpses> options;
-    private FirebaseRecyclerAdapter<Glimpses,Glimpses_Viewholder> adapter;
-    private DatabaseReference databaseReference;
+    private Glimpses_Adapter glimpses_adapter;
+    private List<Glimpses> glimpses;
 
     //TextView one;
     @SuppressLint("RestrictedApi")
@@ -84,32 +82,81 @@ public class BottomSheetNavigationFragmentTwo extends BottomSheetDialogFragment 
         dialog.setContentView(contentView);
 
         closeButton1 = contentView.findViewById(R.id.close_image_view);
-
         recyclerView = contentView.findViewById(R.id.rv_glimp);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(contentView.getContext(),2));
+        glimpses = new ArrayList<>();
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("glimpses");
-        databaseReference.keepSynced(true);
+        glimpses.add(
+                new Glimpses(R.drawable.a00001)
+        );
+        glimpses.add(
+                new Glimpses(R.drawable.a0002)
+        );
+        glimpses.add(
+                new Glimpses(R.drawable.a0003)
+        );
+        glimpses.add(
+                new Glimpses(R.drawable.a0004)
+        );
+        glimpses.add(
+                new Glimpses(R.drawable.a0005)
+        );
+        glimpses.add(
+                new Glimpses(R.drawable.a0006)
+        );
+        glimpses.add(
+                new Glimpses(R.drawable.a0007)
+        );
+        glimpses.add(
+                new Glimpses(R.drawable.a0008)
+        );
+        glimpses.add(
+                new Glimpses(R.drawable.a0009)
+        );
+        glimpses.add(
+                new Glimpses(R.drawable.a0010)
+        );
+        glimpses.add(
+                new Glimpses(R.drawable.a0011)
+        );
+        glimpses.add(
+                new Glimpses(R.drawable.a0012)
+        );
+        glimpses.add(
+                new Glimpses(R.drawable.a0013)
+        );
+        glimpses.add(
+                new Glimpses(R.drawable.a0014)
+        );
+        glimpses.add(
+                new Glimpses(R.drawable.a0015)
+        );
+        glimpses.add(
+                new Glimpses(R.drawable.a0016)
+        );
+        glimpses.add(
+                new Glimpses(R.drawable.a0017)
+        );
+        glimpses.add(
+                new Glimpses(R.drawable.a0018)
+        );
+        glimpses.add(
+                new Glimpses(R.drawable.a0019)
+        );
+        glimpses.add(
+                new Glimpses(R.drawable.a0020)
+        );
+        glimpses.add(
+                new Glimpses(R.drawable.a0021)
+        );
+        glimpses.add(
+                new Glimpses(R.drawable.a0022)
+        );
 
-        arrayList = new ArrayList<Glimpses>();
+        glimpses_adapter = new Glimpses_Adapter(contentView.getContext(),glimpses);
 
-        options = new FirebaseRecyclerOptions.Builder<Glimpses>().setQuery(databaseReference,Glimpses.class).build();
-
-        adapter = new FirebaseRecyclerAdapter<Glimpses, Glimpses_Viewholder>(options) {
-            @Override
-            protected void onBindViewHolder(@NonNull Glimpses_Viewholder glimpses_viewholder, int i, @NonNull Glimpses glimpses) {
-                Picasso.get().load(glimpses.getGlimpimg()).into(glimpses_viewholder.imageView);
-            }
-
-            @NonNull
-            @Override
-            public Glimpses_Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                return new Glimpses_Viewholder(LayoutInflater.from(contentView.getContext()).inflate(R.layout.glimpses_card,parent,false));
-            }
-        };
-        recyclerView.setAdapter(adapter);
-        adapter.startListening();
+        recyclerView.setAdapter(glimpses_adapter);
 
         closeButton1.setOnClickListener(new View.OnClickListener() {
             @Override

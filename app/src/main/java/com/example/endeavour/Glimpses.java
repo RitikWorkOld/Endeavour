@@ -2,20 +2,20 @@ package com.example.endeavour;
 
 public class Glimpses {
 
-    public String glimpimg;
+    private int imguri;
 
     public Glimpses() {
     }
 
-    public Glimpses(String glimpimg) {
-        this.glimpimg = glimpimg;
+    public Glimpses(int imguri) {
+        this.imguri = imguri;
     }
 
-    public String getGlimpimg() {
-        return glimpimg;
+    public int getImguri() {
+        return imguri;
     }
 
-    public void setGlimpimg(String glimpimg) {
-        this.glimpimg = glimpimg;
+    public void setImguri(int imguri) {
+        this.imguri = imguri;
     }
 }
