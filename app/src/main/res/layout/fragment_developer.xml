@@ -128,7 +128,95 @@
 
                 </LinearLayout>
 
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                  android:layout_alignParentRight="true"
+                    android:layout_marginRight="32dp"
+                    >
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+           android:id="@+id/insta_layout"
+                    android:layout_marginStart="30dp"
+                    android:layout_centerHorizontal="true"
+                   android:layout_marginTop="60dp"
 
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/instagram"
+
+                        />
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_toRightOf="@+id/insta_layout"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/fb_layout"
+                    android:layout_marginTop="60dp"
+
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/facebook"
+
+                        />
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:layout_height="66dp"
+                    android:paddingBottom="10dp"
+                    android:layout_below="@id/insta_layout"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/gmail_layout"
+                    android:layout_centerHorizontal="true"
+
+
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/mail_icon"
+
+                        />
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/fb_layout"
+                    android:id="@+id/git_layout"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_toRightOf="@+id/gmail_layout"
+                    android:layout_centerHorizontal="true"
+
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/git"
+
+                        />
+
+
+
+                </LinearLayout>
+
+                </RelativeLayout>
             </RelativeLayout>
 
 
@@ -251,6 +339,96 @@
 
 
                     </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="32dp"
+                        >
+                        <LinearLayout
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/insta_layout1"
+                            android:layout_marginStart="30dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="60dp"
+
+                            >
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/instagram"
+
+                                />
+
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:layout_toRightOf="@+id/insta_layout1"
+                            android:layout_marginLeft="10dp"
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/fb_layout1"
+                            android:layout_marginTop="60dp"
+
+                            >
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/facebook"
+
+                                />
+
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="50dp"
+                            android:layout_height="66dp"
+                            android:paddingBottom="10dp"
+                            android:layout_below="@id/insta_layout1"
+                            android:layout_marginLeft="10dp"
+                            android:id="@+id/gmail_layout1"
+                            android:layout_centerHorizontal="true"
+
+
+                            >
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/mail_icon"
+
+                                />
+
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/fb_layout1"
+                            android:id="@+id/git_layout1"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_toRightOf="@+id/gmail_layout1"
+                            android:layout_centerHorizontal="true"
+
+                            >
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/git"
+
+                                />
+
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
 
 
                 </RelativeLayout>
