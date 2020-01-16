@@ -32,7 +32,11 @@
             android:textSize="32sp" />
 
     </RelativeLayout>
-
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/top_bar"
+    >
 <RelativeLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -145,7 +149,7 @@
 
                     >
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="40dp"
                         android:layout_height="wrap_content"
                         android:src="@drawable/instagram"
 
@@ -165,7 +169,7 @@
 
                     >
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="40dp"
                         android:layout_height="wrap_content"
                         android:src="@drawable/facebook"
 
@@ -186,7 +190,7 @@
 
                     >
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="40dp"
                         android:layout_height="wrap_content"
                         android:src="@drawable/mail_icon"
 
@@ -207,7 +211,8 @@
 
                     >
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="40dp"
+
                         android:layout_height="wrap_content"
                         android:src="@drawable/git"
 
@@ -244,7 +249,7 @@
 
         >
         <de.hdodenhof.circleimageview.CircleImageView
-            android:src="@drawable/user"
+            android:src="@drawable/nipun"
             android:id="@+id/image_team"
             android:elevation="3dp"
 
@@ -271,7 +276,7 @@
             android:elevation="8dp"
             android:layout_marginTop="30dp"
             card_view:cardUseCompatPadding="true"
-            android:layout_below="@+id/top_bar"
+
             app:cardElevation="6dp">
 
 
@@ -357,7 +362,7 @@
 
                             >
                             <ImageView
-                                android:layout_width="wrap_content"
+                                android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/instagram"
 
@@ -377,7 +382,7 @@
 
                             >
                             <ImageView
-                                android:layout_width="wrap_content"
+                                android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/facebook"
 
@@ -398,7 +403,7 @@
 
                             >
                             <ImageView
-                                android:layout_width="wrap_content"
+                                android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/mail_icon"
 
@@ -419,7 +424,7 @@
 
                             >
                             <ImageView
-                                android:layout_width="wrap_content"
+                                android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/git"
 
@@ -460,7 +465,7 @@
 
         >
         <de.hdodenhof.circleimageview.CircleImageView
-            android:src="@drawable/user"
+            android:src="@drawable/ritik_imgteam"
             android:id="@+id/image_team1"
             android:elevation="3dp"
 
@@ -470,11 +475,237 @@
 
             android:padding="2dp"/>
     </LinearLayout>
+<!--HELlo-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:id="@+id/card_layout2"
+        android:layout_below="@+id/card_layout1"
+        android:layout_marginBottom="10dp"
+        >
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:id="@+id/card_3"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            android:elevation="8dp"
+            android:layout_marginTop="30dp"
+            card_view:cardUseCompatPadding="true"
+            android:layout_below="@+id/top_bar"
+            app:cardElevation="6dp">
+
+
+
+            <LinearLayout
+                android:weightSum="2"
+                android:id="@+id/mainframe_1"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/layout_team_card2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#fff"
+                    android:fontFamily="@font/nunito"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="12dp">
+                    <LinearLayout
+                        android:id="@+id/layout2"
+                        android:layout_marginTop="110dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:orientation="vertical"
+                        android:weightSum="3">
+
+                        <TextView
+                            android:id="@+id/tv_team_name2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textColor="#000"
+                            android:text="Mr. Ritik Mehta"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/tv_team_domain2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/nunito"
+                            android:gravity="center"
+                            android:text="TECHNICAL"
+
+                            android:textColor="@color/gray"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_team_desig2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/nunito"
+                            android:gravity="center"
+                            android:text="PRESIDENT"
+                            android:textColor="@color/gray"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="32dp"
+                        >
+                        <LinearLayout
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/insta_layout2"
+                            android:layout_marginStart="30dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="60dp"
+
+                            >
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/instagram"
+
+                                />
+
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:layout_toRightOf="@+id/insta_layout2"
+                            android:layout_marginLeft="10dp"
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/fb_layout2"
+                            android:layout_marginTop="60dp"
+
+                            >
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/facebook"
+
+                                />
+
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="50dp"
+                            android:layout_height="66dp"
+                            android:paddingBottom="10dp"
+                            android:layout_below="@id/insta_layout2"
+                            android:layout_marginLeft="10dp"
+                            android:id="@+id/gmail_layout2"
+                            android:layout_centerHorizontal="true"
+
+
+                            >
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/mail_icon"
+
+                                />
+
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/fb_layout2"
+                            android:id="@+id/git_layout2"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_toRightOf="@+id/gmail_layout2"
+                            android:layout_centerHorizontal="true"
+
+                            >
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/git"
+
+                                />
+
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+
+
+
+            </LinearLayout>
+
+            <!--BORDER********-->
+            <FrameLayout
+                android:background="@drawable/cardboarder"
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"/>
+
+            <!--BORDER_END********-->
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="1dp"
+        android:layout_below="@+id/card_layout1"
+
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:src="@drawable/parneet_imgteam"
+            android:id="@+id/image_team2"
+            android:elevation="3dp"
+
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_centerHorizontal="true"
+
+            android:padding="2dp"/>
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
 
 </RelativeLayout>
     <!-- END                    -->
 
 
+</androidx.core.widget.NestedScrollView>
 
 
 
