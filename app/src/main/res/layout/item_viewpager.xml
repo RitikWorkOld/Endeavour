@@ -4,18 +4,17 @@
     android:id="@+id/cardView"
     app:cardUseCompatPadding="true"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_gravity="center"
     app:cardCornerRadius="5dp">
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="10dp">
@@ -50,7 +49,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_below="@+id/viewPager"
                 android:layout_width="match_parent"
-                android:layout_height="fill_parent"
+                android:layout_height="match_parent"
                 app:cardElevation="5dp"
                 app:cardCornerRadius="5dp">
 
@@ -62,117 +61,179 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/card1"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="DEMO TITLE"
-                        android:textStyle="bold"
-                        />
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Description hello thy are not good and need to be stopped .clash of clans is my life i hate pubg i usually play CSGO>"/>
+                        <TextView
+                            android:id="@+id/speaker_title_details_1"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="DEMO TITLE"
+                            android:textStyle="bold"
+                            />
 
-                    <TextView
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="DEMO TITLE"
-                        android:textStyle="bold"
-                        />
+                        <TextView
+                            android:id="@+id/speaker_desc_detail_1"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Description"/>
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/card2"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Description hello thy are not good and need to be stopped .clash of clans is my life i hate pubg i usually play CSGO>"/>
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="DEMO TITLE"
-                        android:textStyle="bold"
-                        />
+                        <TextView
+                            android:id="@+id/speaker_title_details_2"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="DEMO TITLE"
+                            android:textStyle="bold"
+                            />
 
-                    <TextView
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Description hello thy are not good and need to be stopped .clash of clans is my life i hate pubg i usually play CSGO>"/>
+                        <TextView
+                            android:id="@+id/speaker_desc_detail_2"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Description"/>
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/card3"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="DEMO TITLE"
-                        android:textStyle="bold"
-                        />
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Description hello thy are not good and need to be stopped .clash of clans is my life i hate pubg i usually play CSGO>"/>
-                    <TextView
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="DEMO TITLE"
-                        android:textStyle="bold"
-                        />
+                        <TextView
+                            android:id="@+id/speaker_title_details_3"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="DEMO TITLE"
+                            android:textStyle="bold"
+                            />
 
-                    <TextView
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Description hello thy are not good and need to be stopped .clash of clans is my life i hate pubg i usually play CSGO>"/>
+                        <TextView
+                            android:id="@+id/speaker_desc_detail_3"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Description"/>
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/card4"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="DEMO TITLE"
-                        android:textStyle="bold"
-                        />
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_width="wrap_content"
+                        <TextView
+                            android:id="@+id/speaker_title_details_4"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="DEMO TITLE"
+                            android:textStyle="bold"
+                            />
+
+                        <TextView
+                            android:id="@+id/speaker_desc_detail_4"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Description"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/card5"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:text="Description hello thy are not good and need to be stopped .clash of clans is my life i hate pubg i usually play CSGO>"/>
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/speaker_title_details_5"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="DEMO TITLE"
+                            android:textStyle="bold"
+                            />
+
+                        <TextView
+                            android:id="@+id/speaker_desc_detail_5"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Description"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/card6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/speaker_title_details_6"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="DEMO TITLE"
+                            android:textStyle="bold"
+                            />
+
+                        <TextView
+                            android:id="@+id/speaker_desc_detail_6"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Description"/>
+                    </LinearLayout>
+
                 </LinearLayout>
+
             </androidx.core.widget.NestedScrollView>>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
