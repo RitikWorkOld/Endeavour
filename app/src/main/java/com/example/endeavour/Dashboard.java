@@ -34,6 +34,7 @@ public class Dashboard extends AppCompatActivity  {
     LinearLayout layoutsponsors;
     LinearLayout layoutspeakers;
     LinearLayout layoutshedule;
+    LinearLayout layoutfaq;
 
     private Toast backToast;
     ImageView notification_btn, image_power;
@@ -107,7 +108,7 @@ public class Dashboard extends AppCompatActivity  {
                 }
             }).start();
         }
-
+        layoutfaq = (LinearLayout) findViewById(R.id.layout_faq);
         layoutevents = (LinearLayout) findViewById(R.id.layout_events);
         layoutOurteam = (LinearLayout) findViewById(R.id.layout_ourteam);
         layoutsponsors = (LinearLayout) findViewById(R.id.layout_sponsors);
@@ -120,6 +121,13 @@ public class Dashboard extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 Intent intent_events = new Intent(Dashboard.this, EventsMain.class);
+                startActivity(intent_events);
+            }
+        });
+        layoutfaq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent_events = new Intent(Dashboard.this, FAQ.class);
                 startActivity(intent_events);
             }
         });

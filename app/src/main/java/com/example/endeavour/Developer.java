@@ -20,7 +20,7 @@ public class Developer extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         setContentView(R.layout.fragment_developer);
 
-        insta_rik = (ImageView)findViewById(R.id.insta_rik);
+        /*insta_rik = (ImageView)findViewById(R.id.insta_rik);
         insta_par = (ImageView)findViewById(R.id.insta_par);
         facebook_par = (ImageView)findViewById(R.id.facebook_par);
         facebook_rik = (ImageView)findViewById(R.id.facebook_rik);
@@ -99,6 +99,6 @@ public class Developer extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_VIEW,uri);
                 startActivity(intent);
             }
-        });
+        });*/
     }
 }

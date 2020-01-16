@@ -29,6 +29,7 @@ import com.example.endeavour.Events_Fragments.Events_Fun;
 import com.example.endeavour.Events_Fragments.Events_Tech;
 import com.example.endeavour.FABAnimation;
 import com.example.endeavour.R;
+import com.example.endeavour.about_endeavour;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomappbar.BottomAppBar;
@@ -100,8 +101,8 @@ public class TeamMain extends AppCompatActivity {
         fab2.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText( TeamMain.this,"FAB 2",Toast.LENGTH_SHORT ).show();
-                animateFAB();
+                Intent intent = new Intent(TeamMain.this, about_endeavour.class);
+                startActivity(intent);
             }
         } );
 

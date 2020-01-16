@@ -290,6 +290,7 @@
                 <LinearLayout
 
                     android:orientation="vertical"
+
                     android:layout_marginLeft="10dp"
                     android:id="@+id/layout_faq"
                     android:layout_marginRight="10dp"

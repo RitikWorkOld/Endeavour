@@ -28,8 +28,9 @@
     <ImageView
         android:layout_width="136dp"
         android:layout_height="match_parent"
-        android:paddingRight="80dp"
-        android:src="@drawable/ecell_main"
+        android:paddingRight="50dp"
+        android:paddingBottom="5dp"
+        android:src="@drawable/ecell"
         android:paddingTop="4dp"/>
 
 </LinearLayout>
@@ -47,6 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="6dp"
+        android:layout_marginTop="11dp"
         android:visibility="visible"
         app:srcCompat="@drawable/ic_close_black_24dp" />
     </LinearLayout>

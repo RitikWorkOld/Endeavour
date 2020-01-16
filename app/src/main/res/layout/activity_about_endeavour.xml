@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".about_endeavour">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="About Us"
+        android:textSize="28sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:layout_marginTop="94dp"
+        >
+
+
+
+    </TextView>
+
+    <RelativeLayout
+        android:layout_marginTop="286dp"
+        android:id="@+id/layout_main_card1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:background="@drawable/rec_gradient"
+        android:padding="2dp"
+        android:elevation="6dp"
+
+
+        >
+        <!--BORDER********-->
+        <FrameLayout
+            android:background="@drawable/card_boarder"
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent"/>
+
+        <!--BORDER_END********-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/layout01"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:text="Endeavour is an annual Techno_Entrepreneurial Summit of KIET,Ghaziabad."
+                android:textSize="20sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="normal"
+                android:text="@string/about_end"
+                android:textSize="20sp"/>
+
+
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>
