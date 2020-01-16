@@ -15,6 +15,7 @@ public class Reg_Sucess extends AppCompatActivity {
     Button loginbtn;
     int code=91;
     ImageView crossiv;
+    TextView referid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,11 @@ public class Reg_Sucess extends AppCompatActivity {
 
         loginbtn = (Button)findViewById(R.id.login_btn_rs);
         crossiv = (ImageView) findViewById(R.id.cross_btn_rs);
+        referid = (TextView) findViewById(R.id.refertext);
+
+        String refer = getIntent().getStringExtra("referid");
+
+        referid.setText("Your Endevaour ID :\n"+refer);
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);

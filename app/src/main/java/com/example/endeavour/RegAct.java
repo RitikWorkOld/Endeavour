@@ -178,6 +178,8 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
         switch (v.getId()) {
 
             case R.id.btnrequestotp:
+                progressBar.setVisibility(View.VISIBLE);
+                findViewById(R.id.btnrequestotp).setVisibility(View.GONE);
                 boolean valid = validateUser();
                 if (valid){
                     final String number=number1.getText().toString().trim();
@@ -187,6 +189,8 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             if (dataSnapshot.getValue() != null){
+                                progressBar.setVisibility(View.GONE);
+                                findViewById(R.id.btnrequestotp).setVisibility(View.VISIBLE);
                                 Toast.makeText(RegAct.this,"User on this phone Number Already Exists",Toast.LENGTH_SHORT).show();
                             }
                             else {
@@ -209,6 +213,9 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
                                 intent.putExtra("number",number);
                                 intent.putExtra("cname",cname);
                                 startActivity(intent);
+
+                                progressBar.setVisibility(View.GONE);
+                                findViewById(R.id.btnrequestotp).setVisibility(View.VISIBLE);
                                 //Toast.makeText(RegAct.this,"NO user found",Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -218,6 +225,10 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
 
                         }
                     });
+                }
+                else {
+                    progressBar.setVisibility(View.GONE);
+                    findViewById(R.id.btnrequestotp).setVisibility(View.VISIBLE);
                 }
                 break;
         }

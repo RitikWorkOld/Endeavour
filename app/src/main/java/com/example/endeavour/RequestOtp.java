@@ -187,7 +187,7 @@ public class RequestOtp extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    String refrelid = endvr.concat(number);
+                    final String refrelid = endvr.concat(number);
                     String uid = FirebaseAuth.getInstance().getUid();
                     User user=new User(fname,email,branch,year,cid,number,cname,uid,refrelid,pwd);
                     FirebaseDatabase.getInstance().getReference("Users")
@@ -208,6 +208,7 @@ public class RequestOtp extends AppCompatActivity {
 
                                 //Toast.makeText(RegAct.this, getString(R.string.registration_success), Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(RequestOtp.this,Reg_Sucess.class);
+                                intent.putExtra("referid",refrelid);
                                 startActivity(intent);
                                 finish();
                             }

@@ -61,37 +61,7 @@ public class Dashboard extends AppCompatActivity  {
                             .tintTarget(false)
                             .cancelable(false)
                             .targetCircleColor(R.color.colorPrimaryDark)
-                            .id(2),
-                    TapTarget.forView(findViewById(R.id.layout_events), "Check all events", "This will help you \n (Tap on button to Cancel)")
-                            .tintTarget(false)
-                            .cancelable(false)
-                            .targetCircleColor(R.color.colorPrimaryDark)
-                            .id(3),
-                    TapTarget.forView(findViewById(R.id.layout_shedule), "Check events schedule", "This will help you \n (Tap on button to Cancel)")
-                            .tintTarget(false)
-                            .cancelable(false)
-                            .targetCircleColor(R.color.colorPrimaryDark)
-                            .id(4),
-                    TapTarget.forView(findViewById(R.id.layout_speakers), "who's the speaker", "This will help you \n (Tap on button to Cancel)")
-                            .tintTarget(false)
-                            .cancelable(false)
-                            .targetCircleColor(R.color.colorPrimaryDark)
-                            .id(5),
-                    TapTarget.forView(findViewById(R.id.layout_sponsors), "Check our sponsors", "This will help you \n (Tap on button to Cancel)")
-                            .tintTarget(false)
-                            .cancelable(false)
-                            .targetCircleColor(R.color.colorPrimaryDark)
-                            .id(6),
-                    TapTarget.forView(findViewById(R.id.layout_ourteam), "Check out team", "This will help you \n (Tap on button to Cancel)")
-                            .tintTarget(false)
-                            .cancelable(false)
-                            .targetCircleColor(R.color.colorPrimaryDark)
-                            .id(7),
-                    TapTarget.forView(findViewById(R.id.layout_faq), "Question you wants to know.", "This will help you \n (Tap on button to Cancel)")
-                            .tintTarget(false)
-                            .cancelable(false)
-                            .targetCircleColor(R.color.colorPrimaryDark)
-                            .id(8)
+                            .id(2)
             ).listener(new TapTargetSequence.Listener() {
                 @Override
                 public void onSequenceFinish() {

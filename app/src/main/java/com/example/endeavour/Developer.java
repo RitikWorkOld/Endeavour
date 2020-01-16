@@ -8,17 +8,32 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 public class Developer extends AppCompatActivity {
+
+    ImageView imageView;
 
     ImageView insta_rik,facebook_rik,google_rik,git_rik;
     ImageView insta_par,facebook_par,google_par,git_par;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate( savedInstanceState );
+        super.onCreate( savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.fragment_developer);
+
+        imageView = (ImageView)findViewById(R.id.back_btn);
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         /*insta_rik = (ImageView)findViewById(R.id.insta_rik);
         insta_par = (ImageView)findViewById(R.id.insta_par);
