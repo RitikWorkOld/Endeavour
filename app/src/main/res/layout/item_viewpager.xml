@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
+    android:background="@color/colorwhite"
     app:cardCornerRadius="5dp">
 
     <FrameLayout
@@ -16,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
+            android:background="@color/colorwhite"
             android:orientation="vertical"
             android:padding="10dp">
 
@@ -31,6 +33,7 @@
                 android:id="@+id/title_speak"
                 style="@style/TextAppearance.AppCompat.Title"
                 android:layout_width="wrap_content"
+               android:textColor="#000"
                 android:layout_height="wrap_content"
                 android:text="Card title" />
 
@@ -38,6 +41,7 @@
                 android:id="@+id/desc_speak"
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="wrap_content"
+                android:textColor="#000"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="@string/desc_speakers" />
@@ -48,6 +52,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_below="@+id/viewPager"
+                android:background="@color/colorwhite"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:cardElevation="5dp"
@@ -56,16 +61,18 @@
             <androidx.core.widget.NestedScrollView
                 android:visibility="visible"
                 android:layout_below="@+id/viewPager"
+                android:background="@color/colorwhite"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
+                    android:background="@color/colorwhite"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
                     <LinearLayout
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:id="@+id/card1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -76,6 +83,7 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginTop="10dp"
+                            android:textColor="#000"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="DEMO TITLE"
@@ -85,6 +93,7 @@
                         <TextView
                             android:id="@+id/speaker_desc_detail_1"
                             android:layout_marginLeft="10dp"
+                            android:textColor="#000"
                             android:layout_marginRight="10dp"
                             android:layout_marginTop="5dp"
                             android:layout_width="wrap_content"
