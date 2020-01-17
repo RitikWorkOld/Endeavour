@@ -12,6 +12,7 @@
     app:cardElevation="5dp">
 
     <LinearLayout
+        android:id="@+id/notification_trigger"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#fff"
@@ -44,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/cancel_rf_red"/>
 
-    </RelativeLayout>
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/tv_noti_desc"

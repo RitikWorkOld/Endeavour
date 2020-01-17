@@ -4,16 +4,21 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.app.Notification;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.example.endeavour.Customised.BucketRecyclerView;
 import com.example.endeavour.Dashboard;
+import com.example.endeavour.Events_Fragments.EventsMain;
 import com.example.endeavour.R;
+import com.example.endeavour.Shedule.Shedule;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -45,6 +50,8 @@ public class Notifications extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_notifications);
 
         no_new_notifications = findViewById(R.id.no_new_notifications);
@@ -65,12 +72,50 @@ public class Notifications extends AppCompatActivity {
 
         adapter = new FirebaseRecyclerAdapter<Noti_Helper, Notification_ViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final Notification_ViewHolder notification_viewHolder, int i, @NonNull Noti_Helper noti_helper) {
+            protected void onBindViewHolder(@NonNull final Notification_ViewHolder notification_viewHolder, int i, @NonNull final Noti_Helper noti_helper) {
 
                 notification_viewHolder.Title.setText(noti_helper.getTitle());
                 notification_viewHolder.Description.setText(noti_helper.getDesc());
 
+                final String type = noti_helper.getType();
+
                 final String notiid = noti_helper.getNotiid();
+
+                if (type != null){
+                    notification_viewHolder.notification_trigger.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            switch (type)
+                            {
+                                case "TECH" :
+                                    Intent intent = new Intent(Notifications.this, EventsMain.class);
+                                    intent.putExtra("type",type);
+                                    startActivity(intent);
+                                    break;
+                                case "FUN" :
+                                    Intent intent1 = new Intent(Notifications.this, EventsMain.class);
+                                    intent1.putExtra("type",type);
+                                    startActivity(intent1);
+                                    break;
+                                case "CORP" :
+                                    Intent intent2 = new Intent(Notifications.this, EventsMain.class);
+                                    intent2.putExtra("type",type);
+                                    startActivity(intent2);
+                                    break;
+                                case "FEB" :
+                                    Intent intent3 = new Intent(Notifications.this, Shedule.class);
+                                    intent3.putExtra("type",type);
+                                    startActivity(intent3);
+                                    break;
+                                case "MAR" :
+                                    Intent intent4 = new Intent(Notifications.this, Shedule.class);
+                                    intent4.putExtra("type",type);
+                                    startActivity(intent4);
+                                    break;
+                            }
+                        }
+                    });
+                }
 
                 /*notification_viewHolder.Cancel_btn.setOnClickListener(new View.OnClickListener() {
                     @Override

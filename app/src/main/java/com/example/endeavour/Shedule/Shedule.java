@@ -11,7 +11,9 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.example.endeavour.Dashboard;
+import com.example.endeavour.Events_Fragments.Events_Corp;
 import com.example.endeavour.Events_Fragments.Events_Fun;
+import com.example.endeavour.Events_Fragments.Events_Tech;
 import com.example.endeavour.R;
 
 public class Shedule extends AppCompatActivity {
@@ -37,8 +39,24 @@ public class Shedule extends AppCompatActivity {
         });
 
         final FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-
         fragmentTransaction.add(R.id.container_shedule,new Feb_frag());
         fragmentTransaction.commit();
+
+        if (getIntent().getStringExtra("type") != null)
+        {
+            if (getIntent().getStringExtra("type").equals("FEB"))
+            {
+                final FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction1.replace(R.id.container_shedule,new Feb_frag());
+                fragmentTransaction1.commit();
+            }
+
+            else if (getIntent().getStringExtra("type").equals("MAR"))
+            {
+                final FragmentTransaction fragmentTransaction3 = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction3.replace(R.id.container_shedule,new Mar_frag());
+                fragmentTransaction3.commit();
+            }
+        }
     }
 }

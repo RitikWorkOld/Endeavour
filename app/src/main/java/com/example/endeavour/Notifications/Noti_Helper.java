@@ -5,14 +5,16 @@ public class Noti_Helper {
     String Title;
     String Desc;
     String notiid;
+    String type;
 
     public Noti_Helper() {
     }
 
-    public Noti_Helper(String title, String desc, String notiid) {
-        this.Title = title;
-        this.Desc = desc;
+    public Noti_Helper(String title, String desc, String notiid, String type) {
+        Title = title;
+        Desc = desc;
         this.notiid = notiid;
+        this.type = type;
     }
 
     public String getTitle() {
@@ -37,5 +39,13 @@ public class Noti_Helper {
 
     public void setNotiid(String notiid) {
         this.notiid = notiid;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

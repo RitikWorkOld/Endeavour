@@ -8,9 +8,10 @@
     <ImageView
         android:scaleType="centerCrop"
         android:id="@+id/glimp_image"
-        android:elevation="3dp"
-        android:padding="3dp"
-
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginBottom="3dp"
         android:layout_width="wrap_content"
         android:layout_height="300dp"/>
 

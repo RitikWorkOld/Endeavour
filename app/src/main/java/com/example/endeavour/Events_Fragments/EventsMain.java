@@ -52,10 +52,33 @@ public class EventsMain extends AppCompatActivity {
         radioButton_corp = (RadioButton)findViewById(R.id.radio_corporate);
 
         final FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-
         fragmentTransaction.add(R.id.events_container,new  Events_Fun());
         fragmentTransaction.commit();
 
+        if (getIntent().getStringExtra("type") != null)
+        {
+            if (getIntent().getStringExtra("type").equals("TECH"))
+            {
+                final FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction1.replace(R.id.events_container,new Events_Tech());
+                fragmentTransaction1.commit();
+                radioButton_tech.setChecked(true);
+            }
+
+            else if (getIntent().getStringExtra("type").equals("CORP"))
+            {
+                final FragmentTransaction fragmentTransaction3 = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction3.replace(R.id.events_container,new Events_Corp());
+                fragmentTransaction3.commit();
+                radioButton_corp.setChecked(true);
+            }
+            else {
+                final FragmentTransaction fragmentTransaction3 = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction3.replace(R.id.events_container,new Events_Fun());
+                fragmentTransaction3.commit();
+                radioButton_fun.setChecked(true);
+            }
+        }
 
         radioButton_tech.setOnClickListener(new View.OnClickListener() {
             @Override

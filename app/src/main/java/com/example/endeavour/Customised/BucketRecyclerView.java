@@ -94,4 +94,10 @@ public class BucketRecyclerView extends RecyclerView {
     public void showIfEmpty(View ...no_new_notifications) {
         mEmptyViews = Arrays.asList(no_new_notifications);
     }
+
+    @Override
+    public boolean performClick() {
+        super.performClick();
+        return true;
+    }
 }

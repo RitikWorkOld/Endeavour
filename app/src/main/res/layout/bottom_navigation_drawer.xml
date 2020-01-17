@@ -55,13 +55,11 @@
             android:id="@+id/user_phno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_weight="1"
             android:layout_marginLeft="16dp"
             android:fontFamily="@font/nunito"
             android:gravity="center"
             android:text="12345*****"
-
             android:textColor="@color/gray"
             android:textSize="15sp"
             android:textStyle="bold" />
