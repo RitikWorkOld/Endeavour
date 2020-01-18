@@ -4,15 +4,16 @@ public class Bnd_helper {
 
     public String refrelid;
     public String name;
-    public String contactN;
+    public String contactn;
 
     public Bnd_helper() {
     }
 
-    public Bnd_helper(String refrelid, String name, String contactN) {
+
+    public Bnd_helper(String refrelid, String name, String contactn) {
         this.refrelid = refrelid;
         this.name = name;
-        this.contactN = contactN;
+        this.contactn = contactn;
     }
 
     public String getRefrelid() {
@@ -31,11 +32,11 @@ public class Bnd_helper {
         this.name = name;
     }
 
-    public String getContactN() {
-        return contactN;
+    public String getContactn() {
+        return contactn;
     }
 
-    public void setContactN(String contactN) {
-        this.contactN = contactN;
+    public void setContactn(String contactn) {
+        this.contactn = contactn;
     }
 }

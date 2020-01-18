@@ -185,7 +185,7 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
                     final String number=number1.getText().toString().trim();
                     DatabaseReference dbref = FirebaseDatabase.getInstance().getReference().child("Users");
                     dbref.keepSynced(true);
-                    dbref.orderByChild("contactN").equalTo(number).addListenerForSingleValueEvent(new ValueEventListener() {
+                    dbref.orderByChild("contactn").equalTo(number).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             if (dataSnapshot.getValue() != null){

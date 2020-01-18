@@ -100,7 +100,7 @@ public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
                     Bnd_helper bnd_helper = dataSnapshot1.getValue(Bnd_helper.class);
 
                     String n = bnd_helper.name;
-                    String p = bnd_helper.contactN;
+                    String p = bnd_helper.contactn;
                     String r = bnd_helper.refrelid;
 
                     Log.d(TAG,"---------------------------------"+n+"-----------"+p+"----------"+r);
