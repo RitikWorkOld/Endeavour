@@ -289,6 +289,29 @@ android:textColor="#000"
                         android:fontFamily="@font/montserrat"
                         android:hint="You are from which college?" />
 
+                  <TextView
+                      android:textColor="#000"
+                      android:textSize="15sp"
+                      android:id="@+id/ambd_id_text"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="16dp"
+                      android:layout_marginTop="8dp"
+                      android:fontFamily="@font/montserrat"
+                      android:text="Ambassador Id   (OPTIONAL)" />
+
+                  <EditText
+                      android:id="@+id/ambd_id"
+                      android:textColor="#CD4B4B"
+                      android:textColorHint="#808080"
+                      android:textSize="15sp"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="8dp"
+                      android:layout_marginRight="8dp"
+                      android:fontFamily="@font/montserrat"
+                      android:hint="ENDVR8586******" />
+
 
 
 

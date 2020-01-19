@@ -48,7 +48,7 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
 
 
 
-    private EditText emailId,password,fname1,branch1,year1,cid1,number1,cname1;
+    private EditText emailId,password,fname1,branch1,year1,cid1,number1,cname1,ambd_id;
     private Button loginbtn;
     private Toast backToast;
     private long backPressedTime;
@@ -88,6 +88,7 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
         cid1 = findViewById(R.id.campus);
         number1 = findViewById(R.id.cnumber);
         cname1 = findViewById(R.id.cname);
+        ambd_id = findViewById(R.id.ambd_id);
 
         loginbtn=(Button) findViewById(R.id.button_login);
 
@@ -202,6 +203,7 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
                                 final String cid=cid1.getText().toString().trim();
                                 final String number=number1.getText().toString().trim();
                                 final String cname=cname1.getText().toString().trim();
+                                final String ambdid=ambd_id.getText().toString().toUpperCase().trim();
 
                                 Intent intent = new Intent(RegAct.this,RequestOtp.class);
                                 intent.putExtra("name",fname);
@@ -212,6 +214,7 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
                                 intent.putExtra("campusid",cid);
                                 intent.putExtra("number",number);
                                 intent.putExtra("cname",cname);
+                                intent.putExtra("ambdid",ambdid);
                                 startActivity(intent);
 
                                 progressBar.setVisibility(View.GONE);

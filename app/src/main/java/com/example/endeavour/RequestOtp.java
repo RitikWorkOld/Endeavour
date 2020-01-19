@@ -180,6 +180,7 @@ public class RequestOtp extends AppCompatActivity {
         final String cid = intent.getStringExtra("campusid");
         final String number = intent.getStringExtra("number");
         final String cname = intent.getStringExtra("cname");
+        final String ambdid = intent.getStringExtra("ambdid");
 
         progressBar.setVisibility(View.VISIBLE);
         verify.setVisibility(View.GONE);
@@ -189,7 +190,7 @@ public class RequestOtp extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     final String refrelid = endvr.concat(number);
                     String uid = FirebaseAuth.getInstance().getUid();
-                    User user=new User(fname,email,branch,year,cid,number,cname,uid,refrelid,pwd);
+                    User user=new User(fname,email,branch,year,cid,number,cname,uid,refrelid,pwd,ambdid);
                     FirebaseDatabase.getInstance().getReference("Users")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                             .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {

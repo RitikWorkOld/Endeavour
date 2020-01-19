@@ -12,12 +12,13 @@ public class User {
     public String uid;
     public String refrelid;
     public String password;
+    public String ambdid;
 
     public User(){
 
     }
 
-    public User(String name, String email, String branch, String year, String campusid, String contactn, String collegename, String uid, String refrelid, String password) {
+    public User(String name, String email, String branch, String year, String campusid, String contactn, String collegename, String uid, String refrelid, String password,String ambdid) {
         this.name = name;
         this.email = email;
         this.branch = branch;
@@ -28,6 +29,7 @@ public class User {
         this.uid = uid;
         this.refrelid = refrelid;
         this.password = password;
+        this.ambdid = ambdid;
     }
 
     public String getName() {
@@ -108,5 +110,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getAmbdid() {
+        return ambdid;
+    }
+
+    public void setAmbdid(String ambdid) {
+        this.ambdid = ambdid;
     }
 }
