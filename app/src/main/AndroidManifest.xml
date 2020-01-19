@@ -13,22 +13,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".about_endeavour"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".FAQ"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Developer"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Shedule.Shedule"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Speakers.Speakers"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Sponsors.Sponsor"
-            android:screenOrientation="portrait"/>
+        <activity android:name=".Quiz.Result_activity"></activity>
+        <activity android:name=".Quiz.MainActivity" />
+        <activity
+            android:name=".about_endeavour"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FAQ"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Developer"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Shedule.Shedule"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Speakers.Speakers"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sponsors.Sponsor"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".RequestOtp"
             android:theme="@style/AppTheme.Requeststyle" />
-        <activity android:name=".splashAct"
+        <activity
+            android:name=".splashAct"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,25 +57,29 @@
         <activity
             android:name=".Reg_Sucess"
             android:theme="@style/AppTheme.Popupstyle" />
-        <activity android:name=".Team.TeamMain"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Team.TeamMain"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".RegAct"
             android:noHistory="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoginActivity"
             android:noHistory="true"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Dashboard"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Events_Fragments.EventsMain"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Dashboard"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Events_Fragments.EventsMain"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ForgotPass"
             android:theme="@style/AppTheme.Requeststyle" />
-        <activity android:name=".Notifications.Notifications"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Notifications.Notifications"
+            android:screenOrientation="portrait" />
 
         <service
             android:name=".services.MyMessagingService"
