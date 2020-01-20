@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     int total = 0;
     int correct = 0;
     int incorrect = 0;
-    int count = 0;
+    int count = -1;
     DatabaseReference reference;
 
     @Override
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     public void updateQuestions() {
         count++;
 
-        if (count > 4) {
+        if (count >= 2) {
 
             Toast.makeText(getApplicationContext(), "Game Over", Toast.LENGTH_SHORT).show();
             Intent myIntent = new Intent(MainActivity.this, Result_activity.class);
@@ -65,246 +65,253 @@ public class MainActivity extends AppCompatActivity {
             myIntent.putExtra("incorrect",String.valueOf(incorrect));
 
             startActivity(myIntent);
+            finish();
 
         } else {
-            reference = FirebaseDatabase.getInstance().getReference().child("Questions").child(String.valueOf(count));
+
+            reference = FirebaseDatabase.getInstance().getReference().child("Questions").child( String.valueOf( count ) );
             total++;
-            reference.addValueEventListener(new ValueEventListener() {
+            reference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                    final Questions questions = dataSnapshot.getValue(Questions.class);
+                        final Questions questions = dataSnapshot.getValue(Questions.class);
+
+                        assert questions != null;
+                        question.setText(questions.getQuestions());
+                        btn1.setText(questions.getoption1());
+                        btn2.setText(questions.getoption2());
+                        btn3.setText(questions.getoption3());
+                        btn4.setText(questions.getoption4());
+
+                        btn1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                if (btn1.getText().toString().equals(questions.answer)) {
+                                   // Toast.makeText(getApplicationContext(), "Correct answer", Toast.LENGTH_SHORT).show();
+                                   // btn1.setBackgroundColor(Color.GREEN);
+                                    correct++;
+                                    updateQuestions();
+                                   /* Handler handler = new Handler();
+                                    handler.postDelayed(new Runnable() {
+
+                                        @Override
+                                        public void run() {
+                                            correct++;
+                                            btn1.setBackgroundColor(Color.parseColor("#48B9AC"));
+                                            updateQuestions();
 
 
-                    assert questions != null;
-                    question.setText(questions.getQuestions());
-                    btn1.setText(questions.getoption1());
-                    btn2.setText(questions.getoption2());
-                    btn3.setText(questions.getoption3());
-                    btn4.setText(questions.getoption4());
-
-                    btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (btn1.getText().toString().equals(questions.answer)) {
-                                Toast.makeText(getApplicationContext(), "Correct answer", Toast.LENGTH_SHORT).show();
-                                btn1.setBackgroundColor(Color.GREEN);
-                                Handler handler = new Handler();
-                                handler.postDelayed(new Runnable() {
-
-                                    @Override
-                                    public void run() {
-                                        correct++;
-                                        btn1.setBackgroundColor(Color.parseColor("#48B9AC"));
-                                        updateQuestions();
+                                        }
+                                    }, 1500);*/
+                                } else {
+                                   // Toast.makeText(getApplicationContext(), "Incorrect", Toast.LENGTH_SHORT).show();
+                                    incorrect++;
+                                  //  btn1.setBackgroundColor(Color.RED);
+                                    updateQuestions();
+                                   /* if (btn2.getText().toString().equals(questions.getanswer())) {
+                                        btn2.setBackgroundColor(Color.GREEN);
+                                    } else if (btn3.getText().toString().equals(questions.getanswer())) {
+                                        btn3.setBackgroundColor(Color.GREEN);
+                                    } else if (btn4.getText().toString().equals(questions.getanswer())) {
+                                        btn4.setBackgroundColor(Color.GREEN);
 
 
-                                    }
-                                }, 1500);
-                            } else {
-                                Toast.makeText(getApplicationContext(), "Incorrect", Toast.LENGTH_SHORT).show();
-                                incorrect++;
-                                btn1.setBackgroundColor(Color.RED);
-                                updateQuestions();
+
+                                    }*/
+
+                                   /* Handler handler = new Handler();
+                                    handler.postDelayed(new Runnable() {
+
+                                        @Override
+                                        public void run() {
+                                            btn1.setBackgroundColor(Color.parseColor("#48B9AC"));
+                                            btn2.setBackgroundColor(Color.parseColor("#48B9AC"));
+                                            btn3.setBackgroundColor(Color.parseColor("#48B9AC"));
+                                            btn4.setBackgroundColor(Color.parseColor("#48B9AC"));
+
+                                            updateQuestions();
+                                        }
+                                    }, 1500);*/
+                                }
+                            }
+
+
+                        });
+
+
+                        btn2.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
                                 if (btn2.getText().toString().equals(questions.getanswer())) {
-                                    btn2.setBackgroundColor(Color.GREEN);
-                                } else if (btn3.getText().toString().equals(questions.getanswer())) {
-                                    btn3.setBackgroundColor(Color.GREEN);
-                                } else if (btn4.getText().toString().equals(questions.getanswer())) {
+                                    correct++;
+                                    //Toast.makeText(getApplicationContext(), "Correct answer", Toast.LENGTH_SHORT).show();
+                                   // btn2.setBackgroundColor(Color.GREEN);
+                                    updateQuestions();
+                                  /*  Handler handler = new Handler();
+                                    handler.postDelayed(new Runnable() {
+
+                                        @Override
+                                        public void run() {
+
+                                            btn2.setBackgroundColor(Color.parseColor("#48B9AC"));
+                                            updateQuestions();
+
+
+                                        }
+                                    }, 2000);*/
+                                } else {
+                                    incorrect++;
+                                 //   Toast.makeText(getApplicationContext(), "Incorrect", Toast.LENGTH_SHORT).show();
+                                 //   btn2.setBackgroundColor(Color.RED);
+                                    updateQuestions();
+                                 /*   if (btn1.getText().toString().equals(questions.getanswer())) {
+                                        btn1.setBackgroundColor(Color.GREEN);
+                                    } else if (btn3.getText().toString().equals(questions.getanswer())) {
+                                        btn3.setBackgroundColor(Color.GREEN);
+                                    } else if (btn4.getText().toString().equals(questions.getanswer())) {
+                                        btn4.setBackgroundColor(Color.GREEN);
+
+
+
+                                    }*/
+
+                                    /*Handler handler = new Handler();
+                                    handler.postDelayed(new Runnable() {
+
+                                        @Override
+                                        public void run() {
+                                            btn1.setBackgroundColor(Color.parseColor("#48B9AC"));
+                                            btn2.setBackgroundColor(Color.parseColor("#48B9AC"));
+                                            btn3.setBackgroundColor(Color.parseColor("#48B9AC"));
+                                            btn4.setBackgroundColor(Color.parseColor("#48B9AC"));
+                                            updateQuestions();
+                                        }
+
+
+                                    }, 1500);*/
+                                }
+                            }
+
+
+                        });
+                        btn3.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+
+                                if (btn3.getText().toString().equals(questions.getanswer())) {
+                                    correct++;
+                                    updateQuestions();
+                                   // Toast.makeText(getApplicationContext(), "Correct answer", Toast.LENGTH_SHORT).show();
+                                   // btn3.setBackgroundColor(Color.GREEN);
+                                /*    Handler handler = new Handler();
+                                    handler.postDelayed(new Runnable() {
+
+                                        @Override
+                                        public void run() {
+
+                                            btn3.setBackgroundColor(Color.parseColor("#48B9AC"));
+                                            updateQuestions();
+
+
+                                        }
+                                    }, 2000);*/
+                                } else {
+                                    incorrect++;
+                                   // Toast.makeText(getApplicationContext(), "Incorrect", Toast.LENGTH_SHORT).show();
+                                   // btn3.setBackgroundColor(Color.RED);
+                                    updateQuestions();
+
+                                 /*   if (btn1.getText().toString().equals(questions.getanswer())) {
+                                        btn1.setBackgroundColor(Color.GREEN);
+                                    } else if (btn2.getText().toString().equals(questions.getanswer())) {
+                                        btn2.setBackgroundColor(Color.GREEN);
+                                    } else if (btn4.getText().toString().equals(questions.getanswer())) {
+                                        btn4.setBackgroundColor(Color.GREEN);
+
+
+
+                                    }*/
+
+                                  /*  Handler handler = new Handler();
+                                    handler.postDelayed(new Runnable() {
+
+                                        @Override
+                                        public void run() {
+                                            btn1.setBackgroundColor(Color.parseColor("#48B9AC"));
+                                            btn2.setBackgroundColor(Color.parseColor("#48B9AC"));
+                                            btn3.setBackgroundColor(Color.parseColor("#48B9AC"));
+                                            btn4.setBackgroundColor(Color.parseColor("#48B9AC"));
+                                            updateQuestions();
+                                        }
+
+
+                                    }, 1500);*/
+                                }
+                            }
+
+
+                        });
+                        btn4.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                                if (btn4.getText().toString().equals(questions.getanswer())) {
+                                    correct++;
+                                    updateQuestions();
+                                   /* Toast.makeText(getApplicationContext(), "Correct answer", Toast.LENGTH_SHORT).show();
                                     btn4.setBackgroundColor(Color.GREEN);
+                                    Handler handler = new Handler();
+                                    handler.postDelayed(new Runnable() {
+
+                                        @Override
+                                        public void run() {
+
+                                            btn4.setBackgroundColor(Color.parseColor("#48B9AC"));
+                                            updateQuestions();
 
 
+                                        }
+                                    }, 2000);*/
+                                } else {
+                                    incorrect++;
+                                    //Toast.makeText(getApplicationContext(), "Incorrect", Toast.LENGTH_SHORT).show();
+                                    //btn4.setBackgroundColor(Color.RED);
+                                    updateQuestions();
+                                   /* if (btn1.getText().toString().equals(questions.getanswer())) {
+                                        btn1.setBackgroundColor(Color.GREEN);
+                                    } else if (btn2.getText().toString().equals(questions.getanswer())) {
+                                        btn2.setBackgroundColor(Color.GREEN);
+                                    } else if (btn3.getText().toString().equals(questions.getanswer())) {
+                                        btn3.setBackgroundColor(Color.GREEN);
 
+
+                                    }*/
+
+                                   /* Handler handler = new Handler();
+                                    handler.postDelayed(new Runnable() {
+
+                                        @Override
+                                        public void run() {
+                                            btn1.setBackgroundColor(Color.parseColor("#48B9AC"));
+                                            btn2.setBackgroundColor(Color.parseColor("#48B9AC"));
+                                            btn4.setBackgroundColor(Color.parseColor("#48B9AC"));
+                                            btn3.setBackgroundColor(Color.parseColor("#48B9AC"));
+                                        }
+
+
+                                    }, 1500);*/
                                 }
-
-                                Handler handler = new Handler();
-                                handler.postDelayed(new Runnable() {
-
-                                    @Override
-                                    public void run() {
-                                        btn1.setBackgroundColor(Color.parseColor("#48B9AC"));
-                                        btn2.setBackgroundColor(Color.parseColor("#48B9AC"));
-                                        btn3.setBackgroundColor(Color.parseColor("#48B9AC"));
-                                        btn4.setBackgroundColor(Color.parseColor("#48B9AC"));
-
-                                        updateQuestions();
-                                    }
-                                }, 1500);
                             }
-                        }
 
 
-                    });
-
-
-                    btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-
-                            if (btn2.getText().toString().equals(questions.getanswer())) {
-                                correct++;
-                                Toast.makeText(getApplicationContext(), "Correct answer", Toast.LENGTH_SHORT).show();
-                                btn2.setBackgroundColor(Color.GREEN);
-                                Handler handler = new Handler();
-                                handler.postDelayed(new Runnable() {
-
-                                    @Override
-                                    public void run() {
-
-                                        btn2.setBackgroundColor(Color.parseColor("#48B9AC"));
-                                        updateQuestions();
-
-
-                                    }
-                                }, 2000);
-                            } else {
-                                incorrect++;
-                                Toast.makeText(getApplicationContext(), "Incorrect", Toast.LENGTH_SHORT).show();
-                                btn2.setBackgroundColor(Color.RED);
-                                updateQuestions();
-                                if (btn1.getText().toString().equals(questions.getanswer())) {
-                                    btn1.setBackgroundColor(Color.GREEN);
-                                } else if (btn3.getText().toString().equals(questions.getanswer())) {
-                                    btn3.setBackgroundColor(Color.GREEN);
-                                } else if (btn4.getText().toString().equals(questions.getanswer())) {
-                                    btn4.setBackgroundColor(Color.GREEN);
+                        });
+                    }
 
 
 
-                                }
-
-                                Handler handler = new Handler();
-                                handler.postDelayed(new Runnable() {
-
-                                    @Override
-                                    public void run() {
-                                        btn1.setBackgroundColor(Color.parseColor("#48B9AC"));
-                                        btn2.setBackgroundColor(Color.parseColor("#48B9AC"));
-                                        btn3.setBackgroundColor(Color.parseColor("#48B9AC"));
-                                        btn4.setBackgroundColor(Color.parseColor("#48B9AC"));
-                                        updateQuestions();
-                                    }
-
-
-                                }, 1500);
-                            }
-                        }
-
-
-                    });
-                    btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-
-
-                            if (btn3.getText().toString().equals(questions.getanswer())) {
-                                correct++;
-                                Toast.makeText(getApplicationContext(), "Correct answer", Toast.LENGTH_SHORT).show();
-                                btn3.setBackgroundColor(Color.GREEN);
-                                Handler handler = new Handler();
-                                handler.postDelayed(new Runnable() {
-
-                                    @Override
-                                    public void run() {
-
-                                        btn3.setBackgroundColor(Color.parseColor("#48B9AC"));
-                                        updateQuestions();
-
-
-                                    }
-                                }, 2000);
-                            } else {
-                                incorrect++;
-                                Toast.makeText(getApplicationContext(), "Incorrect", Toast.LENGTH_SHORT).show();
-                                btn3.setBackgroundColor(Color.RED);
-                                updateQuestions();
-
-                                if (btn1.getText().toString().equals(questions.getanswer())) {
-                                    btn1.setBackgroundColor(Color.GREEN);
-                                } else if (btn2.getText().toString().equals(questions.getanswer())) {
-                                    btn2.setBackgroundColor(Color.GREEN);
-                                } else if (btn4.getText().toString().equals(questions.getanswer())) {
-                                    btn4.setBackgroundColor(Color.GREEN);
-
-
-
-                                }
-
-                                Handler handler = new Handler();
-                                handler.postDelayed(new Runnable() {
-
-                                    @Override
-                                    public void run() {
-                                        btn1.setBackgroundColor(Color.parseColor("#48B9AC"));
-                                        btn2.setBackgroundColor(Color.parseColor("#48B9AC"));
-                                        btn3.setBackgroundColor(Color.parseColor("#48B9AC"));
-                                        btn4.setBackgroundColor(Color.parseColor("#48B9AC"));
-                                        updateQuestions();
-                                    }
-
-
-                                }, 1500);
-                            }
-                        }
-
-
-                    });
-                    btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-
-                            if (btn4.getText().toString().equals(questions.getanswer())) {
-                                correct++;
-                                Toast.makeText(getApplicationContext(), "Correct answer", Toast.LENGTH_SHORT).show();
-                                btn4.setBackgroundColor(Color.GREEN);
-                                Handler handler = new Handler();
-                                handler.postDelayed(new Runnable() {
-
-                                    @Override
-                                    public void run() {
-
-                                        btn4.setBackgroundColor(Color.parseColor("#48B9AC"));
-                                        updateQuestions();
-
-
-                                    }
-                                }, 2000);
-                            } else {
-                                incorrect++;
-                                Toast.makeText(getApplicationContext(), "Incorrect", Toast.LENGTH_SHORT).show();
-                                btn4.setBackgroundColor(Color.RED);
-                                updateQuestions();
-                                if (btn1.getText().toString().equals(questions.getanswer())) {
-                                    btn1.setBackgroundColor(Color.GREEN);
-                                } else if (btn2.getText().toString().equals(questions.getanswer())) {
-                                    btn2.setBackgroundColor(Color.GREEN);
-                                } else if (btn3.getText().toString().equals(questions.getanswer())) {
-                                    btn3.setBackgroundColor(Color.GREEN);
-
-
-                                }
-
-                                Handler handler = new Handler();
-                                handler.postDelayed(new Runnable() {
-
-                                    @Override
-                                    public void run() {
-                                        btn1.setBackgroundColor(Color.parseColor("#48B9AC"));
-                                        btn2.setBackgroundColor(Color.parseColor("#48B9AC"));
-                                        btn4.setBackgroundColor(Color.parseColor("#48B9AC"));
-                                        btn3.setBackgroundColor(Color.parseColor("#48B9AC"));
-                                    }
-
-
-                                }, 1500);
-                            }
-                        }
-
-
-                    });
-
-
-                }
 
 
                 @Override
