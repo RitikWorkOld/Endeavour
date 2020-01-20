@@ -13,7 +13,7 @@
         android:elevation="90dp"
         android:layout_marginTop="110dp"
         app:cardCornerRadius="20dp"
-
+        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content">
 
 
@@ -24,6 +24,7 @@
             android:layout_height="match_parent"
             android:background="#fff"
             android:fontFamily="@font/nunito"
+
             android:paddingHorizontal="20dp"
             android:paddingVertical="12dp">
 
@@ -71,6 +72,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="15dp"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="Questions"
             android:textColor="@android:color/black"
             android:textSize="20sp" />
@@ -94,10 +96,12 @@
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="400dp"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+      android:layout_centerInParent="true"
         android:orientation="vertical"
+
+
         >
 
 
@@ -111,8 +115,9 @@
 
 
             android:layout_height="wrap_content"
-            android:layout_marginLeft="52dp"
-            android:background="@drawable/background_gradient"
+
+            android:background="@drawable/rec_gradient"
+
             />
 
 
@@ -120,7 +125,7 @@
             android:layout_width="300dp"
             android:id="@+id/button2"
             android:layout_marginTop="19dp"
-            android:layout_marginLeft="52dp"
+
 
 
 
@@ -128,7 +133,7 @@
 
             android:layout_height="wrap_content"
 
-            android:background="@drawable/background_gradient"
+            android:background="@drawable/rec_gradient"
             />
         <Button
             android:layout_width="300dp"
@@ -138,8 +143,8 @@
 
 
             android:layout_height="wrap_content"
-            android:layout_marginLeft="52dp"
-            android:background="@drawable/background_gradient"
+
+            android:background="@drawable/rec_gradient"
             />
         <Button
             android:layout_width="300dp"
@@ -149,8 +154,8 @@
 
 
             android:layout_height="wrap_content"
-            android:layout_marginLeft="52dp"
-            android:background="@drawable/background_gradient"
+
+            android:background="@drawable/rec_gradient"
             />
 
 
@@ -162,5 +167,32 @@
 
 
 
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentRight="true"
+    android:layout_marginBottom="6dp"
+    android:layout_marginRight="6dp"
+    >
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
 
+        android:layout_marginRight="6dp"
+        android:id="@+id/back_btn"
+        android:background="@drawable/back_1"
+
+        />
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+
+        android:id="@+id/skip_btn"
+        android:background="@drawable/back_2"
+        />
+
+
+
+</LinearLayout>
 </RelativeLayout>

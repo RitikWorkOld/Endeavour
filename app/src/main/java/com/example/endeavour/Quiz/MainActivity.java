@@ -2,6 +2,7 @@ package com.example.endeavour.Quiz;
 
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -13,19 +14,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.endeavour.Dashboard;
+import com.example.endeavour.LoginActivity;
 import com.example.endeavour.R;
+import com.example.endeavour.Utils.Save;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import static java.sql.Types.NULL;
+
 
 public class MainActivity extends AppCompatActivity {
-
-
+    Button back;
+    Button skip;
     Button btn1;
     Button btn2;
     Button btn3;
@@ -45,27 +52,75 @@ public class MainActivity extends AppCompatActivity {
         btn2 = findViewById(R.id.button2);
         btn3 = findViewById(R.id.button3);
         btn4 = findViewById(R.id.button4);
+        skip=findViewById( R.id.skip_btn );         //added
         question = findViewById(R.id.questionText);
         timerTxt = findViewById(R.id.timer);
-
+        back=findViewById( R.id.back_btn );
 
         updateQuestions();
         reverseTimer(600, timerTxt);
+
+        skip.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateQuestions();
+            }
+        } );
+
+    back.setOnClickListener( new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if(count>=1) {
+                total--;
+                count = count - 2;
+                updateQuestions();
+            }
+            else
+            {
+                Toast.makeText(getApplicationContext(), "Already on First Question", Toast.LENGTH_SHORT).show();
+            }
+        }
+    } );
     }
+
+
 
     public void updateQuestions() {
         count++;
 
         if (count >= 2) {
+            AlertDialog.Builder builder = new AlertDialog.Builder( MainActivity.this);
+            builder.setTitle(R.string.app_name);
+            builder.setIcon(R.mipmap.ic_launcher);
+            builder.setMessage("Do you want to Submit?")
+                    .setCancelable(false)
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
 
-            Toast.makeText(getApplicationContext(), "Game Over", Toast.LENGTH_SHORT).show();
-            Intent myIntent = new Intent(MainActivity.this, Result_activity.class);
-            myIntent.putExtra("total", String.valueOf(total));
-            myIntent.putExtra("correct", String.valueOf(correct));
-            myIntent.putExtra("incorrect",String.valueOf(incorrect));
 
-            startActivity(myIntent);
-            finish();
+                            Intent myIntent = new Intent(MainActivity.this, Result_activity.class);
+                            myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            Toast.makeText(getApplicationContext(), "Game Over", Toast.LENGTH_SHORT).show();
+
+                            myIntent.putExtra("total", String.valueOf(total));
+                            myIntent.putExtra("correct", String.valueOf(correct));
+                            myIntent.putExtra("incorrect",String.valueOf(incorrect));
+                            if(correct==0 && incorrect==0 )
+                                    {
+                                        Toast.makeText(getApplicationContext(), "You have not submitted any questions", Toast.LENGTH_SHORT).show();
+                            }
+                            startActivity(myIntent);
+                            finish();
+                        }
+                    })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alert = builder.create();
+            alert.show();
+
 
         } else {
 
@@ -351,6 +406,7 @@ public class MainActivity extends AppCompatActivity {
         }.start();
 
     }
+
 }
 
 
