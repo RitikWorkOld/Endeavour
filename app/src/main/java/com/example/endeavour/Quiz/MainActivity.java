@@ -4,10 +4,8 @@ package com.example.endeavour.Quiz;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -17,17 +15,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.endeavour.Dashboard;
-import com.example.endeavour.LoginActivity;
+import com.example.endeavour.BQuiz.Questions;
 import com.example.endeavour.R;
-import com.example.endeavour.Utils.Save;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import static java.sql.Types.NULL;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -364,18 +358,11 @@ public class MainActivity extends AppCompatActivity {
 
                         });
                     }
-
-
-
-
-
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
 
                 }
             });
-
-
         }
 
 

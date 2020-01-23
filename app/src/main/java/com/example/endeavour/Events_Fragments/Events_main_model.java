@@ -2,13 +2,13 @@ package com.example.endeavour.Events_Fragments;
 
 public class Events_main_model {
 
-    String mimguri;
-    String title;
-    String descp;
-    String simguri;
-    String register_uri;
-    String desc1;
-    String desc2;
+    public String mimguri;
+    public String title;
+    public String descp;
+    public String simguri;
+    public String register_uri;
+    public String desc1;
+    public String desc2;
 
     public Events_main_model() {
     }

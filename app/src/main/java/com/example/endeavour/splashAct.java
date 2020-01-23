@@ -60,7 +60,7 @@ public class splashAct extends AppCompatActivity {
             public void onAnimationEnd(Animation animation) {
                 imageView.startAnimation(animation_2);
                 finish();
-                Intent i = new Intent(getBaseContext(), MainActivity.class);
+                Intent i = new Intent(getBaseContext(), LoginActivity.class);
                 startActivity(i);
 
             }
