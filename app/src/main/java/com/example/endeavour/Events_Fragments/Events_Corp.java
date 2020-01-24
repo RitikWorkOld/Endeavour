@@ -127,15 +127,16 @@ public class Events_Corp extends Fragment {
                             if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY)
                             {
                                 //open right side
-
-                            } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY)
-                            {
                                 final FragmentTransaction fragmentTransaction1 = getActivity().getSupportFragmentManager().beginTransaction();
                                 fragmentTransaction1.replace(R.id.events_container,new Events_Tech());
                                 fragmentTransaction1.commit();
 
                                 RadioButton radioButton = getActivity().findViewById(R.id.radio_technical);
                                 radioButton.setChecked(true);
+
+                            } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY)
+                            {
+                                //open left side.....
 
                             }
                         } catch (Exception e) {

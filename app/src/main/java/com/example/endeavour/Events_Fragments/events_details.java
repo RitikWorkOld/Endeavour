@@ -17,8 +17,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.endeavour.BQuiz.Bquiz;
 import com.example.endeavour.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 public class events_details extends Fragment {
@@ -31,6 +38,8 @@ public class events_details extends Fragment {
     ImageView Mimg_dt;
     ImageView Simg_dt;
     TextView readless;
+    Button gotoquiz;
+    TextView faq;
 
     @Nullable
     @Override
@@ -39,13 +48,14 @@ public class events_details extends Fragment {
 
         Bundle bundle = getArguments();
 
-        String Title = bundle.getString("Title");
+        final String Title = bundle.getString("Title");
         String Descp = bundle.getString("Descp");
         String Desc1 = bundle.getString("Desc1");
         String Desc2 = bundle.getString("Desc2");
         String Mimguri = bundle.getString("Mimguri");
         String Simguri = bundle.getString("Simguri");
         final String Register_uri = bundle.getString("Register_uri");
+        final String faqid = bundle.getString( "faqid" );
         readless = view.findViewById(R.id.read_less_events);
 
         Title_dt = view.findViewById(R.id.event_title);
@@ -55,6 +65,8 @@ public class events_details extends Fragment {
         Mimg_dt = view.findViewById(R.id.event_main_img1);
         Simg_dt = view.findViewById(R.id.event_main_img2);
         Register_dt = view.findViewById(R.id.register_events);
+        gotoquiz = view.findViewById( R.id.gotoquiz );
+        faq = view.findViewById( R.id.faq_btn );
 
         Title_dt.setText(Title);
         Descp_dt.setText(Descp);
@@ -62,6 +74,60 @@ public class events_details extends Fragment {
         Desc2_dt.setText(Desc2);
         Picasso.get().load(Mimguri).into(Mimg_dt);
         Picasso.get().load(Simguri).into(Simg_dt);
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child( "BquizStatus" ).child( "abcde" );
+        databaseReference.keepSynced( true );
+        databaseReference.addListenerForSingleValueEvent( new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                QuizUnlocker quizUnlocker = dataSnapshot.getValue(QuizUnlocker.class);
+
+                Toast.makeText( getActivity().getApplicationContext(),"status  "+quizUnlocker.getStatus().toString(),Toast.LENGTH_SHORT ).show();
+
+                if (quizUnlocker.getStatus().toString() != null){
+                    if (quizUnlocker.getStatus().toString().equals( "open" ) && Title.equals( "BizCraft" )){
+                        gotoquiz.setVisibility( View.VISIBLE );
+                        gotoquiz.setOnClickListener( new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent( getActivity(), Bquiz.class );
+                                startActivity( intent );
+                            }
+                        } );
+                    }
+                    else {
+                        gotoquiz.setVisibility( View.GONE );
+                    }
+                }
+                else {
+                    gotoquiz.setVisibility( View.GONE );
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        } );
+
+        faq.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final Bundle bundle = new Bundle();
+                bundle.putString( "faqid",faqid);
+
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                Faq_events_fargment faq_events_fargment = new Faq_events_fargment();
+                faq_events_fargment.setArguments( bundle );
+
+                fragmentTransaction.replace(R.id.events_container,faq_events_fargment);
+                fragmentTransaction.addToBackStack("faq");
+                fragmentTransaction.commit();
+            }
+        } );
 
         Register_dt.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -70,6 +70,7 @@ public class Events_Fun extends Fragment {
                 String Mimguri = model.getMimguri();
                 String Simguri = model.getSimguri();
                 String Register_uri = model.getRegister_uri();
+                String faqid = model.getFaqid();
 
                 final Bundle bundle = new Bundle();
                 bundle.putString("Title",Title);
@@ -79,6 +80,7 @@ public class Events_Fun extends Fragment {
                 bundle.putString("Mimguri",Mimguri);
                 bundle.putString("Simguri",Simguri);
                 bundle.putString("Register_uri",Register_uri);
+                bundle.putString( "faqid",faqid );
 
                 viewholder.read_more_ebtn.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -127,16 +129,16 @@ public class Events_Fun extends Fragment {
                             if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY)
                             {
                                 //open right side
+
+                            } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY)
+                            {
+                                //open left side
                                 final FragmentTransaction fragmentTransaction1 = getActivity().getSupportFragmentManager().beginTransaction();
                                 fragmentTransaction1.replace(R.id.events_container,new Events_Tech());
                                 fragmentTransaction1.commit();
 
                                 RadioButton radioButton = getActivity().findViewById(R.id.radio_technical);
                                 radioButton.setChecked(true);
-
-                            } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY)
-                            {
-                                //open left side
 
                             }
                         } catch (Exception e) {

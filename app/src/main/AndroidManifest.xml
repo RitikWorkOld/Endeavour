@@ -21,8 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Quiz.Result_activity" />
-        <activity android:name=".Quiz.MainActivity" />
         <activity
             android:name=".about_endeavour"
             android:screenOrientation="portrait" />
@@ -80,6 +78,9 @@
         <activity
             android:name=".Notifications.Notifications"
             android:screenOrientation="portrait" />
+
+        <activity android:name=".BQuiz.Bquiz"
+            android:screenOrientation="portrait"/>
 
         <service
             android:name=".services.MyMessagingService"

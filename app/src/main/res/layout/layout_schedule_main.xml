@@ -18,6 +18,7 @@
 
         <LinearLayout
             android:layout_width="fill_parent"
+            android:background="#fff"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
@@ -50,6 +51,7 @@
                     android:textSize="20sp"
                     android:id="@+id/title_ev_sh"
                     android:layout_marginTop="10dp"
+                    android:textColor="#808080"
                     android:layout_marginLeft="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -61,6 +63,7 @@
                     android:layout_below="@+id/title_ev_sh"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
+                    android:textColor="#808080"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Venue"/>
@@ -71,6 +74,7 @@
                     android:id="@+id/time_ev_sh"
                     android:layout_marginBottom="10dp"
                     android:layout_below="@+id/venue_ev_sh"
+                    android:textColor="#808080"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_width="wrap_content"
@@ -79,7 +83,7 @@
 
             </RelativeLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/linearlayout_expandable"
                 android:visibility="gone"
                 android:layout_width="match_parent"
@@ -97,17 +101,19 @@
                     android:text="HELLO this is short description about event going on campus...."/>
 
                 <TextView
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/desc_sh_tv"
                     android:id="@+id/tv_go_to_events"
                     android:textColor="@color/colorAccent"
                     android:textSize="20sp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginRight="20dp"
                     android:textAlignment="viewEnd"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Go To Event..."/>
 
-            </LinearLayout>
+            </RelativeLayout>
 
         </LinearLayout>
 

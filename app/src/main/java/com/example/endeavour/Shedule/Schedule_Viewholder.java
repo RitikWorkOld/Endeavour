@@ -22,7 +22,7 @@ public class Schedule_Viewholder extends RecyclerView.ViewHolder {
     public TextView gotoevents;
     public ImageView eventimage;
     public Boolean expanded;
-    public LinearLayout expandable;
+    public RelativeLayout expandable;
     public RelativeLayout expander;
 
     public Schedule_Viewholder(@NonNull View itemView) {

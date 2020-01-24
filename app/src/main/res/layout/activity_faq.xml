@@ -39,15 +39,13 @@
     </RelativeLayout>
 
     <RelativeLayout
+android:layout_centerInParent="true"
 
-        android:layout_below="@+id/top_bar"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@drawable/rec_gradient"
         android:elevation="3dp"
-
-        android:layout_marginBottom="60dp"
         android:paddingHorizontal="24dp"
         >
 
@@ -67,6 +65,7 @@
             android:layout_below="@+id/imageView3"
             android:layout_marginTop="30dp"
             android:textColorHint="#808080"
+
             android:drawableLeft="@drawable/ic_subject_black_24dp"
             android:drawablePadding="10dp"
             android:hint="Subject"
@@ -118,6 +117,7 @@
 
 
     </RelativeLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

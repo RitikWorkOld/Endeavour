@@ -52,7 +52,7 @@ public class EventsMain extends AppCompatActivity {
         radioButton_corp = (RadioButton)findViewById(R.id.radio_corporate);
 
         final FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.events_container,new  Events_Fun());
+        fragmentTransaction.add(R.id.events_container,new Events_Corp());
         fragmentTransaction.commit();
 
         if (getIntent().getStringExtra("type") != null)
@@ -171,5 +171,10 @@ public class EventsMain extends AppCompatActivity {
         } else {
             bottomAppBar.setFabAlignmentMode(BottomAppBar.FAB_ALIGNMENT_MODE_END);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 }

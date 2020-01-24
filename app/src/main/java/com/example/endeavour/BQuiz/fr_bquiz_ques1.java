@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -31,6 +32,7 @@ import com.squareup.picasso.Picasso;
 public class fr_bquiz_ques1 extends Fragment {
 
     private RadioGroup radioGroup;
+
     private TextView question_text;
     private RadioButton option1,option2,option3,option4;
     private LinearLayout next_ques,previous_ques;
@@ -55,6 +57,7 @@ public class fr_bquiz_ques1 extends Fragment {
         radioGroup = view.findViewById( R.id.options );
         ques_img = view.findViewById( R.id.ques_img );
         checkBox = view.findViewById( R.id.skipopt );
+
 
 
         final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child( "Questions" ).child( quesno );
@@ -184,4 +187,5 @@ public class fr_bquiz_ques1 extends Fragment {
 
         return view;
     }
+    
 }

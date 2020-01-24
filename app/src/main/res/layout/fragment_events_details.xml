@@ -80,7 +80,30 @@
         </TextView>
 
         <RelativeLayout
+            android:layout_marginTop="10dp"
             android:layout_below="@+id/event_descp2"
+            android:id="@+id/quiz_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:visibility="visible"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/radio_flat_selected"
+                android:textColor="#fff"
+                android:layout_centerInParent="true"
+                android:id="@+id/gotoquiz"
+                android:text="     attempt quiz     "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/last_layout"
+            android:layout_below="@+id/quiz_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -110,6 +133,16 @@
             android:layout_height="wrap_content"/>
 
         </RelativeLayout>
+
+        <TextView
+            android:layout_below="@+id/last_layout"
+            android:id="@+id/faq_btn"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:text="FAQ"
+            android:textSize="30sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     </RelativeLayout>
 

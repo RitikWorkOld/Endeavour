@@ -9,11 +9,12 @@ public class Events_main_model {
     public String register_uri;
     public String desc1;
     public String desc2;
+    public String faqid;
 
     public Events_main_model() {
     }
 
-    public Events_main_model(String mimguri, String title, String descp, String simguri, String register_uri, String desc1, String desc2) {
+    public Events_main_model(String mimguri, String title, String descp, String simguri, String register_uri, String desc1, String desc2,String faqid) {
         this.mimguri = mimguri;
         this.title = title;
         this.descp = descp;
@@ -21,6 +22,7 @@ public class Events_main_model {
         this.register_uri = register_uri;
         this.desc1 = desc1;
         this.desc2 = desc2;
+        this.faqid = faqid;
     }
 
     public String getMimguri() {
@@ -77,5 +79,13 @@ public class Events_main_model {
 
     public void setDesc2(String desc2) {
         this.desc2 = desc2;
+    }
+
+    public String getFaqid() {
+        return faqid;
+    }
+
+    public void setFaqid(String faqid) {
+        this.faqid = faqid;
     }
 }

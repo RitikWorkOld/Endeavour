@@ -298,7 +298,7 @@ android:textColor="#000"
                       android:layout_marginLeft="16dp"
                       android:layout_marginTop="8dp"
                       android:fontFamily="@font/montserrat"
-                      android:text="Ambassador Id   (OPTIONAL)" />
+                      android:text="Ambassador Id " />
 
                   <EditText
                       android:id="@+id/ambd_id"
@@ -310,7 +310,7 @@ android:textColor="#000"
                       android:layout_marginLeft="8dp"
                       android:layout_marginRight="8dp"
                       android:fontFamily="@font/montserrat"
-                      android:hint="ENDVR8586******" />
+                      android:hint="Optional" />
 
 
 

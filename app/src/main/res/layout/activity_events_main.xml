@@ -92,7 +92,7 @@
 
 
                     <RadioButton
-                        android:id="@+id/radio_fun"
+                        android:id="@+id/radio_corporate"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -102,7 +102,7 @@
                         android:checked="true"
                         android:fontFamily="@font/nunito"
                         android:padding="8dp"
-                        android:text="Fun"
+                        android:text="Corporate"
                         android:textColor="@color/radio_flat_text_selector"
                         android:textSize="16sp" />
 
@@ -122,7 +122,7 @@
                         android:textSize="16sp" />
 
                     <RadioButton
-                        android:id="@+id/radio_corporate"
+                        android:id="@+id/radio_fun"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -132,7 +132,7 @@
                         android:fontFamily="@font/nunito"
                         android:padding="8dp"
                         android:paddingLeft="16dp"
-                        android:text="Corporate"
+                        android:text="Fun"
                         android:textColor="@color/radio_flat_text_selector"
                         android:textSize="16sp" />
                 </RadioGroup>

@@ -62,8 +62,8 @@
 
     <ImageView
         android:id="@+id/dash_image"
-        android:layout_width="280dp"
-        android:layout_height="280dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:scaleType="fitXY"
         android:layout_above="@id/layout_bottom_menu"
         android:layout_centerHorizontal="true"
@@ -98,26 +98,36 @@
                     android:orientation="vertical"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
+                    android:elevation="6dp"
                     android:background="@drawable/bg_item01"
                     android:layout_width="match_parent"
                     android:layout_height="120dp">
+                <RelativeLayout
+              android:layout_width="match_parent"
+             android:layout_height="match_parent"
 
+                >
                     <ImageView
-                        android:layout_marginTop="12dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginBottom="18dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/checked"/>
+                        android:layout_centerHorizontal="true"
+                       android:id="@+id/events_img"
+                        android:layout_width="68dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/event"
 
+                        />
                     <TextView
-                        android:layout_marginLeft="6dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAlignment="center"
                         android:text="Events"
+                        android:layout_centerHorizontal="true"
                         android:textSize="20sp"
-                        android:textColor="#fff"/>
+                        android:textColor="#000"
+
+                        android:layout_below="@id/events_img"
+
+                        />
+                </RelativeLayout>
+
 
                 </LinearLayout>
 
@@ -138,23 +148,31 @@
                     android:layout_width="match_parent"
                     android:layout_height="120dp">
 
-                    <ImageView
-                        android:layout_marginTop="12dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginBottom="18dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/sch"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
 
-                    <TextView
-                        android:layout_marginLeft="6dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Schedule"
-                        android:textAlignment="center"
-                        android:textSize="20sp"
-                        android:textColor="#fff"/>
+                        >
+                        <ImageView
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/events_img1"
+                            android:layout_width="60dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/schedule"
 
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Schedule"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="20sp"
+                            android:textColor="#000"
+
+                            android:layout_below="@id/events_img1"
+
+                            />
+                    </RelativeLayout>
                 </LinearLayout>
 
             </LinearLayout>
@@ -174,23 +192,31 @@
                     android:layout_width="match_parent"
                     android:layout_height="120dp">
 
-                    <ImageView
-                        android:layout_marginTop="12dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginBottom="18dp"
-                        android:src="@drawable/house"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                       />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
 
-                    <TextView
-                        android:layout_marginLeft="6dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Speakers"
-                        android:textAlignment="center"
-                        android:textSize="20sp"
-                        android:textColor="#fff"/>
+                        >
+                        <ImageView
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/events_img2"
+                            android:layout_width="68dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/speaker"
+
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Speakers"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="20sp"
+                            android:textColor="#000"
+
+                            android:layout_below="@id/events_img2"
+
+                            />
+                    </RelativeLayout>
 
                 </LinearLayout>
 
@@ -223,23 +249,31 @@
                     android:layout_width="match_parent"
                     android:layout_height="120dp">
 
-                    <ImageView
-                        android:layout_marginTop="12dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginBottom="18dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/film"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
 
-                    <TextView
-                        android:layout_marginLeft="6dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sponsors"
-                        android:textAlignment="center"
-                        android:textSize="20sp"
+                        >
+                        <ImageView
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/events_img3"
+                            android:layout_width="60dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/sponsors"
 
-                        android:textColor="#fff"/>
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sponsors"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="20sp"
+                            android:textColor="#000"
+
+                            android:layout_below="@id/events_img3"
+
+                            />
+                    </RelativeLayout>
 
                 </LinearLayout>
 
@@ -260,22 +294,31 @@
                     android:layout_width="match_parent"
                     android:layout_height="120dp">
 
-                    <ImageView
-                        android:layout_marginTop="12dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginBottom="18dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/pluspro"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
 
-                    <TextView
-                        android:layout_marginLeft="6dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Team"
-                        android:textAlignment="center"
-                        android:textSize="20sp"
-                        android:textColor="#fff"/>
+                        >
+                        <ImageView
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/events_img4"
+                            android:layout_width="68dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/team"
+
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Team"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="20sp"
+                            android:textColor="#000"
+
+                            android:layout_below="@id/events_img4"
+
+                            />
+                    </RelativeLayout>
 
                 </LinearLayout>
 
@@ -298,22 +341,31 @@
                     android:layout_width="match_parent"
                     android:layout_height="120dp">
 
-                    <ImageView
-                        android:layout_marginTop="12dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginBottom="18dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/download"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
 
-                    <TextView
-                        android:layout_marginLeft="6dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        android:text="FAQ"
-                        android:textSize="20sp"
-                        android:textColor="#fff"/>
+                        >
+                        <ImageView
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/events_img5"
+                            android:layout_width="68dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/contactus2"
+
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Contact us"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="20sp"
+                            android:textColor="#000"
+
+                            android:layout_below="@id/events_img5"
+
+                            />
+                    </RelativeLayout>
 
                 </LinearLayout>
 

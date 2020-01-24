@@ -128,19 +128,19 @@ public class Events_Tech extends Fragment {
                             {
                                 //open right side
                                 final FragmentTransaction fragmentTransaction1 = getActivity().getSupportFragmentManager().beginTransaction();
-                                fragmentTransaction1.replace(R.id.events_container,new Events_Corp());
+                                fragmentTransaction1.replace(R.id.events_container,new Events_Fun());
                                 fragmentTransaction1.commit();
 
-                                RadioButton radioButton = getActivity().findViewById(R.id.radio_corporate);
+                                RadioButton radioButton = getActivity().findViewById(R.id.radio_fun);
                                 radioButton.setChecked(true);
 
                             } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY)
                             {
                                 final FragmentTransaction fragmentTransaction1 = getActivity().getSupportFragmentManager().beginTransaction();
-                                fragmentTransaction1.replace(R.id.events_container,new Events_Fun());
+                                fragmentTransaction1.replace(R.id.events_container,new Events_Corp());
                                 fragmentTransaction1.commit();
 
-                                RadioButton radioButton = getActivity().findViewById(R.id.radio_fun);
+                                RadioButton radioButton = getActivity().findViewById(R.id.radio_corporate);
                                 radioButton.setChecked(true);
 
                             }

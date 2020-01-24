@@ -14,8 +14,6 @@ import android.view.animation.AnimationUtils;
 
 import android.widget.ImageView;
 
-import com.example.endeavour.Quiz.MainActivity;
-
 
 public class splashAct extends AppCompatActivity {
 
