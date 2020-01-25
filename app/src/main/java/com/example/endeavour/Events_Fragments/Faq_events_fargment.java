@@ -4,10 +4,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,6 +28,7 @@ public class Faq_events_fargment extends Fragment {
     private FirebaseRecyclerOptions<Faq_model> options;
     private FirebaseRecyclerAdapter<Faq_model, Faq_viewholder> adapter;
     private DatabaseReference databaseReference;
+    private ImageView close_btn;
 
     @Nullable
     @Override
@@ -34,6 +37,8 @@ public class Faq_events_fargment extends Fragment {
 
         Bundle bundle = getArguments();
         String faqid = bundle.getString( "faqid" );
+
+        close_btn = view.findViewById(R.id.close_btn);
 
         recyclerView = view.findViewById(R.id.rv_faq_events);
         recyclerView.setHasFixedSize(true);
@@ -62,6 +67,15 @@ public class Faq_events_fargment extends Fragment {
 
         recyclerView.setAdapter(adapter);
         adapter.startListening();
+
+        close_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+
+                fragmentManager.popBackStack();
+            }
+        });
 
         return view;
     }

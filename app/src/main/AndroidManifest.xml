@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Get_started"></activity>
+        <activity android:name=".Voting.VotingAct"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Get_started"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".splashAct"
             android:screenOrientation="portrait">

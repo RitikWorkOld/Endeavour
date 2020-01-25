@@ -117,14 +117,14 @@ public class Notifications extends AppCompatActivity {
                     });
                 }
 
-                /*notification_viewHolder.Cancel_btn.setOnClickListener(new View.OnClickListener() {
+                notification_viewHolder.Cancel_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         FirebaseDatabase.getInstance().getReference().child("notification")
                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(notiid).removeValue();
                         //Toast.makeText(Notifications.this,"Sucess "+notiid,Toast.LENGTH_SHORT).show();
                     }
-                });*/
+                });
             }
             @NonNull
             @Override

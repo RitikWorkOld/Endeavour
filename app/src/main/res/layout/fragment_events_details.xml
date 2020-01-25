@@ -87,7 +87,7 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:visibility="visible"
+                android:visibility="gone"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
@@ -96,6 +96,19 @@
                 android:layout_centerInParent="true"
                 android:id="@+id/gotoquiz"
                 android:text="     attempt quiz     "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:visibility="visible"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/radio_flat_selected"
+                android:textColor="#fff"
+                android:layout_centerInParent="true"
+                android:id="@+id/votenow"
+                android:text="     Vote now     "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -135,6 +148,8 @@
         </RelativeLayout>
 
         <TextView
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
             android:layout_below="@+id/last_layout"
             android:id="@+id/faq_btn"
             android:textStyle="bold"

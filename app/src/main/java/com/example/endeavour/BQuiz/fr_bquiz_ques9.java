@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.endeavour.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -73,7 +74,7 @@ public class fr_bquiz_ques9 extends Fragment {
             }
         } );
 
-        final DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child( "abcde" );
+        final DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child( FirebaseAuth.getInstance().getCurrentUser().getUid() );
         databaseReference1.keepSynced( true );
         databaseReference1.child( "Bquiz" ).child( quesid ).addListenerForSingleValueEvent( new ValueEventListener() {
             @Override
@@ -82,7 +83,7 @@ public class fr_bquiz_ques9 extends Fragment {
 
                 if (report != null){
                     String option = report.getMyanswer();
-                    Toast.makeText( getActivity().getApplicationContext(),"Hello "+option,Toast.LENGTH_SHORT ).show();
+                    //Toast.makeText( getActivity().getApplicationContext(),"Hello "+option,Toast.LENGTH_SHORT ).show();
                     if (option.equals( option1.getText().toString() )){
                         option1.setChecked( true );
                     }
@@ -118,11 +119,11 @@ public class fr_bquiz_ques9 extends Fragment {
                     if (checkBox.isChecked()){
 
                         Report report = new Report( "skipped" ,"skipped",0);
-                        DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child("abcde");
+                        DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child(FirebaseAuth.getInstance().getCurrentUser().getUid());
                         databaseReference1.keepSynced( true );
                         databaseReference1.child( "Bquiz" ).child( quesid ).setValue( report );
 
-                        Toast.makeText( getActivity().getApplicationContext(),"Skipped",Toast.LENGTH_SHORT ).show();
+                        //Toast.makeText( getActivity().getApplicationContext(),"Skipped",Toast.LENGTH_SHORT ).show();
 
                         final FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.container_bquiz,new fr_bquiz_ques10());
@@ -133,12 +134,12 @@ public class fr_bquiz_ques9 extends Fragment {
                         if (str.equals( correctanswer )){
 
                             Report report = new Report( "correct" ,str,1);
-                            DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child("abcde");
+                            DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child(FirebaseAuth.getInstance().getCurrentUser().getUid());
                             databaseReference1.keepSynced( true );
                             databaseReference1.child( "Bquiz" ).child( quesid ).setValue( report );
 
 
-                            Toast.makeText( getActivity(),"Correct answer " + str,Toast.LENGTH_SHORT).show();
+                            //Toast.makeText( getActivity(),"Correct answer " + str,Toast.LENGTH_SHORT).show();
 
                             final FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                             fragmentTransaction.replace(R.id.container_bquiz,new fr_bquiz_ques10());
@@ -147,11 +148,11 @@ public class fr_bquiz_ques9 extends Fragment {
                         else {
 
                             Report report = new Report( "wrong" ,str,0);
-                            DatabaseReference databaseReference2 = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child("abcde");
+                            DatabaseReference databaseReference2 = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child(FirebaseAuth.getInstance().getCurrentUser().getUid());
                             databaseReference2.keepSynced( true );
                             databaseReference2.child( "Bquiz" ).child( quesid ).setValue( report );
 
-                            Toast.makeText( getActivity(),"Wrong answer",Toast.LENGTH_SHORT ).show();
+                            //Toast.makeText( getActivity(),"Wrong answer",Toast.LENGTH_SHORT ).show();
 
                             final FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                             fragmentTransaction.replace(R.id.container_bquiz,new fr_bquiz_ques10());
@@ -168,7 +169,7 @@ public class fr_bquiz_ques9 extends Fragment {
         previous_ques.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText( getActivity(),"prev ques" ,Toast.LENGTH_SHORT).show();
+                //Toast.makeText( getActivity(),"prev ques" ,Toast.LENGTH_SHORT).show();
                 final FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.container_bquiz,new fr_bquiz_ques8());
                 fragmentTransaction.commit();

@@ -20,7 +20,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.endeavour.BQuiz.Bquiz;
+import com.example.endeavour.Dashboard;
 import com.example.endeavour.R;
+import com.example.endeavour.Voting.VotingAct;
+import com.example.endeavour.Voting.Voting_helper;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,6 +43,7 @@ public class events_details extends Fragment {
     ImageView Simg_dt;
     TextView readless;
     Button gotoquiz;
+    Button votenow;
     TextView faq;
 
     @Nullable
@@ -66,6 +71,7 @@ public class events_details extends Fragment {
         Simg_dt = view.findViewById(R.id.event_main_img2);
         Register_dt = view.findViewById(R.id.register_events);
         gotoquiz = view.findViewById( R.id.gotoquiz );
+        votenow = view.findViewById(R.id.votenow);
         faq = view.findViewById( R.id.faq_btn );
 
         Title_dt.setText(Title);
@@ -75,16 +81,16 @@ public class events_details extends Fragment {
         Picasso.get().load(Mimguri).into(Mimg_dt);
         Picasso.get().load(Simguri).into(Simg_dt);
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child( "BquizStatus" ).child( "abcde" );
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child( "BquizStatus" ).child( FirebaseAuth.getInstance().getCurrentUser().getUid() );
         databaseReference.keepSynced( true );
         databaseReference.addListenerForSingleValueEvent( new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 QuizUnlocker quizUnlocker = dataSnapshot.getValue(QuizUnlocker.class);
 
-                Toast.makeText( getActivity().getApplicationContext(),"status  "+quizUnlocker.getStatus().toString(),Toast.LENGTH_SHORT ).show();
+                //Toast.makeText( getActivity().getApplicationContext(),"status  "+quizUnlocker.getStatus().toString(),Toast.LENGTH_SHORT ).show();
 
-                if (quizUnlocker.getStatus().toString() != null){
+                if (quizUnlocker != null){
                     if (quizUnlocker.getStatus().toString().equals( "open" ) && Title.equals( "BizCraft" )){
                         gotoquiz.setVisibility( View.VISIBLE );
                         gotoquiz.setOnClickListener( new View.OnClickListener() {
@@ -109,6 +115,79 @@ public class events_details extends Fragment {
 
             }
         } );
+
+
+
+        DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child( "VotingControl" );
+        databaseReference1.keepSynced( true );
+        databaseReference1.addListenerForSingleValueEvent( new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                VotingUnlocker votingUnlocker = dataSnapshot.getValue(VotingUnlocker.class);
+
+                if (votingUnlocker != null){
+                    if (votingUnlocker.getStatus().toString().equals( "open" ) && Title.equals( "Memethon" )){
+                        votenow.setVisibility( View.VISIBLE );
+                        /*gotoquiz.setOnClickListener( new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent( getActivity(), Bquiz.class );
+                                startActivity( intent );
+                            }
+                        } );*/
+
+                        votenow.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("VoteStatus").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                        Voting_helper voting_helper = dataSnapshot.getValue(Voting_helper.class);
+
+                                        if (voting_helper != null){
+                                            if (voting_helper.getVotingstatus().equals("voted")){
+                                                Toast.makeText(getContext(),"You have already Voted",Toast.LENGTH_LONG).show();
+                                            }
+                                            else {
+                                                Intent i = new Intent(getContext(), VotingAct.class);
+                                                startActivity(i);
+                                            }
+                                        }
+                                        else {
+                                            Intent i = new Intent(getContext(), VotingAct.class);
+                                            startActivity(i);
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
+                            }
+                        });
+
+
+                    }
+                    else {
+                        votenow.setVisibility( View.GONE );
+                    }
+                }
+                else {
+                    votenow.setVisibility( View.GONE );
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        } );
+
+
+
 
         faq.setOnClickListener( new View.OnClickListener() {
             @Override

@@ -69,6 +69,7 @@ public class Events_Tech extends Fragment {
                 String Mimguri = model.getMimguri();
                 String Simguri = model.getSimguri();
                 String Register_uri = model.getRegister_uri();
+                String faqid = model.getFaqid();
 
                 final Bundle bundle = new Bundle();
                 bundle.putString("Title",Title);
@@ -78,6 +79,7 @@ public class Events_Tech extends Fragment {
                 bundle.putString("Mimguri",Mimguri);
                 bundle.putString("Simguri",Simguri);
                 bundle.putString("Register_uri",Register_uri);
+                bundle.putString("faqid",faqid);
 
                 viewholder.read_more_ebtn.setOnClickListener(new View.OnClickListener() {
                     @Override

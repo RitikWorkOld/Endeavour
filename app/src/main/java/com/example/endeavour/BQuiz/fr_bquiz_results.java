@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.endeavour.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,7 +34,7 @@ public class fr_bquiz_results extends Fragment {
         wrong_ans_count = view.findViewById( R.id.wrong_answers_count );
         skipped_ques_count = view.findViewById( R.id.skipped_ques_count );
 
-        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child( "abcde" ).child( "Bquiz" );
+        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child( FirebaseAuth.getInstance().getCurrentUser().getUid() ).child( "Bquiz" );
         databaseReference.orderByChild( "status" ).equalTo( "wrong" ).addValueEventListener( new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -50,7 +51,7 @@ public class fr_bquiz_results extends Fragment {
             }
         } );
 
-        final DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child( "abcde" ).child( "Bquiz" );
+        final DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child( FirebaseAuth.getInstance().getCurrentUser().getUid() ).child( "Bquiz" );
         databaseReference1.orderByChild( "status" ).equalTo( "correct" ).addValueEventListener( new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -67,7 +68,7 @@ public class fr_bquiz_results extends Fragment {
             }
         } );
 
-        final DatabaseReference databaseReference2 = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child( "abcde" ).child( "Bquiz" );
+        final DatabaseReference databaseReference2 = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child( FirebaseAuth.getInstance().getCurrentUser().getUid() ).child( "Bquiz" );
         databaseReference2.addValueEventListener( new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -84,7 +85,7 @@ public class fr_bquiz_results extends Fragment {
             }
         } );
 
-        final DatabaseReference databaseReference3 = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child( "abcde" ).child( "Bquiz" );
+        final DatabaseReference databaseReference3 = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child( FirebaseAuth.getInstance().getCurrentUser().getUid() ).child( "Bquiz" );
         databaseReference3.orderByChild( "status" ).equalTo( "skipped" ).addValueEventListener( new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -101,7 +102,7 @@ public class fr_bquiz_results extends Fragment {
             }
         } );
 
-        final DatabaseReference databaseReference4 = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child( "abcde" ).child( "Bquiz" );
+        final DatabaseReference databaseReference4 = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child( FirebaseAuth.getInstance().getCurrentUser().getUid() ).child( "Bquiz" );
         databaseReference4.addValueEventListener( new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -118,8 +119,6 @@ public class fr_bquiz_results extends Fragment {
 
             }
         } );
-
-
 
         return view;
     }
