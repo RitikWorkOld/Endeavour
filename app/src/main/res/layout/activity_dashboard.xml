@@ -74,6 +74,7 @@
         android:id="@+id/layout_bottom_menu"
         android:orientation="vertical"
         android:layout_width="match_parent"
+        android:elevation="6dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@drawable/bg_menu">
@@ -144,6 +145,7 @@
                     android:orientation="vertical"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
+                    android:elevation="6dp"
                     android:background="@drawable/bg_item02"
                     android:layout_width="match_parent"
                     android:layout_height="120dp">
@@ -188,6 +190,7 @@
                     android:orientation="vertical"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
+                    android:elevation="6dp"
                     android:background="@drawable/bg_item03"
                     android:layout_width="match_parent"
                     android:layout_height="120dp">
@@ -202,7 +205,7 @@
                             android:id="@+id/events_img2"
                             android:layout_width="68dp"
                             android:layout_height="80dp"
-                            android:src="@drawable/speaker"
+                            android:src="@drawable/speaker_1"
 
                             />
                         <TextView
@@ -244,6 +247,7 @@
                     android:id="@+id/layout_sponsors"
                     android:orientation="vertical"
                     android:layout_marginLeft="10dp"
+                    android:elevation="6dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/bg_item04"
                     android:layout_width="match_parent"
@@ -290,6 +294,7 @@
                     android:id="@+id/layout_ourteam"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
+                    android:elevation="6dp"
                     android:background="@drawable/bg_item05"
                     android:layout_width="match_parent"
                     android:layout_height="120dp">
@@ -304,7 +309,7 @@
                             android:id="@+id/events_img4"
                             android:layout_width="68dp"
                             android:layout_height="80dp"
-                            android:src="@drawable/team"
+                            android:src="@drawable/team_1"
 
                             />
                         <TextView
@@ -336,6 +341,7 @@
 
                     android:layout_marginLeft="10dp"
                     android:id="@+id/layout_faq"
+                    android:elevation="6dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/bg_item06"
                     android:layout_width="match_parent"

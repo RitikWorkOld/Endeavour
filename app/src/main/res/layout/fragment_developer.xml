@@ -106,7 +106,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:text="Mr. Ritik Mehta"
+                    android:text="Nipun Kumar Drayan"
                     android:textSize="20sp" />
 
                 <TextView
@@ -131,7 +131,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/nunito"
                     android:gravity="center"
-                    android:text="PRESIDENT"
+                    android:text="Sub-Head"
                     android:textColor="@color/gray"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -159,6 +159,7 @@
                         android:layout_width="40dp"
                         android:layout_height="wrap_content"
                         android:src="@drawable/instagram"
+                        android:id="@+id/insta_nipun"
 
                         />
 
@@ -179,6 +180,7 @@
                         android:layout_width="40dp"
                         android:layout_height="wrap_content"
                         android:src="@drawable/facebook"
+                        android:id="@+id/fb_nipun"
 
                         />
 
@@ -200,6 +202,7 @@
                         android:layout_width="40dp"
                         android:layout_height="wrap_content"
                         android:src="@drawable/mail_icon"
+                        android:id="@+id/gmail_nipun"
 
                         />
 
@@ -222,6 +225,7 @@
 
                         android:layout_height="wrap_content"
                         android:src="@drawable/git"
+                        android:id="@+id/git_nipun"
 
                         />
 
@@ -343,7 +347,7 @@
                             android:layout_weight="1"
                             android:fontFamily="@font/nunito"
                             android:gravity="center"
-                            android:text="PRESIDENT"
+                            android:text="Member"
                             android:textColor="@color/gray"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -371,6 +375,7 @@
                                 android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/instagram"
+                                android:id="@+id/insta_rik"
 
                                 />
 
@@ -391,7 +396,7 @@
                                 android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/facebook"
-
+                            android:id="@+id/fb_rik"
                                 />
 
 
@@ -412,6 +417,7 @@
                                 android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/mail_icon"
+                                android:id="@+id/gmail_rik"
 
                                 />
 
@@ -433,6 +439,7 @@
                                 android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/git"
+                                android:id="@+id/git_rik"
 
                                 />
 
@@ -534,7 +541,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:textColor="#000"
-                            android:text="Mr. Ritik Mehta"
+                            android:text="Parneet Raghuvanshi"
                             android:textSize="20sp" />
 
                         <TextView
@@ -559,7 +566,7 @@
                             android:layout_weight="1"
                             android:fontFamily="@font/nunito"
                             android:gravity="center"
-                            android:text="PRESIDENT"
+                            android:text="Member"
                             android:textColor="@color/gray"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -587,6 +594,7 @@
                                 android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/instagram"
+                                android:id="@+id/insta_parneet"
 
                                 />
 
@@ -607,6 +615,7 @@
                                 android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/facebook"
+                                android:id="@+id/fb_parneet"
 
                                 />
 
@@ -628,6 +637,7 @@
                                 android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/mail_icon"
+                                android:id="@+id/gmail_parneet"
 
                                 />
 
@@ -649,6 +659,7 @@
                                 android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/git"
+                                android:id="@+id/git_parneet"
 
                                 />
 

@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".splashAct"
+        <activity android:name=".Get_started"></activity>
+        <activity
+            android:name=".splashAct"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,7 +44,6 @@
         <activity
             android:name=".RequestOtp"
             android:theme="@style/AppTheme.Requeststyle" />
-
         <activity
             android:name=".Forgotpass_Success"
             android:theme="@style/AppTheme.Popupstyle" />
@@ -78,9 +79,9 @@
         <activity
             android:name=".Notifications.Notifications"
             android:screenOrientation="portrait" />
-
-        <activity android:name=".BQuiz.Bquiz"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".BQuiz.Bquiz"
+            android:screenOrientation="portrait" />
 
         <service
             android:name=".services.MyMessagingService"
