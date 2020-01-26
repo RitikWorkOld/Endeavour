@@ -80,6 +80,62 @@ public class Feb_frag extends Fragment {
                 schedule_viewholder.description.setText(schedule_model.getDesc());
                 Picasso.get().load(schedule_model.getImguri()).into(schedule_viewholder.eventimage);
 
+
+
+                //SWIPE CODE FOR FRAGMENTS>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+                final GestureDetector gesture = new GestureDetector(getActivity(),
+                        new GestureDetector.SimpleOnGestureListener() {
+
+                            @Override
+                            public boolean onDown(MotionEvent e) {
+                                return true;
+                            }
+
+                            @Override
+                            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,float velocityY) {
+                                final int SWIPE_MIN_DISTANCE = 120;
+                                final int SWIPE_MAX_OFF_PATH = 250;
+                                final int SWIPE_THRESHOLD_VELOCITY = 200;
+                                try {
+                                    if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_OFF_PATH)
+                                        return false;
+                                    if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY)
+                                    {
+                                        //open right side
+                                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                                        Mar_frag mar_frag = new Mar_frag();
+
+                                        fragmentTransaction.replace(R.id.container_shedule,mar_frag);
+                                        fragmentTransaction.commit();
+
+                                    } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY)
+                                    {
+                                        //open left side
+
+                                    }
+                                } catch (Exception e) {
+                                    // nothing
+                                }
+                                return super.onFling(e1, e2, velocityX, velocityY);
+                            }
+                        });
+
+                schedule_viewholder.cardView.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        return gesture.onTouchEvent(event);
+                    }
+                });
+
+                //SWIPE CODE FOR FRAGMENTS>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+
+
                 final String type = schedule_model.getType();
 
                 schedule_viewholder.gotoevents.setOnClickListener(new View.OnClickListener() {

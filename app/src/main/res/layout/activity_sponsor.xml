@@ -43,7 +43,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginBottom="60dp"
-        android:paddingHorizontal="24dp"
         >
 
         <!-- layout when no events are there -->

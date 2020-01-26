@@ -6,9 +6,9 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="5dp"
     android:layout_marginTop="5dp"
-    android:layout_marginRight="5dp"
+    android:layout_marginRight="10dp"
     android:layout_marginBottom="5dp"
-    android:layout_marginLeft="5dp"
+    android:layout_marginLeft="10dp"
     app:cardElevation="5dp">
 
     <LinearLayout
@@ -36,7 +36,7 @@
                android:textSize="30sp"/>
 
             <ImageView
-                android:visibility="visible"
+                android:visibility="gone"
                 android:id="@+id/cancel_noti_btn"
                 android:layout_alignParentEnd="true"
                 android:paddingRight="10dp"

@@ -91,6 +91,7 @@ public class VotingAct extends AppCompatActivity {
                                     public void onClick(DialogInterface dialog, int id) {
                                         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("VoteStatus").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
                                         databaseReference.child("votingstatus").setValue("voted");
+                                        databaseReference.keepSynced(true);
                                         databaseReference.child("voteid").setValue(voting_model.getVoteid()).addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void aVoid) {
@@ -99,6 +100,7 @@ public class VotingAct extends AppCompatActivity {
                                         });
                                         int i = voting_model.getTotalvotes() +1;
                                         DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child("VotingPortal");
+                                        databaseReference1.keepSynced(true);
                                         databaseReference1.child(voting_model.getVoteid()).child("totalvotes").setValue(i);
 
                                         onBackPressed();

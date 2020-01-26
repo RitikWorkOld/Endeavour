@@ -1,5 +1,6 @@
 package com.example.endeavour.BQuiz;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,10 +14,13 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.endeavour.R;
+import com.example.endeavour.Voting.VotingAct;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -111,53 +115,74 @@ public class fr_bquiz_ques20 extends Fragment {
             @Override
             public void onClick(View v) {
                 int option = radioGroup.getCheckedRadioButtonId();
-                RadioButton radioButton = view.findViewById( option );
+                final RadioButton radioButton = view.findViewById( option );
 
                 if (option != -1 || checkBox.isChecked()){
 
-                    if (checkBox.isChecked()){
 
-                        Report report = new Report( "skipped" ,"skipped",0);
-                        DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                        databaseReference1.keepSynced( true );
-                        databaseReference1.child( "Bquiz" ).child( quesid ).setValue( report );
-
-                        //Toast.makeText( getActivity().getApplicationContext(),"Skipped",Toast.LENGTH_SHORT ).show();
-
-                        final FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.container_bquiz,new fr_bquiz_results());
-                        fragmentTransaction.commit();
-                    }
-                    else {
-                        String str = radioButton.getText().toString();
-                        if (str.equals( correctanswer )){
-
-                            Report report = new Report( "correct" ,str,2);
-                            DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                            databaseReference1.keepSynced( true );
-                            databaseReference1.child( "Bquiz" ).child( quesid ).setValue( report );
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                    builder.setTitle("Bquiz");
+                    builder.setIcon(R.mipmap.ic_launcher);
+                    builder.setMessage("Please Confirm Your Options\nYou can not change your Options once confirmed")
+                            .setCancelable(false)
+                            .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
 
 
-                            //Toast.makeText( getActivity(),"Correct answer " + str,Toast.LENGTH_SHORT).show();
+                                    if (checkBox.isChecked()){
 
-                            final FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                            fragmentTransaction.replace(R.id.container_bquiz,new fr_bquiz_results());
-                            fragmentTransaction.commit();
-                        }
-                        else {
+                                        Report report = new Report( "skipped" ,"skipped",0);
+                                        DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                                        databaseReference1.keepSynced( true );
+                                        databaseReference1.child( "Bquiz" ).child( quesid ).setValue( report );
 
-                            Report report = new Report( "wrong" ,str,-2);
-                            DatabaseReference databaseReference2 = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                            databaseReference2.keepSynced( true );
-                            databaseReference2.child( "Bquiz" ).child( quesid ).setValue( report );
+                                        //Toast.makeText( getActivity().getApplicationContext(),"Skipped",Toast.LENGTH_SHORT ).show();
 
-                            //Toast.makeText( getActivity(),"Wrong answer",Toast.LENGTH_SHORT ).show();
+                                        final FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                                        fragmentTransaction.replace(R.id.container_bquiz,new fr_bquiz_results());
+                                        fragmentTransaction.commit();
+                                    }
+                                    else {
+                                        String str = radioButton.getText().toString();
+                                        if (str.equals( correctanswer )){
 
-                            final FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                            fragmentTransaction.replace(R.id.container_bquiz,new fr_bquiz_results());
-                            fragmentTransaction.commit();
-                        }
-                    }
+                                            Report report = new Report( "correct" ,str,2);
+                                            DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                                            databaseReference1.keepSynced( true );
+                                            databaseReference1.child( "Bquiz" ).child( quesid ).setValue( report );
+
+
+                                            //Toast.makeText( getActivity(),"Correct answer " + str,Toast.LENGTH_SHORT).show();
+
+                                            final FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                                            fragmentTransaction.replace(R.id.container_bquiz,new fr_bquiz_results());
+                                            fragmentTransaction.commit();
+                                        }
+                                        else {
+
+                                            Report report = new Report( "wrong" ,str,-2);
+                                            DatabaseReference databaseReference2 = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                                            databaseReference2.keepSynced( true );
+                                            databaseReference2.child( "Bquiz" ).child( quesid ).setValue( report );
+
+                                            //Toast.makeText( getActivity(),"Wrong answer",Toast.LENGTH_SHORT ).show();
+
+                                            final FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                                            fragmentTransaction.replace(R.id.container_bquiz,new fr_bquiz_results());
+                                            fragmentTransaction.commit();
+                                        }
+                                    }
+
+                                }
+                            })
+                            .setNegativeButton("Deny", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.show();
+
                 }
                 else {
                     Toast.makeText( getActivity(),"Please Select an option",Toast.LENGTH_SHORT).show();

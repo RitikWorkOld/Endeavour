@@ -2,21 +2,30 @@ package com.example.endeavour.Notifications;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Notification;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Adapter;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.example.endeavour.Customised.BucketRecyclerView;
 import com.example.endeavour.Dashboard;
 import com.example.endeavour.Events_Fragments.EventsMain;
+import com.example.endeavour.Events_Fragments.Events_Tech;
 import com.example.endeavour.R;
 import com.example.endeavour.Shedule.Shedule;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -117,14 +126,14 @@ public class Notifications extends AppCompatActivity {
                     });
                 }
 
-                notification_viewHolder.Cancel_btn.setOnClickListener(new View.OnClickListener() {
+                /*notification_viewHolder.Cancel_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         FirebaseDatabase.getInstance().getReference().child("notification")
                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(notiid).removeValue();
                         //Toast.makeText(Notifications.this,"Sucess "+notiid,Toast.LENGTH_SHORT).show();
                     }
-                });
+                });*/
             }
             @NonNull
             @Override
@@ -142,5 +151,28 @@ public class Notifications extends AppCompatActivity {
                 finish();
             }
         });
+
+        ItemTouchHelper.SimpleCallback simpleCallback =
+                new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+                    @Override
+                    public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder,
+                                          RecyclerView.ViewHolder target) {
+                        return false;
+                    }
+
+                    @Override
+                    public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                        //Toast.makeText(Notifications.this,"swiped",Toast.LENGTH_SHORT).show();
+                        int id = viewHolder.getAdapterPosition();
+                        String notiid = adapter.getItem(id).getNotiid();
+
+                        FirebaseDatabase.getInstance().getReference().child("notification")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(notiid).removeValue();
+                        //Toast.makeText(Notifications.this,"Sucess "+notiid,Toast.LENGTH_SHORT).show();
+                    }
+                };
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 }

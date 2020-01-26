@@ -7,6 +7,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.endeavour.R;
@@ -24,6 +25,7 @@ public class Schedule_Viewholder extends RecyclerView.ViewHolder {
     public Boolean expanded;
     public RelativeLayout expandable;
     public RelativeLayout expander;
+    public CardView cardView;
 
     public Schedule_Viewholder(@NonNull View itemView) {
         super(itemView);
@@ -37,5 +39,6 @@ public class Schedule_Viewholder extends RecyclerView.ViewHolder {
         time = itemView.findViewById(R.id.time_ev_sh);
         gotoevents = itemView.findViewById(R.id.tv_go_to_events);
         eventimage = itemView.findViewById(R.id.schedule_event_image);
+        cardView = itemView.findViewById(R.id.cardlayout);
     }
 }

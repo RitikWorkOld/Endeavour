@@ -12,6 +12,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.endeavour.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class fr_bquiz_intro extends Fragment {
 
@@ -30,9 +33,12 @@ public class fr_bquiz_intro extends Fragment {
                 final FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.container_bquiz,new fr_bquiz_ques1());
                 fragmentTransaction.commit();
+
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("BquizStatus").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                databaseReference.keepSynced(true);
+                databaseReference.child("status").setValue("closed");
             }
         } );
-
         return view;
     }
 }

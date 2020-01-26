@@ -128,18 +128,12 @@ public class events_details extends Fragment {
                 if (votingUnlocker != null){
                     if (votingUnlocker.getStatus().toString().equals( "open" ) && Title.equals( "Memethon" )){
                         votenow.setVisibility( View.VISIBLE );
-                        /*gotoquiz.setOnClickListener( new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent intent = new Intent( getActivity(), Bquiz.class );
-                                startActivity( intent );
-                            }
-                        } );*/
 
                         votenow.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("VoteStatus").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                                databaseReference.keepSynced(true);
                                 databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -185,9 +179,6 @@ public class events_details extends Fragment {
 
             }
         } );
-
-
-
 
         faq.setOnClickListener( new View.OnClickListener() {
             @Override
