@@ -1,6 +1,7 @@
 package com.example.endeavour.BQuiz;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,7 @@ public class fr_bquiz_ques1 extends Fragment {
 
     private RadioGroup radioGroup;
 
+
     private TextView question_text;
     private RadioButton option1,option2,option3,option4;
     private LinearLayout next_ques,previous_ques;
@@ -57,8 +59,6 @@ public class fr_bquiz_ques1 extends Fragment {
         radioGroup = view.findViewById( R.id.options );
         ques_img = view.findViewById( R.id.ques_img );
         checkBox = view.findViewById( R.id.skipopt );
-
-
 
         final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child( "Questions" ).child( quesno );
         databaseReference.keepSynced( true );
@@ -187,5 +187,6 @@ public class fr_bquiz_ques1 extends Fragment {
 
         return view;
     }
-    
+
+
 }

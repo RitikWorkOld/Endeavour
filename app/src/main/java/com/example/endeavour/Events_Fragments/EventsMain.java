@@ -175,8 +175,6 @@ public class EventsMain extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(EventsMain.this, Dashboard.class);
-        startActivity(intent);
         finish();
     }
 }

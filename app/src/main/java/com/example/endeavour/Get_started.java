@@ -26,6 +26,7 @@ public class Get_started extends AppCompatActivity {
         setContentView( R.layout.activity_get_started );
 
         lst=new ArrayList<>(  );
+        lst.add(new User_1( "Timeliner",R.drawable.time ));
         lst.add(new User_1( "SpringEdge",R.drawable.spring_edge ));
         lst.add(new User_1( "Du beat",R.drawable.du_beats ));
         lst.add(new User_1( "The Souled Store",R.drawable.souled_store ));

@@ -161,6 +161,7 @@
             android:textStyle="bold"
             android:textAlignment="center"
             android:text="FAQ"
+            android:textColor="#808080"
             android:textSize="30sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

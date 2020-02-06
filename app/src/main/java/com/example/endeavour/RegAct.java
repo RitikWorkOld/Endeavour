@@ -3,7 +3,10 @@ package com.example.endeavour;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -75,6 +78,11 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_reg);
         mFirebaseAuth = FirebaseAuth.getInstance();
+        if(!haveNetworkConnection()){
+
+
+            Toast.makeText(RegAct.this,"No Network Connection",Toast.LENGTH_LONG).show();
+        }
 
 
         //initializing objects
@@ -122,57 +130,7 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
-    /*private void registerUser() {
 
-        final String email=emailId.getText().toString().trim();
-        final String pwd=password.getText().toString().trim();
-        final String fname=fname1.getText().toString().trim();
-        final String branch=branch1.getText().toString().trim();
-        final String year=year1.getText().toString().trim();
-        final String cid=cid1.getText().toString().trim();
-        final String number=number1.getText().toString().trim();
-        final String cname=cname1.getText().toString().trim();
-
-        progressBar.setVisibility(View.VISIBLE);
-        mFirebaseAuth.createUserWithEmailAndPassword(email,pwd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    String refrelid = endvr.concat(number);
-                    String uid = FirebaseAuth.getInstance().getUid();
-                    User user=new User(fname,email,branch,year,cid,number,cname,uid,refrelid);
-                    FirebaseDatabase.getInstance().getReference("Users")
-                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                            .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    progressBar.setVisibility(View.GONE);
-                                    if (task.isSuccessful()) {
-
-                                        //saving session
-                                        Save.save(getApplicationContext(),"session","true");
-
-                                        //Toast.makeText(RegAct.this, getString(R.string.registration_success), Toast.LENGTH_LONG).show();
-                                        Intent intent = new Intent(RegAct.this,Reg_Sucess.class);
-                                        startActivity(intent);
-                                    }
-                                    else {
-                                        Intent intent = new Intent(RegAct.this,Reg_Fail.class);
-                                        startActivity(intent);
-                                    }
-                                }
-                            });
-
-                }
-                else {
-                    progressBar.setVisibility(View.GONE);
-                    //Toast.makeText(RegAct.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(RegAct.this,Reg_Fail.class);
-                    startActivity(intent);
-                }
-            }
-        });
-    }*/
 
     @Override
     public void onClick(View v) {
@@ -332,6 +290,22 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
         }
         backPressedTime = System.currentTimeMillis();
 
+    }
+    private boolean haveNetworkConnection() {
+        boolean haveConnectedWifi = false;
+        boolean haveConnectedMobile = false;
+
+        ConnectivityManager cm = (ConnectivityManager) getSystemService( Context.CONNECTIVITY_SERVICE);
+        NetworkInfo[] netInfo = cm.getAllNetworkInfo();
+        for (NetworkInfo ni : netInfo) {
+            if (ni.getTypeName().equalsIgnoreCase("WIFI"))
+                if (ni.isConnected())
+                    haveConnectedWifi = true;
+            if (ni.getTypeName().equalsIgnoreCase("MOBILE"))
+                if (ni.isConnected())
+                    haveConnectedMobile = true;
+        }
+        return haveConnectedWifi || haveConnectedMobile;
     }
 
 

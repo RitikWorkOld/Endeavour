@@ -12,9 +12,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.endeavour.Events_Fragments.EventsMain;
+import com.example.endeavour.Shedule.Shedule;
 import com.example.endeavour.Speakers.Speakers;
 import com.example.endeavour.Sponsors.Sponsor;
 
+import com.example.endeavour.Team.TeamMain;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -93,7 +95,8 @@ public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
 
         final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
         databaseReference.keepSynced(true);
-        databaseReference.orderByChild("uid").equalTo(FirebaseAuth.getInstance().getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.orderByChild("uid").equalTo(FirebaseAuth.getInstance()
+                .getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
@@ -123,21 +126,48 @@ public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.nav01:
-                        startActivity(new Intent(getActivity(), EventsMain.class));
+                        Intent intent=new Intent(getActivity(),EventsMain.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        dismiss();
+                        startActivity( intent );
+                        break;
+                    case R.id.nav02:
+                        Intent intent2=new Intent(getActivity(),Shedule.class);
+                        intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        dismiss();
+                        startActivity( intent2 );
 
                         break;
                     case R.id.nav03:
-                        startActivity(new Intent(getActivity(), Speakers.class));
-
-                        break;
-                    case R.id.nav05:
-                        startActivity(new Intent(getActivity(), com.example.endeavour.Team.TeamMain.class));
+                        Intent intent3=new Intent(getActivity(),Speakers.class);
+                        intent3.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        dismiss();
+                        startActivity( intent3 );
 
                         break;
                     case R.id.nav04:
-                        startActivity(new Intent(getActivity(), Sponsor.class));
+                        Intent intent4=new Intent(getActivity(),Sponsor.class);
+                        intent4.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        dismiss();
+                        startActivity( intent4 );
 
                         break;
+
+                    case R.id.nav05:
+                        Intent intent5=new Intent(getActivity(), TeamMain.class);
+                        intent5.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        dismiss();
+                        startActivity( intent5 );
+
+                        break;
+                    case R.id.nav06:
+                        Intent intent6=new Intent(getActivity(),FAQ.class);
+                        intent6.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        dismiss();
+                        startActivity( intent6 );
+
+                        break;
+
 
                 }
                 return false;

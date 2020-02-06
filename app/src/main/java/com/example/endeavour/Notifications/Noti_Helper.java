@@ -4,17 +4,28 @@ public class Noti_Helper {
 
     String Title;
     String Desc;
+    String Date;
     String notiid;
     String type;
 
     public Noti_Helper() {
     }
 
-    public Noti_Helper(String title, String desc, String notiid, String type) {
+    public Noti_Helper(String title, String desc, String notiid, String type,String date) {
         Title = title;
         Desc = desc;
+        Date = date;
         this.notiid = notiid;
         this.type = type;
+
+    }
+
+    public String getDate() {
+        return Date;
+    }
+
+    public void setDate(String date) {
+        Date = date;
     }
 
     public String getTitle() {
