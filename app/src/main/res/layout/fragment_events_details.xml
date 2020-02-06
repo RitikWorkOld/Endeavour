@@ -33,19 +33,23 @@
         </TextView>
 
         <TextView
-        android:id="@+id/event_descp"
-        android:layout_below="@+id/event_title"
-        android:layout_marginTop="10dp"
-        android:drawablePadding="10dp"
-        android:ellipsize="end"
-        android:text="Description"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/event_descp"
+            android:layout_below="@+id/event_title"
+            android:layout_marginTop="10dp"
+            android:drawablePadding="10dp"
+            android:ellipsize="end"
+            android:text="Description"
             android:textColor="#808080"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
         </TextView>
 
         <TextView
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
             android:id="@+id/event_descp1"
             android:layout_below="@+id/event_descp"
             android:layout_marginTop="10dp"
@@ -67,6 +71,8 @@
             android:layout_height="200dp"/>
 
         <TextView
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
             android:id="@+id/event_descp2"
             android:layout_below="@+id/event_main_img2"
             android:layout_marginTop="10dp"

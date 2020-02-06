@@ -272,4 +272,11 @@ public class TeamMain extends AppCompatActivity {
             bottomAppBar.setFabAlignmentMode(BottomAppBar.FAB_ALIGNMENT_MODE_END);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(TeamMain.this, Dashboard.class);
+        startActivity(intent);
+        finish();
+    }
 }

@@ -164,7 +164,7 @@
                 android:layout_height="match_parent"
                 android:text="Previous"
                 android:textColor="#000"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textAlignment="center"
                 android:gravity="center"/>
         </LinearLayout>
@@ -188,7 +188,7 @@
                 android:layout_height="match_parent"
                 android:text="Submit"
                 android:textColor="#000"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textAlignment="center"
                 android:gravity="center"/>
 

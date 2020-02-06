@@ -50,6 +50,9 @@ dependencies {
     implementation 'com.getkeepsafe.taptargetview:taptargetview:1.13.0'
 
     implementation 'com.github.Hitomis:CircleMenu:v1.1.0'
+    implementation 'it.xabaras.android:recyclerview-swipedecorator:1.2.1'
+    implementation 'com.nex3z:notification-badge:0.1.0'
+
 
 }
 apply plugin: 'com.google.gms.google-services'

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Dashboard"
     android:orientation="vertical"
     android:background="#701f47"
@@ -13,26 +14,28 @@
         >
 
         <ImageView
+            android:elevation="6dp"
             android:id="@+id/image_power"
-            android:layout_width="40dp"
+            android:layout_width="48dp"
             android:layout_alignParentTop="true"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:paddingStart="10dp"
             android:paddingEnd="2dp"
             android:paddingTop="10dp"
             android:src="@drawable/power"/>
     <ImageView
+        android:elevation="6dp"
         android:id="@+id/image_power1"
         android:layout_width="50dp"
         android:layout_toRightOf="@id/image_power"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:paddingTop="10dp"
 
         android:src="@drawable/kiet_logo"/>
     <ImageView
-
+        android:elevation="6dp"
         android:layout_width="50dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_toRightOf="@id/image_power1"
         android:paddingTop="10dp"
         android:id="@+id/i"
@@ -42,21 +45,33 @@
             android:layout_marginRight="10dp"
             android:layout_toLeftOf="@+id/iv_notification_btn"
             android:layout_width="60dp"
-            android:layout_height="40dp"
-
+            android:layout_height="48dp"
+            android:elevation="6dp"
             android:id="@+id/ecell"
             android:paddingTop="10dp"
             android:src="@drawable/ecell" />
 
         <ImageView
+            android:elevation="6dp"
             android:id="@+id/iv_notification_btn"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:paddingTop="10dp"
             android:paddingEnd="10dp"
             android:src="@drawable/ic_notifications_black_24dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"/>
+            android:layout_width="48dp"
+            android:layout_height="48dp"/>
+
+        <ImageView
+            android:elevation="10dp"
+            android:layout_marginTop="6dp"
+            android:src="@drawable/badge_notifications"
+            android:id="@+id/notificationbadge"
+            android:layout_marginLeft="-30dp"
+            android:layout_alignTop="@+id/iv_notification_btn"
+            android:layout_toRightOf="@+id/iv_notification_btn"
+            android:layout_width="20dp"
+            android:layout_height="20dp"/>
     </RelativeLayout>
 
 
@@ -80,7 +95,9 @@
         android:background="@drawable/bg_menu">
 
         <LinearLayout
-            android:padding="16dp"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:paddingTop="10dp"
             android:layout_marginTop="24dp"
             android:gravity="center"
             android:layout_weight="2"
@@ -95,6 +112,8 @@
                 android:layout_height="match_parent">
 
                 <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
                     android:id="@+id/layout_events"
                     android:orientation="vertical"
                     android:layout_marginLeft="10dp"
@@ -121,12 +140,9 @@
                         android:layout_height="wrap_content"
                         android:text="Events"
                         android:layout_centerHorizontal="true"
-                        android:textSize="20sp"
+                        android:textSize="17sp"
                         android:textColor="#000"
-
-                        android:layout_below="@id/events_img"
-
-                        />
+                        android:layout_below="@id/events_img"/>
                 </RelativeLayout>
 
 
@@ -141,6 +157,8 @@
                 android:layout_height="match_parent">
 
                 <LinearLayout
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="5dp"
                     android:id="@+id/layout_shedule"
                     android:orientation="vertical"
                     android:layout_marginLeft="10dp"
@@ -168,12 +186,9 @@
                             android:layout_height="wrap_content"
                             android:text="Schedule"
                             android:layout_centerHorizontal="true"
-                            android:textSize="20sp"
+                            android:textSize="17sp"
                             android:textColor="#000"
-
-                            android:layout_below="@id/events_img1"
-
-                            />
+                            android:layout_below="@id/events_img1"/>
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -186,6 +201,8 @@
                 android:layout_height="match_parent">
 
                 <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
                     android:id="@+id/layout_speakers"
                     android:orientation="vertical"
                     android:layout_marginLeft="10dp"
@@ -213,12 +230,10 @@
                             android:layout_height="wrap_content"
                             android:text="Speakers"
                             android:layout_centerHorizontal="true"
-                            android:textSize="20sp"
+                            android:textSize="17sp"
                             android:textColor="#000"
+                            android:layout_below="@id/events_img2"/>
 
-                            android:layout_below="@id/events_img2"
-
-                            />
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -228,7 +243,10 @@
         </LinearLayout>
 
         <LinearLayout
-            android:padding="16dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="5dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             android:gravity="center"
@@ -244,6 +262,8 @@
                 android:layout_height="match_parent">
 
                 <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
                     android:id="@+id/layout_sponsors"
                     android:orientation="vertical"
                     android:layout_marginLeft="10dp"
@@ -271,12 +291,9 @@
                             android:layout_height="wrap_content"
                             android:text="Sponsors"
                             android:layout_centerHorizontal="true"
-                            android:textSize="20sp"
+                            android:textSize="17sp"
                             android:textColor="#000"
-
-                            android:layout_below="@id/events_img3"
-
-                            />
+                            android:layout_below="@id/events_img3"/>
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -290,6 +307,8 @@
                 android:layout_height="match_parent">
 
                 <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
                     android:orientation="vertical"
                     android:id="@+id/layout_ourteam"
                     android:layout_marginLeft="10dp"
@@ -317,12 +336,9 @@
                             android:layout_height="wrap_content"
                             android:text="Team"
                             android:layout_centerHorizontal="true"
-                            android:textSize="20sp"
+                            android:textSize="17sp"
                             android:textColor="#000"
-
-                            android:layout_below="@id/events_img4"
-
-                            />
+                            android:layout_below="@id/events_img4"/>
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -336,9 +352,9 @@
                 android:layout_height="match_parent">
 
                 <LinearLayout
-
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
                     android:orientation="vertical"
-
                     android:layout_marginLeft="10dp"
                     android:id="@+id/layout_faq"
                     android:elevation="6dp"
@@ -363,13 +379,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Contact us"
+                            android:text="Contact Us"
                             android:layout_centerHorizontal="true"
-                            android:textSize="20sp"
+                            android:textSize="17sp"
                             android:textColor="#000"
-
                             android:layout_below="@id/events_img5"
-
                             />
                     </RelativeLayout>
 

@@ -31,7 +31,7 @@ public class fr_bquiz_intro extends Fragment {
             @Override
             public void onClick(View v) {
                 final FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.container_bquiz,new fr_bquiz_ques1());
+                fragmentTransaction.replace(R.id.container_bquiz,new fr_bquiz_ques1(),"quiz_time");
                 fragmentTransaction.commit();
 
                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("BquizStatus").child(FirebaseAuth.getInstance().getCurrentUser().getUid());

@@ -2,6 +2,7 @@ package com.example.endeavour.Notifications;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Notification;
 import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
@@ -30,11 +33,17 @@ import com.example.endeavour.R;
 import com.example.endeavour.Shedule.Shedule;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+
+import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator;
 
 public class Notifications extends AppCompatActivity {
 
@@ -170,9 +179,28 @@ public class Notifications extends AppCompatActivity {
                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(notiid).removeValue();
                         //Toast.makeText(Notifications.this,"Sucess "+notiid,Toast.LENGTH_SHORT).show();
                     }
+
+                    @Override
+                    public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+
+                        new RecyclerViewSwipeDecorator.Builder(Notifications.this,c,recyclerView,viewHolder,dX,dY,actionState,isCurrentlyActive)
+                                .addSwipeRightActionIcon(R.drawable.ic_delete_black_24dp)
+                                .addSwipeRightBackgroundColor(getResources().getColor(R.color.colorred))
+                                .create()
+                                .decorate();
+
+                        super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+                    }
                 };
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Notifications.this, Dashboard.class);
+        startActivity(intent);
+        finish();
     }
 }

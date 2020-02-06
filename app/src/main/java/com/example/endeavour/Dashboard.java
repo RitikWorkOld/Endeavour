@@ -1,5 +1,6 @@
 package com.example.endeavour;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.endeavour.Events_Fragments.EventsMain;
 import com.example.endeavour.Notifications.Notifications;
+import com.example.endeavour.Notifications.Notifications_Dots;
 import com.example.endeavour.Shedule.Shedule;
 import com.example.endeavour.Speakers.Speakers;
 import com.example.endeavour.Sponsors.Sponsor;
@@ -25,6 +27,11 @@ import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
 import com.getkeepsafe.taptargetview.TapTargetView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Dashboard extends AppCompatActivity  {
 
@@ -35,6 +42,7 @@ public class Dashboard extends AppCompatActivity  {
     LinearLayout layoutspeakers;
     LinearLayout layoutshedule;
     LinearLayout layoutfaq;
+    private ImageView notification_badge;
 
     private Toast backToast;
     ImageView notification_btn, image_power;
@@ -48,6 +56,33 @@ public class Dashboard extends AppCompatActivity  {
         setContentView(R.layout.activity_dashboard);
         image_power = (ImageView) findViewById(R.id.image_power);
         notification_btn = (ImageView) findViewById(R.id.iv_notification_btn);
+
+
+        notification_badge = (ImageView)findViewById(R.id.notificationbadge);
+
+        notification_badge.setVisibility(View.GONE);
+
+        DatabaseReference databaseReferencenot = FirebaseDatabase.getInstance().getReference().child("NotificationDots")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        databaseReferencenot.keepSynced(true);
+
+        databaseReferencenot.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Notifications_Dots notifications_dots = dataSnapshot.getValue(Notifications_Dots.class);
+                if (notifications_dots != null)
+                {
+                    if (notifications_dots.getDotstatus().equals("yes")){
+                        notification_badge.setVisibility(View.VISIBLE);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         if(isFirstTime()){
             /*TapTargetView.showFor(this, TapTarget.forView(findViewById(R.id.image_power), "Log Out Button", "Use this to signout from you account")
@@ -162,6 +197,12 @@ public class Dashboard extends AppCompatActivity  {
         notification_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                DatabaseReference databaseReferencenotup = FirebaseDatabase.getInstance().getReference().child("NotificationDots")
+                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                databaseReferencenotup.child("dotstatus").setValue("no");
+                databaseReferencenotup.keepSynced(true);
+
                 Intent intent = new Intent(Dashboard.this, Notifications.class);
                 startActivity(intent);
             }

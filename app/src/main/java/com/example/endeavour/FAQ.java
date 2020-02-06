@@ -111,4 +111,11 @@ public class FAQ extends AppCompatActivity {
             bottomAppBar.setFabAlignmentMode(BottomAppBar.FAB_ALIGNMENT_MODE_END);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent( FAQ.this, Dashboard.class);
+        startActivity(intent);
+        finish();
+    }
 }
