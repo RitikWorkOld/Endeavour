@@ -82,6 +82,8 @@ public class RegAct extends AppCompatActivity implements View.OnClickListener {
 
 
             Toast.makeText(RegAct.this,"No Network Connection",Toast.LENGTH_LONG).show();
+
+
         }
 
 

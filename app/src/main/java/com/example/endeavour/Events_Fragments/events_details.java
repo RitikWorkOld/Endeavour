@@ -1,8 +1,6 @@
 package com.example.endeavour.Events_Fragments;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,7 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.endeavour.BQuiz.Bquiz;
-import com.example.endeavour.Dashboard;
+import com.example.endeavour.Payment_one;
 import com.example.endeavour.R;
 import com.example.endeavour.Voting.VotingAct;
 import com.example.endeavour.Voting.Voting_helper;
@@ -202,8 +200,7 @@ public class events_details extends Fragment {
         Register_dt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse(Register_uri);
-                Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+                Intent intent = new Intent(getActivity().getApplicationContext(), Payment_one.class);
                 startActivity(intent);
             }
         });
