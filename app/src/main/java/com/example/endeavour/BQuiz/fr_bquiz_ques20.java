@@ -1,6 +1,7 @@
 package com.example.endeavour.BQuiz;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -138,9 +139,8 @@ public class fr_bquiz_ques20 extends Fragment {
 
                                         //Toast.makeText( getActivity().getApplicationContext(),"Skipped",Toast.LENGTH_SHORT ).show();
 
-                                        final FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                                        fragmentTransaction.replace(R.id.container_bquiz,new fr_bquiz_results());
-                                        fragmentTransaction.commit();
+                                        Intent intent = new Intent(getActivity(),bquiz_results.class);
+                                        startActivity(intent);
                                     }
                                     else {
                                         String str = radioButton.getText().toString();
@@ -154,9 +154,8 @@ public class fr_bquiz_ques20 extends Fragment {
 
                                             //Toast.makeText( getActivity(),"Correct answer " + str,Toast.LENGTH_SHORT).show();
 
-                                            final FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                                            fragmentTransaction.replace(R.id.container_bquiz,new fr_bquiz_results());
-                                            fragmentTransaction.commit();
+                                            Intent intent = new Intent(getActivity(),bquiz_results.class);
+                                            startActivity(intent);
                                         }
                                         else {
 
@@ -167,9 +166,8 @@ public class fr_bquiz_ques20 extends Fragment {
 
                                             //Toast.makeText( getActivity(),"Wrong answer",Toast.LENGTH_SHORT ).show();
 
-                                            final FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                                            fragmentTransaction.replace(R.id.container_bquiz,new fr_bquiz_results());
-                                            fragmentTransaction.commit();
+                                            Intent intent = new Intent(getActivity(),bquiz_results.class);
+                                            startActivity(intent);
                                         }
                                     }
 

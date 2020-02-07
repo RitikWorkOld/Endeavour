@@ -1,11 +1,13 @@
 package com.example.endeavour;
 
 import android.content.Context;
+import android.content.Intent;
 import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,10 +32,20 @@ public class Glimpses_Adapter extends RecyclerView.Adapter<Glimpses_Adapter.Glim
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Glimpses_Viewholder holder, int position) {
-        Glimpses glimpse = glimpses.get(position);
+    public void onBindViewHolder(@NonNull final Glimpses_Viewholder holder, final int position) {
+        final Glimpses glimpse = glimpses.get(position);
 
         holder.glimpimg.setImageDrawable(ctx.getResources().getDrawable(glimpse.getImguri()));
+
+        holder.glimpimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(ctx,"clicked",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(ctx,glipm_detail.class);
+                intent.putExtra("imguri",glimpse.getImguri());
+                ctx.startActivity(intent);
+            }
+        });
 
     }
 

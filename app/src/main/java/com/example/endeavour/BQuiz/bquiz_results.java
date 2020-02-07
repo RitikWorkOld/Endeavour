@@ -1,17 +1,15 @@
 package com.example.endeavour.BQuiz;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import com.example.endeavour.Events_Fragments.EventsMain;
 import com.example.endeavour.R;
@@ -22,22 +20,24 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class fr_bquiz_results extends Fragment {
+public class bquiz_results extends AppCompatActivity {
 
     private TextView total_ques_count,total_score_count,correct_ans_count,wrong_ans_count,skipped_ques_count;
     private Button exitquiz;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View view = inflater.inflate( R.layout.fr_bquiz_results,container,false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        requestWindowFeature( Window.FEATURE_NO_TITLE);
+        getWindow().setFlags( WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.activity_bquiz_results);
 
-        total_ques_count = view.findViewById( R.id.total_ques_count );
-        total_score_count = view.findViewById( R.id.total_score_count );
-        correct_ans_count = view.findViewById( R.id.correct_ans_count );
-        wrong_ans_count = view.findViewById( R.id.wrong_answers_count );
-        skipped_ques_count = view.findViewById( R.id.skipped_ques_count );
-        exitquiz = view.findViewById(R.id.exitquizbtn);
+        total_ques_count = findViewById( R.id.total_ques_count );
+        total_score_count = findViewById( R.id.total_score_count );
+        correct_ans_count = findViewById( R.id.correct_ans_count );
+        wrong_ans_count = findViewById( R.id.wrong_answers_count );
+        skipped_ques_count = findViewById( R.id.skipped_ques_count );
+        exitquiz = findViewById(R.id.exitquizbtn);
 
         final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child( "ResultsBquiz" ).child( FirebaseAuth.getInstance().getCurrentUser().getUid() ).child( "Bquiz" );
         databaseReference.orderByChild( "status" ).equalTo( "wrong" ).addValueEventListener( new ValueEventListener() {
@@ -128,11 +128,16 @@ public class fr_bquiz_results extends Fragment {
         exitquiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), EventsMain.class);
+                Intent intent = new Intent(bquiz_results.this, EventsMain.class);
                 startActivity(intent);
             }
         });
+    }
 
-        return view;
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(bquiz_results.this,EventsMain.class);
+        startActivity(intent);
+        finish();
     }
 }

@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -13,6 +15,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.endeavour.Events_Fragments.EventsMain;
 import com.example.endeavour.Events_Fragments.Events_Fun;
 import com.example.endeavour.R;
 
@@ -21,7 +24,7 @@ public class Bquiz extends AppCompatActivity {
     public TextView timer;
 
     public CountDownTimer countDownTimer;
-    public long totaltime = 600000;//10 mins.....
+    public long totaltime = 10000;//10 mins.....//2*600000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +45,32 @@ public class Bquiz extends AppCompatActivity {
             @Override
             public void onFinish() {
 
-                Toast.makeText(Bquiz.this,"TTime up",Toast.LENGTH_SHORT).show();
+                /*AlertDialog.Builder builder = new AlertDialog.Builder(getApplication());
+                builder.setTitle("Time UP");
+                builder.setIcon(R.mipmap.ic_launcher);
+                builder.setMessage("Your Time is UP\nProceed to the Results")
+                        .setCancelable(false)
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(Bquiz.this, EventsMain.class);
+                                startActivity(intent);
+                            }
+                        });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();*/
+
+                final FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.container_bquiz,new fr_bquiz_timeup());
+                fragmentTransaction.commit();
+
+                //Toast.makeText(Bquiz.this,"Time up",Toast.LENGTH_SHORT).show();
 
             }
         }.start();
 
         final FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.container_bquiz,new fr_bquiz_intro());
+        fragmentTransaction.add(R.id.container_bquiz,new fr_bquiz_ques1());
         fragmentTransaction.commit();
     }
 
