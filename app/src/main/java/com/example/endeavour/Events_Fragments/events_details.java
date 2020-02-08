@@ -2,6 +2,8 @@ package com.example.endeavour.Events_Fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -22,9 +24,11 @@ import android.widget.Toast;
 import com.example.endeavour.BQuiz.Bquiz;
 import com.example.endeavour.BQuiz.bquiz_intro;
 import com.example.endeavour.Dashboard;
+import com.example.endeavour.Payment_one;
 import com.example.endeavour.R;
 import com.example.endeavour.Voting.VotingAct;
 import com.example.endeavour.Voting.Voting_helper;
+import com.example.endeavour.checksum;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,6 +36,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+
+import java.util.Random;
 
 public class events_details extends Fragment {
 
@@ -62,6 +68,7 @@ public class events_details extends Fragment {
         String Simguri = bundle.getString("Simguri");
         final String Register_uri = bundle.getString("Register_uri");
         final String faqid = bundle.getString( "faqid" );
+        final String amount = bundle.getString("amount");
         readless = view.findViewById(R.id.read_less_events);
 
         Title_dt = view.findViewById(R.id.event_title);
@@ -82,7 +89,7 @@ public class events_details extends Fragment {
         Picasso.get().load(Mimguri).into(Mimg_dt);
         Picasso.get().load(Simguri).into(Simg_dt);
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child( "BquizStatus" ).child( FirebaseAuth.getInstance().getCurrentUser().getUid() );
+        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child( "BquizStatus" ).child( FirebaseAuth.getInstance().getCurrentUser().getUid() );
         databaseReference.keepSynced( true );
         databaseReference.addListenerForSingleValueEvent( new ValueEventListener() {
             @Override
@@ -92,7 +99,7 @@ public class events_details extends Fragment {
                 //Toast.makeText( getActivity().getApplicationContext(),"status  "+quizUnlocker.getStatus().toString(),Toast.LENGTH_SHORT ).show();
 
                 if (quizUnlocker != null){
-                    if (quizUnlocker.getStatus().toString().equals( "open" ) && Title.equals( "BizCraft" )){
+                    if (quizUnlocker.getStatus().toString().equals( "open" ) && faqid.equals("4")){
                         gotoquiz.setVisibility( View.VISIBLE );
                         gotoquiz.setOnClickListener( new View.OnClickListener() {
                             @Override
@@ -117,8 +124,6 @@ public class events_details extends Fragment {
             }
         } );
 
-
-
         DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child( "VotingControl" );
         databaseReference1.keepSynced( true );
         databaseReference1.addListenerForSingleValueEvent( new ValueEventListener() {
@@ -127,7 +132,7 @@ public class events_details extends Fragment {
                 VotingUnlocker votingUnlocker = dataSnapshot.getValue(VotingUnlocker.class);
 
                 if (votingUnlocker != null){
-                    if (votingUnlocker.getStatus().toString().equals( "open" ) && Title.equals( "Memethon" )){
+                    if (votingUnlocker.getStatus().toString().equals( "open" ) && faqid.equals("1")){
                         votenow.setVisibility( View.VISIBLE );
 
                         votenow.setOnClickListener(new View.OnClickListener() {
@@ -203,9 +208,43 @@ public class events_details extends Fragment {
         Register_dt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse(Register_uri);
-                Intent intent = new Intent(Intent.ACTION_VIEW,uri);
-                startActivity(intent);
+
+                if(!haveNetworkConnection()){
+                    Toast.makeText(getActivity().getApplicationContext(),"NO NETWORK FOUND\nTRY AGAIN LATER", Toast.LENGTH_SHORT).show();
+                }
+
+                else {
+                    if (faqid.equals("1"))
+                    {
+                        Toast.makeText(getActivity().getApplicationContext(),"Succesfull",Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        DatabaseReference databaseReference2 = FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                        databaseReference2.keepSynced(true);
+                        databaseReference2.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                getphno getphno = dataSnapshot.getValue(com.example.endeavour.Events_Fragments.getphno.class);
+                                String phno = getphno.getContactn();
+                                String orderid = phno.concat(faqid);
+                                Random random = new Random();
+                                String id = String.format("%04d", random.nextInt(10000));
+                                String finalid = orderid.concat(id);
+                                Intent intent = new Intent(getActivity(), checksum.class);
+                                intent.putExtra("orderid",finalid);
+                                intent.putExtra("custid",finalid);
+                                intent.putExtra("amount",amount);
+                                intent.putExtra("faqid",faqid);
+                                startActivity(intent);
+                            }
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+                    }
+                }
             }
         });
 
@@ -218,5 +257,22 @@ public class events_details extends Fragment {
             }
         });
         return view;
+    }
+
+    private boolean haveNetworkConnection() {
+        boolean haveConnectedWifi = false;
+        boolean haveConnectedMobile = false;
+
+        ConnectivityManager cm = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo[] netInfo = cm.getAllNetworkInfo();
+        for (NetworkInfo ni : netInfo) {
+            if (ni.getTypeName().equalsIgnoreCase("WIFI"))
+                if (ni.isConnected())
+                    haveConnectedWifi = true;
+            if (ni.getTypeName().equalsIgnoreCase("MOBILE"))
+                if (ni.isConnected())
+                    haveConnectedMobile = true;
+        }
+        return haveConnectedWifi || haveConnectedMobile;
     }
 }

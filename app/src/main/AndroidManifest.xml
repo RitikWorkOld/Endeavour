@@ -16,12 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".payment.payment_one"></activity>
+        <activity android:name=".glipm_detail"></activity>
+        <activity android:name=".BQuiz.bquiz_results" />
+        <activity android:name=".BQuiz.bquiz_intro" />
         <activity
             android:name=".Voting.VotingAct"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Get_started"
             android:screenOrientation="portrait" />
         <activity
             android:name=".splashAct"

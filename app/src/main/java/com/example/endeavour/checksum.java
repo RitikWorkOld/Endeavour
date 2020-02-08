@@ -6,11 +6,18 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 
 import android.util.Log;
+import android.view.SurfaceControl;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.endeavour.BQuiz.Bquiz;
+import com.example.endeavour.Events_Fragments.EventsMain;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.paytm.pgsdk.PaytmOrder;
 import com.paytm.pgsdk.PaytmPGService;
 import com.paytm.pgsdk.PaytmPaymentTransactionCallback;
@@ -20,16 +27,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class checksum extends AppCompatActivity implements PaytmPaymentTransactionCallback {
-    String custid="", orderId="", mid="";
+    String custid="", orderId="", mid="",amt="",faqid="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 //        setContentView(R.layout.activity_main);
         //initOrderId();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         Intent intent = getIntent();
         orderId = intent.getExtras().getString("orderid");
         custid = intent.getExtras().getString("custid");
+        amt = intent.getExtras().getString("amount");
+        faqid = intent.getExtras().getString("faqid");
+
         mid = "cvSxPe78770896766146"; /// your marchant key
         sendUserDetailTOServerdd dl = new sendUserDetailTOServerdd();
         dl.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
@@ -53,7 +65,7 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
                     "MID="+mid+
                             "&ORDER_ID=" + orderId+
                             "&CUST_ID="+custid+
-                            "&CHANNEL_ID=WAP&TXN_AMOUNT=150&WEBSITE=WEBSTAGING"+
+                            "&CHANNEL_ID=WAP&TXN_AMOUNT="+amt+"&WEBSITE=WEBSTAGING"+
                             "&CALLBACK_URL="+ varifyurl+"&INDUSTRY_TYPE_ID=Retail";
             JSONObject jsonObject = jsonParser.makeHttpRequest(url,"POST",param);
             // yaha per checksum ke saht order id or status receive hoga..
@@ -86,7 +98,7 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
             paramMap.put("ORDER_ID", orderId);
             paramMap.put("CUST_ID", custid);
             paramMap.put("CHANNEL_ID", "WAP");
-            paramMap.put("TXN_AMOUNT", "150");
+            paramMap.put("TXN_AMOUNT", amt);
             paramMap.put("WEBSITE", "WEBSTAGING");
             paramMap.put("CALLBACK_URL" ,varifyurl);
             //paramMap.put( "EMAIL" , "abc@gmail.com");   // no need
@@ -102,36 +114,82 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
                     checksum.this  );
         }
     }
+
     @Override
     public void onTransactionResponse(Bundle bundle) {
         Log.e("checksum ", " respon true " + bundle.toString());
-        Toast.makeText(getApplicationContext(), "Payment Transaction response " , Toast.LENGTH_LONG).show();
+        String status = bundle.getString("STATUS");
+        if (status.equals("TXN_FAILURE"))
+        {
+            Toast.makeText(getApplicationContext(), "PAYMENT CANCELED" , Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(checksum.this, EventsMain.class);
+            startActivity(intent);
+            finish();
+        }
+        else if (status.equals("TXN_SUCCESS"))
+        {
 
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("registrations").child(faqid).child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            databaseReference.keepSynced(true);
+            databaseReference.child("userid").setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            databaseReference.child("faqid").setValue(faqid);
+            databaseReference.child("amount").setValue(amt);
+            databaseReference.child("orderid").setValue(orderId);
+
+            Toast.makeText(getApplicationContext(), "PAYMENT SUCCESS" , Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(checksum.this, EventsMain.class);
+            startActivity(intent);
+            finish();
+        }
+        else if (status.equals("PENDING"))
+        {
+            Toast.makeText(getApplicationContext(), "PAYMENT PENDING", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(checksum.this, EventsMain.class);
+            startActivity(intent);
+            finish();
+        }
     }
     @Override
     public void networkNotAvailable() {
-
-        Toast.makeText(getApplicationContext(), "Payment Transaction FAILED " , Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "PAYMENT FAILED " , Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(checksum.this, EventsMain.class);
+        startActivity(intent);
+        finish();
     }
     @Override
     public void clientAuthenticationFailed(String s) {
+        Intent intent = new Intent(checksum.this, EventsMain.class);
+        startActivity(intent);
+        finish();
     }
     @Override
     public void someUIErrorOccurred(String s) {
         Log.e("checksum ", " ui fail respon  "+ s );
+        Intent intent = new Intent(checksum.this, EventsMain.class);
+        startActivity(intent);
+        finish();
     }
     @Override
     public void onErrorLoadingWebPage(int i, String s, String s1) {
+        Intent intent = new Intent(checksum.this, EventsMain.class);
+        startActivity(intent);
+        finish();
         Log.e("checksum ", " error loading pagerespon true "+ s + "  s1 " + s1);
     }
     @Override
     public void onBackPressedCancelTransaction() {
+        Intent intent = new Intent(checksum.this, EventsMain.class);
+        startActivity(intent);
+        finish();
         Log.e("checksum ", " cancel call back respon  " );
-        Toast.makeText(getApplicationContext(), "Payment Transaction FAILED " , Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "PAYMENT CANCELED" , Toast.LENGTH_LONG).show();
     }
     @Override
     public void onTransactionCancel(String s, Bundle bundle) {
+        Intent intent = new Intent(checksum.this, EventsMain.class);
+        startActivity(intent);
+        finish();
         Log.e("checksum ", "  transaction cancel " );
-        Toast.makeText(getApplicationContext(), "Payment Transaction CANCELED " , Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "PAYMENT CANCELED" , Toast.LENGTH_LONG).show();
     }
 }

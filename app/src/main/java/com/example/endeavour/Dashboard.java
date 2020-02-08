@@ -3,11 +3,15 @@ package com.example.endeavour;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -59,12 +63,10 @@ public class Dashboard extends AppCompatActivity  {
         setContentView(R.layout.activity_dashboard);
         image_power = (ImageView) findViewById(R.id.image_power);
         notification_btn = (ImageView) findViewById(R.id.iv_notification_btn);
+
         if(!haveNetworkConnection()){
-
-
             Toast.makeText(Dashboard.this,"No Network Connection",Toast.LENGTH_LONG).show();
         }
-
 
         notification_badge = (ImageView)findViewById(R.id.notificationbadge);
 
@@ -73,7 +75,6 @@ public class Dashboard extends AppCompatActivity  {
         DatabaseReference databaseReferencenot = FirebaseDatabase.getInstance().getReference().child("NotificationDots")
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         databaseReferencenot.keepSynced(true);
-
         databaseReferencenot.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -91,6 +92,13 @@ public class Dashboard extends AppCompatActivity  {
 
             }
         });
+
+        if (ContextCompat.checkSelfPermission
+                ( Dashboard.this, Manifest.permission.READ_SMS ) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions
+                    ( Dashboard.this, new String[]{Manifest.permission.READ_SMS, Manifest.permission.RECEIVE_SMS}, 101 );
+
+        }
 
         if(isFirstTime()){
             /*TapTargetView.showFor(this, TapTarget.forView(findViewById(R.id.image_power), "Log Out Button", "Use this to signout from you account")

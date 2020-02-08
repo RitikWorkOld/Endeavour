@@ -70,6 +70,7 @@ public class Events_Corp extends Fragment {
                 String Simguri = model.getSimguri();
                 String Register_uri = model.getRegister_uri();
                 String faqid = model.getFaqid();
+                String amount = model.getAmount();
 
                 final Bundle bundle = new Bundle();
                 bundle.putString("Title",Title);
@@ -80,6 +81,7 @@ public class Events_Corp extends Fragment {
                 bundle.putString("Simguri",Simguri);
                 bundle.putString("Register_uri",Register_uri);
                 bundle.putString("faqid",faqid);
+                bundle.putString("amount",amount);
 
                 viewholder.read_more_ebtn.setOnClickListener(new View.OnClickListener() {
                     @Override
