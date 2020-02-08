@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -21,10 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.endeavour.BQuiz.Bquiz;
 import com.example.endeavour.BQuiz.bquiz_intro;
-import com.example.endeavour.Dashboard;
-import com.example.endeavour.Payment_one;
 import com.example.endeavour.R;
 import com.example.endeavour.Voting.VotingAct;
 import com.example.endeavour.Voting.Voting_helper;
@@ -45,7 +41,7 @@ public class events_details extends Fragment {
     TextView Descp_dt;
     TextView Desc1_dt;
     TextView Desc2_dt;
-    Button Register_dt;
+    Button Register_dt,registered;
     ImageView Mimg_dt;
     ImageView Simg_dt;
     TextView readless;
@@ -81,6 +77,7 @@ public class events_details extends Fragment {
         gotoquiz = view.findViewById( R.id.gotoquiz );
         votenow = view.findViewById(R.id.votenow);
         faq = view.findViewById( R.id.faq_btn );
+        registered = view.findViewById(R.id.registered);
 
         Title_dt.setText(Title);
         Descp_dt.setText(Descp);
@@ -88,6 +85,25 @@ public class events_details extends Fragment {
         Desc2_dt.setText(Desc2);
         Picasso.get().load(Mimguri).into(Mimg_dt);
         Picasso.get().load(Simguri).into(Simg_dt);
+
+        final DatabaseReference databaseReference12345 = FirebaseDatabase.getInstance().getReference().child("registrations").child(faqid);
+        databaseReference12345.keepSynced(true);
+        databaseReference12345.orderByChild("userid").equalTo(FirebaseAuth.getInstance().getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getValue() != null)
+                {
+                    //Toast.makeText(getActivity().getApplicationContext(), "Already Payed", Toast.LENGTH_SHORT).show();
+                    Register_dt.setVisibility(View.GONE);
+                    registered.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child( "BquizStatus" ).child( FirebaseAuth.getInstance().getCurrentUser().getUid() );
         databaseReference.keepSynced( true );

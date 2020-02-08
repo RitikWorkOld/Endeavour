@@ -22,6 +22,7 @@ import com.example.endeavour.BottomSheetNavigationFragment;
 import com.example.endeavour.BottomSheetNavigationFragmentOne;
 import com.example.endeavour.BottomSheetNavigationFragmentTwo;
 import com.example.endeavour.Dashboard;
+import com.example.endeavour.Events_Fragments.EventsMain;
 import com.example.endeavour.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -164,5 +165,12 @@ public class Sponsor extends AppCompatActivity {
         } else {
             bottomAppBar.setFabAlignmentMode(BottomAppBar.FAB_ALIGNMENT_MODE_END);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent( Sponsor.this, Dashboard.class);
+        startActivity(intent);
+        finish();
     }
 }

@@ -18,6 +18,8 @@ import com.example.endeavour.BottomSheetNavigationFragment;
 import com.example.endeavour.BottomSheetNavigationFragmentOne;
 import com.example.endeavour.BottomSheetNavigationFragmentTwo;
 import com.example.endeavour.Dashboard;
+import com.example.endeavour.FAQ;
+import com.example.endeavour.Pay_Success;
 import com.example.endeavour.R;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
@@ -37,6 +39,14 @@ public class EventsMain extends AppCompatActivity {
         setUpBottomAppBar();
 
         image=findViewById(R.id.back);
+
+        String amount = getIntent().getStringExtra("amount");
+        if (amount != null)
+        {
+            Intent intent = new Intent(EventsMain.this, Pay_Success.class);
+            intent.putExtra("amount",amount);
+            startActivity(intent);
+        }
 
         image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -175,6 +185,9 @@ public class EventsMain extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        Intent intent = new Intent( EventsMain.this, Dashboard.class);
+        startActivity(intent);
         finish();
     }
+
 }

@@ -128,7 +128,6 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
         }
         else if (status.equals("TXN_SUCCESS"))
         {
-
             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("registrations").child(faqid).child(FirebaseAuth.getInstance().getCurrentUser().getUid());
             databaseReference.keepSynced(true);
             databaseReference.child("userid").setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
@@ -136,8 +135,9 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
             databaseReference.child("amount").setValue(amt);
             databaseReference.child("orderid").setValue(orderId);
 
-            Toast.makeText(getApplicationContext(), "PAYMENT SUCCESS" , Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(), "PAYMENT SUCCESS" , Toast.LENGTH_LONG).show();
             Intent intent = new Intent(checksum.this, EventsMain.class);
+            intent.putExtra("amount",amt);
             startActivity(intent);
             finish();
         }

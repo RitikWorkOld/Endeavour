@@ -25,6 +25,7 @@ import com.example.endeavour.BottomSheetNavigationFragmentOne;
 import com.example.endeavour.BottomSheetNavigationFragmentTwo;
 import com.example.endeavour.Dashboard;
 import com.example.endeavour.Developer;
+import com.example.endeavour.Events_Fragments.EventsMain;
 import com.example.endeavour.Events_Fragments.Events_Fun;
 import com.example.endeavour.Events_Fragments.Events_Tech;
 import com.example.endeavour.FABAnimation;
@@ -272,5 +273,11 @@ public class TeamMain extends AppCompatActivity {
         } else {
             bottomAppBar.setFabAlignmentMode(BottomAppBar.FAB_ALIGNMENT_MODE_END);
         }
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent( TeamMain.this, Dashboard.class);
+        startActivity(intent);
+        finish();
     }
 }
