@@ -35,7 +35,6 @@ public class RequestOtp extends AppCompatActivity {
     private EditText editTextCode;
     private Button verify;
 
-
     private FirebaseAuth mAuth;
 
 

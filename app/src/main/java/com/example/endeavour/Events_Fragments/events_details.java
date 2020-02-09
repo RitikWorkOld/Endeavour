@@ -51,7 +51,7 @@ public class events_details extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_events_details,container,false);
 
         Bundle bundle = getArguments();
@@ -232,6 +232,7 @@ public class events_details extends Fragment {
                 else {
                     if (faqid.equals("1"))
                     {
+                        //------------------------------------------------------------------------------------------------
                         Toast.makeText(getActivity().getApplicationContext(),"Succesfull",Toast.LENGTH_SHORT).show();
                     }
                     else
@@ -247,7 +248,7 @@ public class events_details extends Fragment {
                                 Random random = new Random();
                                 String id = String.format("%04d", random.nextInt(10000));
                                 String finalid = orderid.concat(id);
-                                Intent intent = new Intent(getActivity(), checksum.class);
+                                Intent intent = new Intent(getActivity(), EC_Teams.class);
                                 intent.putExtra("orderid",finalid);
                                 intent.putExtra("custid",finalid);
                                 intent.putExtra("amount",amount);
@@ -268,7 +269,6 @@ public class events_details extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-
                 fragmentManager.popBackStack();
             }
         });

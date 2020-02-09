@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class checksum extends AppCompatActivity implements PaytmPaymentTransactionCallback {
-    String custid="", orderId="", mid="",amt="",faqid="";
+    String custid="", orderId="", mid="",amt="",faqid="",teamname="",teamleader="",teammember1="",teammember2="",teammember3="",str="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +41,12 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
         custid = intent.getExtras().getString("custid");
         amt = intent.getExtras().getString("amount");
         faqid = intent.getExtras().getString("faqid");
+        teamname = intent.getExtras().getString("teamname");
+        teamleader = intent.getExtras().getString("teamleader");
+        teammember1 = intent.getExtras().getString("teammember1");
+        teammember2 = intent.getExtras().getString("teammember2");
+        teammember3 = intent.getExtras().getString("teammember3");
+        str = intent.getExtras().getString("str");
 
         mid = "cvSxPe78770896766146"; /// your marchant key
         sendUserDetailTOServerdd dl = new sendUserDetailTOServerdd();
@@ -134,6 +140,28 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
             databaseReference.child("faqid").setValue(faqid);
             databaseReference.child("amount").setValue(amt);
             databaseReference.child("orderid").setValue(orderId);
+            if (str.equals("0")){
+                databaseReference.child("teamname").setValue(teamname);
+                databaseReference.child("teamleader").setValue(teamleader);
+            }
+            else if (str.equals("1")) {
+                databaseReference.child("teamname").setValue(teamname);
+                databaseReference.child("teamleader").setValue(teamleader);
+                databaseReference.child("teammember1").setValue(teammember1);
+            }
+            else if (str.equals("2")) {
+                databaseReference.child("teamname").setValue(teamname);
+                databaseReference.child("teamleader").setValue(teamleader);
+                databaseReference.child("teammember1").setValue(teammember1);
+                databaseReference.child("teammember2").setValue(teammember2);
+            }
+            else if (str.equals("3")) {
+                databaseReference.child("teamname").setValue(teamname);
+                databaseReference.child("teamleader").setValue(teamleader);
+                databaseReference.child("teammember1").setValue(teammember1);
+                databaseReference.child("teammember2").setValue(teammember2);
+                databaseReference.child("teammember3").setValue(teammember3);
+            }
 
             //Toast.makeText(getApplicationContext(), "PAYMENT SUCCESS" , Toast.LENGTH_LONG).show();
             Intent intent = new Intent(checksum.this, EventsMain.class);

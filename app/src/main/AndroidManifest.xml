@@ -16,8 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Pay_Success"
+        <activity android:name=".Events_Fragments.EC_Teams"
             android:theme="@style/AppTheme.Requeststyle"></activity>
+        <activity
+            android:name=".Pay_Success"
+            android:theme="@style/AppTheme.Requeststyle" />
         <activity android:name=".glipm_detail" />
         <activity android:name=".BQuiz.bquiz_results" />
         <activity android:name=".BQuiz.bquiz_intro" />
