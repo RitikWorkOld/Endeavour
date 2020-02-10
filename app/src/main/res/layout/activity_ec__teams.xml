@@ -37,6 +37,7 @@
                     android:textAlignment="center"/>
 
                 <EditText
+                    android:textColorHint="@color/gray"
                     android:id="@+id/teamname"
                     android:textColor="@color/colorPrimary"
                     android:gravity="center"
@@ -49,6 +50,7 @@
                     android:layout_height="wrap_content"/>
 
                 <EditText
+                    android:textColorHint="@color/gray"
                     android:id="@+id/teamleader"
                     android:textColor="@color/colorPrimary"
                     android:gravity="center"
@@ -61,6 +63,7 @@
                     android:layout_height="wrap_content"/>
 
                 <EditText
+                    android:textColorHint="@color/gray"
                     android:id="@+id/teammember1"
                     android:textColor="@color/colorPrimary"
                     android:gravity="center"
@@ -73,6 +76,7 @@
                     android:layout_height="wrap_content"/>
 
                 <EditText
+                    android:textColorHint="@color/gray"
                     android:id="@+id/teammember2"
                     android:textColor="@color/colorPrimary"
                     android:gravity="center"
@@ -85,6 +89,7 @@
                     android:layout_height="wrap_content"/>
 
                 <EditText
+                    android:textColorHint="@color/gray"
                     android:id="@+id/teammember3"
                     android:textColor="@color/colorPrimary"
                     android:gravity="center"

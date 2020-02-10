@@ -144,6 +144,7 @@ public class Dashboard extends AppCompatActivity  {
             public void onClick(View v) {
                 Intent intent_events = new Intent(Dashboard.this, EventsMain.class);
                 startActivity(intent_events);
+                finish();
             }
         });
         layoutfaq.setOnClickListener(new View.OnClickListener() {
@@ -151,6 +152,7 @@ public class Dashboard extends AppCompatActivity  {
             public void onClick(View v) {
                 Intent intent_events = new Intent(Dashboard.this, FAQ.class);
                 startActivity(intent_events);
+                finish();
             }
         });
         layoutsponsors.setOnClickListener(new View.OnClickListener() {
@@ -158,6 +160,7 @@ public class Dashboard extends AppCompatActivity  {
             public void onClick(View v) {
                 Intent intent_sponsors = new Intent(Dashboard.this, Sponsor.class);
                 startActivity(intent_sponsors);
+                finish();
             }
         });
         layoutspeakers.setOnClickListener(new View.OnClickListener() {
@@ -165,6 +168,7 @@ public class Dashboard extends AppCompatActivity  {
             public void onClick(View v) {
                 Intent intent_speakers = new Intent(Dashboard.this, Speakers.class);
                 startActivity(intent_speakers);
+                finish();
             }
         });
         layoutshedule.setOnClickListener(new View.OnClickListener() {
@@ -172,6 +176,7 @@ public class Dashboard extends AppCompatActivity  {
             public void onClick(View v) {
                 Intent intent_shedule = new Intent(Dashboard.this, Shedule.class);
                 startActivity(intent_shedule);
+                finish();
             }
         });
         image_power.setOnClickListener(new View.OnClickListener() {
@@ -179,7 +184,7 @@ public class Dashboard extends AppCompatActivity  {
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(Dashboard.this);
                 builder.setTitle(R.string.app_name);
-                builder.setIcon(R.mipmap.ic_launcher);
+                builder.setIcon(R.drawable.endlogo);
                 builder.setMessage("Do you want to Logout?")
                         .setCancelable(false)
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -208,13 +213,13 @@ public class Dashboard extends AppCompatActivity  {
                 if (v == layoutOurteam) {
                     Intent intent_ourteam = new Intent(Dashboard.this, TeamMain.class);
                     startActivity(intent_ourteam);
+                    finish();
                 }
             }
         });
         notification_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 DatabaseReference databaseReferencenotup = FirebaseDatabase.getInstance().getReference().child("NotificationDots")
                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
                 databaseReferencenotup.child("dotstatus").setValue("no");
@@ -222,6 +227,7 @@ public class Dashboard extends AppCompatActivity  {
 
                 Intent intent = new Intent(Dashboard.this, Notifications.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

@@ -109,6 +109,7 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:textColor="#000"
                             android:id="@+id/speaker_title_details_2"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
@@ -120,6 +121,7 @@
                             />
 
                         <TextView
+                            android:textColor="#000"
                             android:id="@+id/speaker_desc_detail_2"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
@@ -137,6 +139,7 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:textColor="#000"
                             android:id="@+id/speaker_title_details_3"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
@@ -148,6 +151,7 @@
                             />
 
                         <TextView
+                            android:textColor="#000"
                             android:id="@+id/speaker_desc_detail_3"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
@@ -165,6 +169,7 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:textColor="#000"
                             android:id="@+id/speaker_title_details_4"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
@@ -176,6 +181,7 @@
                             />
 
                         <TextView
+                            android:textColor="#000"
                             android:id="@+id/speaker_desc_detail_4"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
@@ -193,6 +199,7 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:textColor="#000"
                             android:id="@+id/speaker_title_details_5"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
@@ -204,6 +211,7 @@
                             />
 
                         <TextView
+                            android:textColor="#000"
                             android:id="@+id/speaker_desc_detail_5"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
@@ -221,6 +229,7 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:textColor="#000"
                             android:id="@+id/speaker_title_details_6"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
@@ -232,6 +241,7 @@
                             />
 
                         <TextView
+                            android:textColor="#000"
                             android:id="@+id/speaker_desc_detail_6"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"

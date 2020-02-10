@@ -13,8 +13,6 @@
         android:layout_alignParentStart="true"
         android:orientation="horizontal">
 
-
-
         <TextView
             android:layout_marginTop="5dp"
             android:textAlignment="center"
@@ -65,10 +63,12 @@
             android:id="@+id/layout01"
             >
             <TextView
+                android:textColor="@color/gray"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:gravity="center"
+                android:layout_gravity="center"
                 android:text="Endeavour is an annual Techno_Entrepreneurial Summit of KIET,Ghaziabad."
                 android:textSize="20sp"/>
             <androidx.core.widget.NestedScrollView
@@ -76,10 +76,12 @@
                 android:layout_height="match_parent">
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
 
                     >
             <TextView
+                android:textAlignment="center"
+                android:textColor="@color/gray"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textStyle="normal"

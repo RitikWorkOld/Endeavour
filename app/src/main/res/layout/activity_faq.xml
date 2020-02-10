@@ -65,7 +65,6 @@ android:id="@+id/layout9"
             android:layout_below="@+id/imageView3"
             android:layout_marginTop="30dp"
             android:textColorHint="#808080"
-
             android:drawableLeft="@drawable/ic_subject_black_24dp"
             android:drawablePadding="10dp"
             android:hint="Subject"
