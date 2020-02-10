@@ -93,8 +93,6 @@ EditText input_layout_subject,input_layout_subject1,input_layout_subject2;
                 if (valid) {
                     progressBar.setVisibility( View.VISIBLE );
                     new FirebaseDatabaseHelper().addBook( book, new FirebaseDatabaseHelper.DataStatus() {
-
-
                         @Override
                         public void DataIsInserted() {
                             Toast.makeText( FAQ.this, "THANKS", Toast.LENGTH_LONG ).show();
@@ -108,14 +106,6 @@ EditText input_layout_subject,input_layout_subject1,input_layout_subject2;
                 }
 
             }
-
-
-
-
-
-
-
-
         } );
         final EditText email = (EditText) findViewById(R.id.input_layout_subject1);
         final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
@@ -128,10 +118,6 @@ EditText input_layout_subject,input_layout_subject1,input_layout_subject2;
                     Bnd_helper bnd_helper = dataSnapshot1.getValue(Bnd_helper.class);
 
                     String n = bnd_helper.email;
-
-
-
-
                     email.setText(n);
                 }
             }

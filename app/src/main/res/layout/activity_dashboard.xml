@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Dashboard"
     android:orientation="vertical"
-    android:background="#701f47"
+    android:background="@drawable/back_main"
     android:gravity="center_horizontal">
     <RelativeLayout
         android:layout_width="match_parent"

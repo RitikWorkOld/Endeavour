@@ -68,7 +68,6 @@ public class Events_Fun extends Fragment {
                 String Desc1 = model.getDesc1();
                 String Desc2 = model.getDesc2();
                 String Mimguri = model.getMimguri();
-                String Simguri = model.getSimguri();
                 String Register_uri = model.getRegister_uri();
                 String faqid = model.getFaqid();
                 String amount = model.getAmount();
@@ -79,7 +78,6 @@ public class Events_Fun extends Fragment {
                 bundle.putString("Desc1",Desc1);
                 bundle.putString("Desc2",Desc2);
                 bundle.putString("Mimguri",Mimguri);
-                bundle.putString("Simguri",Simguri);
                 bundle.putString("Register_uri",Register_uri);
                 bundle.putString( "faqid",faqid );
                 bundle.putString("amount",amount);

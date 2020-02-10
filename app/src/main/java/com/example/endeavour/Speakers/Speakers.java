@@ -55,16 +55,23 @@ public class Speakers extends AppCompatActivity {
             }
         });
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("speakers");
+        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("speakers");
         databaseReference.keepSynced(true);
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                long j = dataSnapshot.getChildrenCount();
-                Log.d(TAG,"VALUE for one only ----------------------------------------------------- "+j);
-                int i = (int)j;
-                final ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
-                StartProcess(viewPager,i);
+
+                if (dataSnapshot.getValue() != null){
+                    long j = dataSnapshot.getChildrenCount();
+                    Log.d(TAG,"VALUE for one only ----------------------------------------------------- "+j);
+                    int i = (int)j;
+                    final ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
+                    StartProcess(viewPager,i);
+                }
+                else {
+                    findViewById(R.id.viewPager).setVisibility(View.GONE);
+                    findViewById(R.id.comingsoon_layout).setVisibility(View.VISIBLE);
+                }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {

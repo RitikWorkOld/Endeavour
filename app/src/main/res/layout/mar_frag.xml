@@ -31,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="29th"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="#5a0bb5"
                 android:textSize="30sp"
                 android:textAlignment="center"
                 android:gravity="center"/>
@@ -131,6 +131,7 @@
                         android:layout_height="100dp"/>
 
                     <TextView
+                        android:textStyle="bold"
                         android:textColor="#fff"
                         android:textSize="30sp"
                         android:textAlignment="center"

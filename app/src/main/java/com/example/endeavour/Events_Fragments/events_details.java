@@ -1,6 +1,8 @@
 package com.example.endeavour.Events_Fragments;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -43,7 +45,6 @@ public class events_details extends Fragment {
     TextView Desc2_dt;
     Button Register_dt,registered;
     ImageView Mimg_dt;
-    ImageView Simg_dt;
     TextView readless;
     Button gotoquiz;
     Button votenow;
@@ -61,7 +62,6 @@ public class events_details extends Fragment {
         String Desc1 = bundle.getString("Desc1");
         String Desc2 = bundle.getString("Desc2");
         String Mimguri = bundle.getString("Mimguri");
-        String Simguri = bundle.getString("Simguri");
         final String Register_uri = bundle.getString("Register_uri");
         final String faqid = bundle.getString( "faqid" );
         final String amount = bundle.getString("amount");
@@ -72,7 +72,6 @@ public class events_details extends Fragment {
         Desc1_dt = view.findViewById(R.id.event_descp1);
         Desc2_dt = view.findViewById(R.id.event_descp2);
         Mimg_dt = view.findViewById(R.id.event_main_img1);
-        Simg_dt = view.findViewById(R.id.event_main_img2);
         Register_dt = view.findViewById(R.id.register_events);
         gotoquiz = view.findViewById( R.id.gotoquiz );
         votenow = view.findViewById(R.id.votenow);
@@ -84,7 +83,6 @@ public class events_details extends Fragment {
         Desc1_dt.setText(Desc1);
         Desc2_dt.setText(Desc2);
         Picasso.get().load(Mimguri).into(Mimg_dt);
-        Picasso.get().load(Simguri).into(Simg_dt);
 
         final DatabaseReference databaseReference12345 = FirebaseDatabase.getInstance().getReference().child("registrations").child(faqid);
         databaseReference12345.keepSynced(true);
@@ -202,6 +200,12 @@ public class events_details extends Fragment {
             }
         } );
 
+        if (faqid.equals("1") || faqid.equals("2")){
+
+            faq.setVisibility(View.GONE);
+
+        }
+
         faq.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -232,8 +236,32 @@ public class events_details extends Fragment {
                 else {
                     if (faqid.equals("1"))
                     {
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity().getApplicationContext());
+                        builder.setTitle("Memethon");
+                        builder.setIcon(R.drawable.endlogo);
+                        builder.setMessage("Please confirm your submission")
+                                .setCancelable(false)
+                                .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        DatabaseReference databaseReference2 = FirebaseDatabase.getInstance().getReference().child("registrations").child(faqid).child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                                        databaseReference2.child("userid").setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                                        databaseReference2.keepSynced(true);
+                                        Register_dt.setVisibility(View.GONE);
+                                        registered.setVisibility(View.VISIBLE);
+                                    }
+                                })
+                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+
+                                    }
+                                });
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.show();
                         //------------------------------------------------------------------------------------------------
-                        Toast.makeText(getActivity().getApplicationContext(),"Succesfull",Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getActivity().getApplicationContext(),"Succesfull",Toast.LENGTH_SHORT).show();
                     }
                     else
                     {

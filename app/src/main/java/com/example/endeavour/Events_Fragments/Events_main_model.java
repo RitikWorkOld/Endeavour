@@ -5,7 +5,6 @@ public class Events_main_model {
     public String mimguri;
     public String title;
     public String descp;
-    public String simguri;
     public String register_uri;
     public String desc1;
     public String desc2;
@@ -15,11 +14,10 @@ public class Events_main_model {
     public Events_main_model() {
     }
 
-    public Events_main_model(String mimguri, String title, String descp, String simguri, String register_uri, String desc1, String desc2,String faqid,String amount) {
+    public Events_main_model(String mimguri, String title, String descp, String register_uri, String desc1, String desc2,String faqid,String amount) {
         this.mimguri = mimguri;
         this.title = title;
         this.descp = descp;
-        this.simguri = simguri;
         this.register_uri = register_uri;
         this.desc1 = desc1;
         this.desc2 = desc2;
@@ -49,14 +47,6 @@ public class Events_main_model {
 
     public void setDescp(String descp) {
         this.descp = descp;
-    }
-
-    public String getSimguri() {
-        return simguri;
-    }
-
-    public void setSimguri(String simguri) {
-        this.simguri = simguri;
     }
 
     public String getRegister_uri() {

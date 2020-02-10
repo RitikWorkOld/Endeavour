@@ -104,12 +104,12 @@ public class Dashboard extends AppCompatActivity  {
             /*TapTargetView.showFor(this, TapTarget.forView(findViewById(R.id.image_power), "Log Out Button", "Use this to signout from you account")
                     .tintTarget(false));*/
             new TapTargetSequence(this).targets(
-                    TapTarget.forView(findViewById(R.id.image_power), "Log Out Button", "Use this to signout from you account \n (Tap on button to Cancel)")
+                    TapTarget.forView(findViewById(R.id.image_power), "Log Out Button", "Use this to signout from your account \n (Tap on button to Cancel)")
                             .tintTarget(false)
                             .targetCircleColor(R.color.colorPrimaryDark)
                             .cancelable(false)
                             .id(1),
-                    TapTarget.forView(findViewById(R.id.iv_notification_btn), "Notification Button", "This will help you \n (Tap on button to Cancel)")
+                    TapTarget.forView(findViewById(R.id.iv_notification_btn), "Notification Button", "Tap here to see notifications\n (Tap on button to Cancel)")
                             .tintTarget(false)
                             .cancelable(false)
                             .targetCircleColor(R.color.colorPrimaryDark)

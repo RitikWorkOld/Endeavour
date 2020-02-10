@@ -84,7 +84,7 @@ public class VotingAct extends AppCompatActivity {
                     public void onClick(View v) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(VotingAct.this);
                         builder.setTitle("Voting");
-                        builder.setIcon(R.mipmap.ic_launcher);
+                        builder.setIcon(R.drawable.endlogo);
                         builder.setMessage("Please Confirm Your Vote\nYou can not change your vote once confirmed")
                                 .setCancelable(false)
                                 .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
@@ -102,7 +102,6 @@ public class VotingAct extends AppCompatActivity {
                                         DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child("VotingPortal");
                                         databaseReference1.keepSynced(true);
                                         databaseReference1.child(voting_model.getVoteid()).child("totalvotes").setValue(i);
-
                                         onBackPressed();
                                     }
                                 })

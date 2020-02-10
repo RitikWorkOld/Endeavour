@@ -63,6 +63,7 @@
          </TextView>
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:visibility="gone"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/event_descp1"
             android:id="@+id/event_main_img2"

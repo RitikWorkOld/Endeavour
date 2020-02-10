@@ -65,7 +65,7 @@
 
             </LinearLayout>
 
-            <de.hdodenhof.circleimageview.CircleImageView
+            <ImageView
                 android:src="@drawable/user"
                 android:id="@+id/image_sponsor"
                 android:layout_width="150dp"

@@ -1,6 +1,7 @@
 package com.example.endeavour;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -16,32 +17,19 @@ public class FirebaseDatabaseHelper {
      public interface DataStatus{
 
          void DataIsInserted();
-
-
-
-
-
-
     }
-
-
      public FirebaseDatabaseHelper(){
-
          mDatabase=FirebaseDatabase.getInstance();
          mRefrenceBooks=mDatabase.getReference("contact_us");       //books
      }
 
-
      public void addBook(Book book , final DataStatus dataStatus){
-       String key = mRefrenceBooks.push().getKey();
-       mRefrenceBooks.child( key ).setValue( book )
+         mRefrenceBooks.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(book)
                .addOnSuccessListener( new OnSuccessListener<Void>() {
                    @Override
                    public void onSuccess(Void aVoid) {
                        dataStatus.DataIsInserted();
                    }
                } );
-
-
      }
 }

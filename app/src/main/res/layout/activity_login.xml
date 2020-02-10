@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#701f47"
+    android:background="@drawable/back_2"
     tools:context=".LoginActivity"
     android:id="@+id/layout1"
     >
@@ -82,6 +82,7 @@
                         android:textSize="36sp" />
 
                     <TextView
+                        android:textSize="15sp"
                         android:id="@+id/email_text1"
                         android:textColor="#000"
                         android:layout_width="match_parent"
@@ -92,18 +93,18 @@
                         android:text="Email" />
 
                     <EditText
+                        android:textSize="15sp"
                         android:id="@+id/Lemail"
                         android:textColor="#CD4B4B"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
-
                         android:fontFamily="@font/montserrat"
                         android:textColorHint="#808080"
-                        android:hint="What should we call you?" />
+                        android:hint="Enter your email ID" />
 
                     <TextView
-
+                        android:textSize="15sp"
                         android:id="@+id/password_text2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -114,6 +115,7 @@
                         android:text="Password" />
 
                     <EditText
+                        android:textSize="15sp"
                         android:id="@+id/Lpass"
                         android:layout_width="match_parent"
                         android:textColor="#CD4B4B"
@@ -127,13 +129,12 @@
 
 
                <CheckBox
-                   android:text="Remember Email and Password"
+                   android:text="Remember me"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
-android:textColor="#000"
+                   android:textColor="#000"
+                   android:layout_margin="8dp"
                    android:id="@+id/checkBox" />
-
-
 
                 </LinearLayout>
 
