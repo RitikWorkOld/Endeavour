@@ -49,9 +49,6 @@
     android:layout_height="wrap_content"
     android:layout_below="@+id/top_bar">
 
-
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -79,7 +76,6 @@
             android:id="@+id/mainframe_0123"
             android:layout_width="match_parent"
             android:orientation="vertical"
-
             android:layout_height="match_parent">
 
             <RelativeLayout
@@ -91,8 +87,10 @@
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="12dp">
                 <LinearLayout
+                    android:gravity="center"
+                    android:layout_centerHorizontal="true"
                     android:id="@+id/layout12"
-                    android:layout_marginTop="110dp"
+                    android:layout_marginTop="130dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -118,7 +116,6 @@
                     android:fontFamily="@font/nunito"
                     android:gravity="center"
                     android:text="TECHNICAL"
-
                     android:textColor="@color/gray"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -139,102 +136,6 @@
 
 
                 </LinearLayout>
-
-                <RelativeLayout
-                    android:visibility="gone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                  android:layout_alignParentRight="true"
-                    android:layout_marginRight="32dp"
-                    >
-                <LinearLayout
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-           android:id="@+id/insta_layout"
-                    android:layout_marginStart="30dp"
-                    android:layout_centerHorizontal="true"
-                   android:layout_marginTop="60dp"
-
-                    >
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/instagram"
-                        android:id="@+id/insta_nipun"
-
-                        />
-
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="80dp"
-                    android:layout_height="50dp"
-                    android:layout_toRightOf="@+id/insta_layout"
-                    android:layout_marginLeft="10dp"
-                    android:layout_centerHorizontal="true"
-                    android:id="@+id/fb_layout"
-                    android:layout_marginTop="60dp"
-
-                    >
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/facebook"
-                        android:id="@+id/fb_nipun"
-
-                        />
-
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="50dp"
-                    android:layout_height="66dp"
-                    android:paddingBottom="10dp"
-                    android:layout_below="@id/insta_layout"
-                    android:layout_marginLeft="10dp"
-                    android:id="@+id/gmail_layout"
-                    android:layout_centerHorizontal="true"
-
-
-                    >
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/mail_icon"
-                        android:id="@+id/gmail_nipun"
-
-                        />
-
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/fb_layout"
-                    android:id="@+id/git_layout"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_toRightOf="@+id/gmail_layout"
-                    android:layout_centerHorizontal="true"
-
-                    >
-                    <ImageView
-                        android:layout_width="40dp"
-
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/git"
-                        android:id="@+id/git_nipun"
-
-                        />
-
-
-
-                </LinearLayout>
-
-                </RelativeLayout>
             </RelativeLayout>
 
 
@@ -307,9 +208,12 @@
                     android:fontFamily="@font/nunito"
                     android:paddingHorizontal="20dp"
                     android:paddingVertical="12dp">
+
                     <LinearLayout
+                        android:gravity="center"
+                        android:layout_centerHorizontal="true"
                         android:id="@+id/layout1"
-                        android:layout_marginTop="110dp"
+                        android:layout_marginTop="130dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -353,105 +257,7 @@
                             android:textSize="15sp"
                             android:textStyle="bold" />
 
-
-
                     </LinearLayout>
-
-                    <RelativeLayout
-                        android:visibility="gone"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="32dp"
-                        >
-                        <LinearLayout
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:id="@+id/insta_layout1"
-                            android:layout_marginStart="30dp"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="60dp"
-
-                            >
-                            <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/instagram"
-                                android:id="@+id/insta_rik"
-
-                                />
-
-
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="80dp"
-                            android:layout_height="50dp"
-                            android:layout_toRightOf="@+id/insta_layout1"
-                            android:layout_marginLeft="10dp"
-                            android:layout_centerHorizontal="true"
-                            android:id="@+id/fb_layout1"
-                            android:layout_marginTop="60dp"
-
-                            >
-                            <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/facebook"
-                            android:id="@+id/fb_rik"
-                                />
-
-
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="50dp"
-                            android:layout_height="66dp"
-                            android:paddingBottom="10dp"
-                            android:layout_below="@id/insta_layout1"
-                            android:layout_marginLeft="10dp"
-                            android:id="@+id/gmail_layout1"
-                            android:layout_centerHorizontal="true"
-
-
-                            >
-                            <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/mail_icon"
-                                android:id="@+id/gmail_rik"
-
-                                />
-
-
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/fb_layout1"
-                            android:id="@+id/git_layout1"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@+id/gmail_layout1"
-                            android:layout_centerHorizontal="true"
-
-                            >
-                            <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/git"
-                                android:id="@+id/git_rik"
-
-                                />
-
-
-
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-
                 </RelativeLayout>
 
 
@@ -527,9 +333,12 @@
                     android:fontFamily="@font/nunito"
                     android:paddingHorizontal="20dp"
                     android:paddingVertical="12dp">
+
                     <LinearLayout
+                        android:gravity="center"
+                        android:layout_centerHorizontal="true"
                         android:id="@+id/layout2"
-                        android:layout_marginTop="110dp"
+                        android:layout_marginTop="130dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -555,7 +364,6 @@
                             android:fontFamily="@font/nunito"
                             android:gravity="center"
                             android:text="TECHNICAL"
-
                             android:textColor="@color/gray"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -573,110 +381,9 @@
                             android:textSize="15sp"
                             android:textStyle="bold" />
 
-
-
                     </LinearLayout>
 
-                    <RelativeLayout
-                        android:visibility="gone"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="32dp"
-                        >
-                        <LinearLayout
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:id="@+id/insta_layout2"
-                            android:layout_marginStart="30dp"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="60dp"
-
-                            >
-                            <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/instagram"
-                                android:id="@+id/insta_parneet"
-
-                                />
-
-
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="80dp"
-                            android:layout_height="50dp"
-                            android:layout_toRightOf="@+id/insta_layout2"
-                            android:layout_marginLeft="10dp"
-                            android:layout_centerHorizontal="true"
-                            android:id="@+id/fb_layout2"
-                            android:layout_marginTop="60dp"
-
-                            >
-                            <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/facebook"
-                                android:id="@+id/fb_parneet"
-
-                                />
-
-
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="50dp"
-                            android:layout_height="66dp"
-                            android:paddingBottom="10dp"
-                            android:layout_below="@id/insta_layout2"
-                            android:layout_marginLeft="10dp"
-                            android:id="@+id/gmail_layout2"
-                            android:layout_centerHorizontal="true"
-
-
-                            >
-                            <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/mail_icon"
-                                android:id="@+id/gmail_parneet"
-
-                                />
-
-
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/fb_layout2"
-                            android:id="@+id/git_layout2"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@+id/gmail_layout2"
-                            android:layout_centerHorizontal="true"
-
-                            >
-                            <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/git"
-                                android:id="@+id/git_parneet"
-
-                                />
-
-
-
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-
                 </RelativeLayout>
-
-
-
 
             </LinearLayout>
 
@@ -723,7 +430,6 @@
 
 </RelativeLayout>
     <!-- END                    -->
-
 
 </androidx.core.widget.NestedScrollView>
 

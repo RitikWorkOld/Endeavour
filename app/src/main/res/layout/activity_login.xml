@@ -93,6 +93,7 @@
                         android:text="Email" />
 
                     <EditText
+                        android:maxLines="1"
                         android:textSize="15sp"
                         android:id="@+id/Lemail"
                         android:textColor="#CD4B4B"
@@ -114,28 +115,33 @@
                         android:layout_marginTop="16dp"
                         android:text="Password" />
 
-                    <EditText
-                        android:textSize="15sp"
-                        android:id="@+id/Lpass"
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:textColor="#CD4B4B"
                         android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:fontFamily="@font/montserrat"
-                        android:hint="*******"
-                        android:textColorHint="#808080"
-                        android:inputType="textPassword"
-                        />
+                        app:passwordToggleEnabled="true"
+                        >
 
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:textSize="15sp"
+                            android:id="@+id/Lpass"
+                            android:layout_width="match_parent"
+                            android:textColor="#CD4B4B"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:fontFamily="@font/montserrat"
+                            android:textColorHint="#808080"
+                            android:inputType="textPassword"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
 
                <CheckBox
                    android:text="Remember me"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    android:textColor="#000"
-                   android:layout_margin="8dp"
+                   android:layout_marginBottom="10dp"
                    android:id="@+id/checkBox" />
-
                 </LinearLayout>
 
     </RelativeLayout>

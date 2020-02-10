@@ -237,10 +237,10 @@ public class events_details extends Fragment {
                     if (faqid.equals("1"))
                     {
 
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity().getApplicationContext());
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                         builder.setTitle("Memethon");
                         builder.setIcon(R.drawable.endlogo);
-                        builder.setMessage("Please confirm your submission")
+                        builder.setMessage("Please confirm your Enrollment")
                                 .setCancelable(false)
                                 .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                                     @Override

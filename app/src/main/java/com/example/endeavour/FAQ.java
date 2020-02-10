@@ -98,8 +98,6 @@ EditText input_layout_subject,input_layout_subject1,input_layout_subject2;
                             Toast.makeText( FAQ.this, "THANKS", Toast.LENGTH_LONG ).show();
                             progressBar.setVisibility( View.GONE );
                         }
-
-
                     } );
 
 
@@ -206,8 +204,26 @@ btn.setOnClickListener( new View.OnClickListener() {
         }
         catch (ActivityNotFoundException e)
         {
-            Intent rateIntent = rateIntentForUrl("https://play.google.com/store/apps/details");
-            startActivity(rateIntent);
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("rateapp");
+            databaseReference.keepSynced(true);
+            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.getValue()!= null){
+                        Rateapp rateapp = dataSnapshot.getValue(Rateapp.class);
+                        String rateappid = rateapp.getVlaue();
+
+                        //Intent rateIntent = rateIntentForUrl("https://play.google.com/store/apps/details");
+                        Intent rateIntent = rateIntentForUrl(rateappid);
+                        startActivity(rateIntent);
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
         }
     }
 
