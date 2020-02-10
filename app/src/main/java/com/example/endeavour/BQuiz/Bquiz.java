@@ -24,7 +24,7 @@ public class Bquiz extends AppCompatActivity {
     public TextView timer;
 
     public CountDownTimer countDownTimer;
-    public long totaltime = 10000;//10 mins.....//2*600000
+    public long totaltime =2*600000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
