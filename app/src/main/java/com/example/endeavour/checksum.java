@@ -11,13 +11,17 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.endeavour.BQuiz.Bquiz;
 import com.example.endeavour.Events_Fragments.EventsMain;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.paytm.pgsdk.PaytmOrder;
 import com.paytm.pgsdk.PaytmPGService;
 import com.paytm.pgsdk.PaytmPaymentTransactionCallback;
@@ -145,17 +149,176 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
                 databaseReference.child("teamleader").setValue(teamleader);
             }
             else if (str.equals("1")) {
+
+                DatabaseReference data1 = FirebaseDatabase.getInstance().getReference().child("Users");
+                data1.keepSynced(true);
+                data1.orderByChild("refrelid").equalTo(teammember1).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.getValue() != null){
+                            Support_Team support_team = dataSnapshot.getValue(Support_Team.class);
+                            String uid = support_team.getUid();
+
+                            DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child("registrations").child(faqid).child(uid);
+                            databaseReference1.keepSynced(true);
+                            databaseReference1.child("userid").setValue(uid);
+                            databaseReference1.child("faqid").setValue(faqid);
+                            databaseReference1.child("amount").setValue(amt);
+                            databaseReference1.child("orderid").setValue(orderId);
+                            databaseReference1.child("teamname").setValue(teamname);
+                            databaseReference1.child("teamleader").setValue(teamleader);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
                 databaseReference.child("teamname").setValue(teamname);
                 databaseReference.child("teamleader").setValue(teamleader);
                 databaseReference.child("teammember1").setValue(teammember1);
             }
             else if (str.equals("2")) {
+
+                DatabaseReference data1 = FirebaseDatabase.getInstance().getReference().child("Users");
+                data1.keepSynced(true);
+                data1.orderByChild("refrelid").equalTo(teammember1).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.getValue() != null){
+                            Support_Team support_team = dataSnapshot.getValue(Support_Team.class);
+                            String uid = support_team.getUid();
+
+                            DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child("registrations").child(faqid).child(uid);
+                            databaseReference1.keepSynced(true);
+                            databaseReference1.child("userid").setValue(uid);
+                            databaseReference1.child("faqid").setValue(faqid);
+                            databaseReference1.child("amount").setValue(amt);
+                            databaseReference1.child("orderid").setValue(orderId);
+                            databaseReference1.child("teamname").setValue(teamname);
+                            databaseReference1.child("teamleader").setValue(teamleader);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+                DatabaseReference data2 = FirebaseDatabase.getInstance().getReference().child("Users");
+                data2.keepSynced(true);
+                data2.orderByChild("refrelid").equalTo(teammember2).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.getValue() != null){
+                            Support_Team support_team = dataSnapshot.getValue(Support_Team.class);
+                            String uid = support_team.getUid();
+
+                            DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child("registrations").child(faqid).child(uid);
+                            databaseReference1.keepSynced(true);
+                            databaseReference1.child("userid").setValue(uid);
+                            databaseReference1.child("faqid").setValue(faqid);
+                            databaseReference1.child("amount").setValue(amt);
+                            databaseReference1.child("orderid").setValue(orderId);
+                            databaseReference1.child("teamname").setValue(teamname);
+                            databaseReference1.child("teamleader").setValue(teamleader);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
                 databaseReference.child("teamname").setValue(teamname);
                 databaseReference.child("teamleader").setValue(teamleader);
                 databaseReference.child("teammember1").setValue(teammember1);
                 databaseReference.child("teammember2").setValue(teammember2);
             }
             else if (str.equals("3")) {
+
+                DatabaseReference data1 = FirebaseDatabase.getInstance().getReference().child("Users");
+                data1.keepSynced(true);
+                data1.orderByChild("refrelid").equalTo(teammember1).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.getValue() != null){
+                            Support_Team support_team = dataSnapshot.getValue(Support_Team.class);
+                            String uid = support_team.getUid();
+
+                            DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child("registrations").child(faqid).child(uid);
+                            databaseReference1.keepSynced(true);
+                            databaseReference1.child("userid").setValue(uid);
+                            databaseReference1.child("faqid").setValue(faqid);
+                            databaseReference1.child("amount").setValue(amt);
+                            databaseReference1.child("orderid").setValue(orderId);
+                            databaseReference1.child("teamname").setValue(teamname);
+                            databaseReference1.child("teamleader").setValue(teamleader);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+                DatabaseReference data2 = FirebaseDatabase.getInstance().getReference().child("Users");
+                data2.keepSynced(true);
+                data2.orderByChild("refrelid").equalTo(teammember2).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.getValue() != null){
+                            Support_Team support_team = dataSnapshot.getValue(Support_Team.class);
+                            String uid = support_team.getUid();
+
+                            DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child("registrations").child(faqid).child(uid);
+                            databaseReference1.keepSynced(true);
+                            databaseReference1.child("userid").setValue(uid);
+                            databaseReference1.child("faqid").setValue(faqid);
+                            databaseReference1.child("amount").setValue(amt);
+                            databaseReference1.child("orderid").setValue(orderId);
+                            databaseReference1.child("teamname").setValue(teamname);
+                            databaseReference1.child("teamleader").setValue(teamleader);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+                DatabaseReference data3 = FirebaseDatabase.getInstance().getReference().child("Users");
+                data3.keepSynced(true);
+                data3.orderByChild("refrelid").equalTo(teammember3).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.getValue() != null){
+                            Support_Team support_team = dataSnapshot.getValue(Support_Team.class);
+                            String uid = support_team.getUid();
+
+                            DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child("registrations").child(faqid).child(uid);
+                            databaseReference1.keepSynced(true);
+                            databaseReference1.child("userid").setValue(uid);
+                            databaseReference1.child("faqid").setValue(faqid);
+                            databaseReference1.child("amount").setValue(amt);
+                            databaseReference1.child("orderid").setValue(orderId);
+                            databaseReference1.child("teamname").setValue(teamname);
+                            databaseReference1.child("teamleader").setValue(teamleader);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
                 databaseReference.child("teamname").setValue(teamname);
                 databaseReference.child("teamleader").setValue(teamleader);
                 databaseReference.child("teammember1").setValue(teammember1);
