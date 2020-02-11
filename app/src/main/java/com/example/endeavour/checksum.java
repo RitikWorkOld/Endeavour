@@ -35,6 +35,7 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 //        setContentView(R.layout.activity_main);
         //initOrderId();
+        //PaytmPGService service=PaytmPGService.getProductionService();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         Intent intent = getIntent();
         orderId = intent.getExtras().getString("orderid");
@@ -48,7 +49,7 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
         teammember3 = intent.getExtras().getString("teammember3");
         str = intent.getExtras().getString("str");
 
-        mid = "cvSxPe78770896766146"; /// your marchant key
+        mid = "KriIns08204252501061"; /// your marchant key
         sendUserDetailTOServerdd dl = new sendUserDetailTOServerdd();
         dl.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 // vollye , retrofit, asynch
@@ -57,8 +58,7 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
         private ProgressDialog dialog = new ProgressDialog(checksum.this);
         //private String orderId , mid, custid, amt;
         String url ="https://retired-grid.000webhostapp.com/paytm/generateChecksum.php";
-        String varifyurl = "https://pguat.paytm.com/paytmchecksum/paytmCallback.jsp";
-        // "https://securegw-stage.paytm.in/theia/paytmCallback?ORDER_ID"+orderId;
+        String varifyurl = "https://securegw.paytm.in/theia/paytmCallback";
         String CHECKSUMHASH ="";
         @Override
         protected void onPreExecute() {
@@ -71,7 +71,7 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
                     "MID="+mid+
                             "&ORDER_ID=" + orderId+
                             "&CUST_ID="+custid+
-                            "&CHANNEL_ID=WAP&TXN_AMOUNT="+amt+"&WEBSITE=WEBSTAGING"+
+                            "&CHANNEL_ID=WAP&TXN_AMOUNT="+amt+"&WEBSITE=DEFAULT"+
                             "&CALLBACK_URL="+ varifyurl+"&INDUSTRY_TYPE_ID=Retail";
             JSONObject jsonObject = jsonParser.makeHttpRequest(url,"POST",param);
             // yaha per checksum ke saht order id or status receive hoga..
@@ -93,7 +93,7 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
             if (dialog.isShowing()) {
                 dialog.dismiss();
             }
-            PaytmPGService Service = PaytmPGService.getStagingService();
+            PaytmPGService Service = PaytmPGService.getProductionService();
             // when app is ready to publish use production service
             // PaytmPGService  Service = PaytmPGService.getProductionService();
             // now call paytm service here
@@ -105,7 +105,7 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
             paramMap.put("CUST_ID", custid);
             paramMap.put("CHANNEL_ID", "WAP");
             paramMap.put("TXN_AMOUNT", amt);
-            paramMap.put("WEBSITE", "WEBSTAGING");
+            paramMap.put("WEBSITE", "DEFAULT");
             paramMap.put("CALLBACK_URL" ,varifyurl);
             //paramMap.put( "EMAIL" , "abc@gmail.com");   // no need
             // paramMap.put( "MOBILE_NO" , "9144040888");  // no need

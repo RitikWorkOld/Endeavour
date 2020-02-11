@@ -64,12 +64,12 @@
             >
             <TextView
                 android:textColor="@color/gray"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:textStyle="bold"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:text="Endeavour is an annual Techno_Entrepreneurial Summit of KIET,Ghaziabad."
+                android:text="Endeavour is an annual\nTechno_Entrepreneurial Summit of\nKIET,Ghaziabad."
                 android:textSize="20sp"/>
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
