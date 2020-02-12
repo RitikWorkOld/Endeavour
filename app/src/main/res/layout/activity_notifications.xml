@@ -62,7 +62,7 @@
 
     </LinearLayout>
 
-    <com.example.endeavour.Customised.BucketRecyclerView
+    <com.ecell.endeavour.Customised.BucketRecyclerView
         android:id="@+id/noti_rv"
         android:layout_below="@+id/top_bar"
         android:layout_width="match_parent"
